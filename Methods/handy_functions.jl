@@ -6,6 +6,7 @@ using StatsBase
 using TimeseriesSurrogates
 using DelayEmbeddings
 using RecurrenceAnalysis
+using Distributions
 
 """
     tau_spectrum(Y::Vector, ϵ::Real=0.05; kwargs...)  → ISS_spectrum
@@ -15,14 +16,14 @@ using RecurrenceAnalysis
     recurrence rate.
 
     Keyword arguments:
-    `ρ_thres = 0.95`: The agreement of the regenerated decomposed signal with the
+    `ρ_thres = 0.99`: The agreement of the regenerated decomposed signal with the
                       true signal. This depends on the LASSO regularization parameter
                       `λ`. `λ` gets adjusted automatically with respect to `ρ_thres`.
     `tol = 1e-3`: Allowed tolerance between `ρ_thres` and `ρ`.
-    `maxλ = 100`: Determines after how many tried Lambdas the algorithm stopps.
+    `max_iter = 20`: Determines after how many tried Lambdas the algorithm stopps.
 """
-function tau_spectrum(Y::Union{Vector,Dataset}, ϵ::Real=0.05; fixedrate::Bool=true, ρ_thres::Real = 0.95,
-                                                tol::Real=1e-3, maxλ::Integer=100)
+function tau_spectrum(Y::Union{Vector,Dataset}, ϵ::Real=0.05; fixedrate::Bool=true, ρ_thres::Real = 0.99,
+                                                tol::Real=1e-3, max_iter::Integer=20)
 
     @assert 0.8 <= ρ_thres <= 1 "Optional input `ρ_thres` must be a value in the interval [0.8, 1]"
     @assert 1e-5 <= tol <= 1 "Optional input `tol` must be a value in the interval [1e-5, 1]"
@@ -33,7 +34,7 @@ function tau_spectrum(Y::Union{Vector,Dataset}, ϵ::Real=0.05; fixedrate::Bool=t
     τ_rr = RecurrenceAnalysis.tau_recurrence(RP)
     τ_rr /= maximum(τ_rr)
 
-    spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres = ρ_thres, tol = tol, maxλ = maxλ)
+    spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres = ρ_thres, tol = tol, max_iter = max_iter)
     return spectrum
 end
 
@@ -113,19 +114,19 @@ end
     `τ_RR_surrogates`.
 
     Keyword arguments:
-    `ρ_thres = 0.95`: The agreement of the regenerated decomposed signal with the
+    `ρ_thres = 0.99`: The agreement of the regenerated decomposed signal with the
                       true signal. This depends on the LASSO regularization parameter
                       `λ`. `λ` gets adjusted automatically with respect to `ρ_thres`.
     `tol = 1e-3`: Allowed tolerance between `ρ_thres` and `ρ`.
-    `maxλ = 100`: Determines after how many tried Lambdas the algorithm stopps.
+    `max_iter = 20`: Determines after how many tried Lambdas the algorithm stopps.
 """
-function compute_surrogate_spectra(τ_RR_surrogates::AbstractMatrix; ρ_thres::Real = 0.95,
-                                                tol::Real=1e-3, maxλ::Integer=100)
+function compute_surrogate_spectra(τ_RR_surrogates::AbstractMatrix; ρ_thres::Real = 0.99,
+                                                tol::Real=1e-3, max_iter::Integer=20)
     NumTrials, N = size(τ_RR_surrogates)
     τ_surrogate_spectra = zeros(NumTrials, N)
     for i = 1:NumTrials
         τ_surrogate_spectra[i,:], _ = inter_spike_spectrum(τ_RR_surrogates[i,:];
-                                        ρ_thres = ρ_thres, tol = tol, maxλ = maxλ)
+                                        ρ_thres = ρ_thres, tol = tol, max_iter = max_iter)
     end
     return τ_surrogate_spectra
 end
