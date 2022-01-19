@@ -21,13 +21,15 @@ addprocs(SlurmManager(N_worker))
     ε = 0.05
     # length of time series
     N = 201
+    # threshold for ISS
+    thres = 0.95
 
     # compute surrogates and their spectra
     surros = compute_surrogate_τ_RR(1000, .05, N-τ) # surrogate τ-RR-time series
-    spec_surros = compute_surrogate_spectra(surros) # compute spectra of these surrogates τ-RR-time series
+    spec_surros = compute_surrogate_spectra(surros; ρ_thres=thres) # compute spectra of these surrogates τ-RR-time series
     upper, lower = compute_percentiles_of_surrogate_spectra(spec_surros)
 
-    params = tuple(N, ε, rs)
+    params = tuple(N, ε, rs, thres)
 
 end
 
@@ -45,11 +47,11 @@ results = @distributed (vcat) for i in eachindex(rs)
 
     # compute iAAFT-surrogates
     surros2 = compute_surrogate_τ_RR_iAAFT(100, s, ε, [0, τ])
-    spec_surros2 = compute_surrogate_spectra(surros2) # compute spectra of these surrogates τ-RR-time series
+    spec_surros2 = compute_surrogate_spectra(surros2; ρ_thres=thres) # compute spectra of these surrogates τ-RR-time series
     upper2, _ = compute_percentiles_of_surrogate_spectra(spec_surros2)
 
     # spectrum of the τ-RR
-    spectrum, _ = inter_spike_spectrum(τ_rr)
+    spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres=thres)
     # Maxima of the spectrum
     _, idx = get_maxima(spectrum)
     # compute number of significant peaks
@@ -64,14 +66,14 @@ end
 
 end
 
-writedlm("results_Logistic_N_$(N)_params.csv", params)
-writedlm("spec_surros.csv", spec_surros)
-writedlm("upper.csv", upper)
+writedlm("results_Logistic_N_$(N)_thres_$(thres)_params.csv", params)
+writedlm("results_Logistic_N_$(N)_thres_$(thres)_spec_surros.csv", spec_surros)
+writedlm("results_Logistic_N_$(N)_thres_$(thres)_upper.csv", upper)
 
 varnames = ["nsp", "nsp2", "upper2"]
 
 for i = 1:length(varnames)
-    writestr = "results_Logistic_N_$(N)_"*varnames[i]*".csv"
+    writestr = "results_Logistic_N_$(N)_thres_$(thres)_"*varnames[i]*".csv"
     data = []
     for j = 1:length(results)
         push!(data,results[j][i])

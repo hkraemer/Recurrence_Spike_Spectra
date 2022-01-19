@@ -3,11 +3,13 @@ using Revise
 using DelayEmbeddings
 using RecurrenceAnalysis
 using DelimitedFiles
+using PyPlot
+pygui(true)
 
 include("./methods/handy_functions.jl")
 
 # Parameter-values for Logistic map
-#rs = 3.4:0.001:4
+rs = 3.4:0.001:4
 rs = 3.4:0.001:3.41
 
 # delay for embedding
@@ -24,7 +26,7 @@ upper, lower = compute_percentiles_of_surrogate_spectra(spec_surros)
 
 params = tuple(N, ε, rs)
 
-i = 1
+i = 150
 r = rs[i]
 # compute τ-RR
 s = logistic_map_time_series(N, r)
@@ -44,7 +46,7 @@ RP = RecurrenceAnalysis.RecurrenceMatrix(Y, ε)
 # grid()
 
 # spectrum of the τ-RR
-spectrum, rho = inter_spike_spectrum(τ_rr; ρ_thres = 0.99)
+spectrum, rho = inter_spike_spectrum(τ_rr)
 
 figure()
 subplot(211)
