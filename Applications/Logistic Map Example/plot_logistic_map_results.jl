@@ -16,27 +16,27 @@ N = 201
 # threshold for ISS
 thres = 0.99
 
-# spectra and upper CI of random surrogates
-upper = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_upper.csv"))
-# upper CI of iAAFT surrogates
-upper2 = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_upper2.csv"))
-# number of significant peaks vs random H0
-nsp = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_nsp.csv"))
-# number of significant peaks vs iAAFT H0
-nsp2 = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_nsp2.csv"))
-
-# compute Lyapunov exponent
-lyap = zeros(length(rs))
-lyap_pos = zeros(length(rs))
-for i = 1:length(rs)
-    s = logistic_map_time_series(N, rs[i])
-    lyap[i] = mean(log.(abs.(rs[i] .- 2*rs[i].*s)))
-    if lyap[i]>0
-        lyap_pos[i]=lyap[i]
-    end
-end
-
 begin
+    # spectra and upper CI of random surrogates
+    upper = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_upper.csv"))
+    # upper CI of iAAFT surrogates
+    upper2 = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_upper2.csv"))
+    # number of significant peaks vs random H0
+    nsp = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_nsp.csv"))
+    # number of significant peaks vs iAAFT H0
+    nsp2 = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thres)_nsp2.csv"))
+
+    # compute Lyapunov exponent
+    lyaps = zeros(length(rs))
+    lyap_pos = zeros(length(rs))
+    for i = 1:length(rs)
+        s = logistic_map_time_series(N, rs[i])
+        lyaps[i] = mean(log.(abs.(rs[i] .- 2*rs[i].*s)))
+        if lyaps[i]>0
+            lyap_pos[i]=lyaps[i]
+        end
+    end
+
     ## Corr coeff
     coeff1 = round(Statistics.cor(lyap_pos,nsp); digits = 2)
     coeff2 = round(Statistics.cor(lyap_pos,nsp2); digits = 2)
@@ -44,7 +44,7 @@ begin
     figure(figsize=(15,10))
 
     ax1 = subplot(311)
-    ax1.plot(rs, lyap, linewidth=2)
+    ax1.plot(rs, lyaps, linewidth=2)
     hlines(0, rs[1], rs[end], linestyle="dashed")
     #xlabel("control parameter r")
     ylabel("λ₁")

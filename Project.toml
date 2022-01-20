@@ -1,7 +1,9 @@
 [deps]
 DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
 DelayEmbeddings = "5732040d-69e3-5649-938a-b6b4f237613f"
+DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+DynamicalSystemsBase = "6e36e845-645a-534a-86f2-f5d4aa5a06b4"
 InterSpikeSpectra = "2a2b4b4d-1d85-44c5-81bd-1c3b0471c142"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
