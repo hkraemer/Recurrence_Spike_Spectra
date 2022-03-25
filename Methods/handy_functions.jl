@@ -37,7 +37,7 @@ function tau_spectrum(Y::Union{Vector,Dataset}, ϵ::Real=0.05; fixedrate::Bool=t
     spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres = ρ_thres, tol = tol, max_iter = max_iter)
     return spectrum
 end
-
+ 
 
 """
     compute_surrogate_τ_RR(NumTrials::Int, p::Real, N::Int) → τ_RR_surrogates
