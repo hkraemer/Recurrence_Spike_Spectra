@@ -22,14 +22,14 @@ addprocs(SlurmManager(N_worker))
     # length of time series
     N = 201
     # threshold for ISS
-    thres = 0.95
+    threshold = 0.95
 
     # compute surrogates and their spectra
     surros = compute_surrogate_τ_RR(1000, .05, N-τ) # surrogate τ-RR-time series
-    spec_surros = compute_surrogate_spectra(surros; ρ_thres=thres) # compute spectra of these surrogates τ-RR-time series
+    spec_surros = compute_surrogate_spectra(surros; ρ_thres=threshold) # compute spectra of these surrogates τ-RR-time series
     upper, lower = compute_percentiles_of_surrogate_spectra(spec_surros)
 
-    params = tuple(N, ε, rs, thres)
+    params = tuple(N, ε, rs, threshold)
 
 end
 
@@ -47,21 +47,28 @@ results = @distributed (vcat) for i in eachindex(rs)
 
     # compute iAAFT-surrogates
     surros2 = compute_surrogate_τ_RR_iAAFT(100, s, ε, [0, τ])
-    spec_surros2 = compute_surrogate_spectra(surros2; ρ_thres=thres) # compute spectra of these surrogates τ-RR-time series
+    spec_surros2 = compute_surrogate_spectra(surros2; ρ_thres=threshold) # compute spectra of these surrogates τ-RR-time series
     upper2, _ = compute_percentiles_of_surrogate_spectra(spec_surros2)
 
     # spectrum of the τ-RR
-    spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres=thres)
+    tol = 1e-3
+    spectrum1, _ = inter_spike_spectrum(τ_rr; ρ_thres = threshold, tol, regression_type=normal())
+    spectrum2, _ = inter_spike_spectrum(τ_rr; ρ_thres = threshold, tol, regression_type=logit())
     # Maxima of the spectrum
-    _, idx = get_maxima(spectrum)
+    _, idx1 = get_maxima(spectrum1)
+    _, idx2 = get_maxima(spectrum2)
     # compute number of significant peaks
-    significant_peaks = spectrum[idx] .> upper[idx]
-    significant_peaks2 = spectrum[idx] .> upper2[idx]
+    significant_peaks = spectrum1[idx1] .> upper[idx1]
+    significant_peaks2 = spectrum1[idx1] .> upper2[idx1]
+    significant_peaks_ = spectrum2[idx2] .> upper[idx2]
+    significant_peaks_2 = spectrum2[idx2] .> upper2[idx2]
     number_of_significant_peaks = sum(significant_peaks)
     number_of_significant_peaks2 = sum(significant_peaks2)
+    number_of_significant_peaks_ = sum(significant_peaks_)
+    number_of_significant_peaks_2 = sum(significant_peaks_2)
 
     # Output
-    tuple(number_of_significant_peaks, number_of_significant_peaks2, upper2)
+    tuple(number_of_significant_peaks, number_of_significant_peaks2, number_of_significant_peaks_, number_of_significant_peaks_2, upper2)
 end
 
 end
@@ -70,7 +77,7 @@ writedlm("results_Logistic_N_$(N)_thres_$(thres)_params.csv", params)
 writedlm("results_Logistic_N_$(N)_thres_$(thres)_spec_surros.csv", spec_surros)
 writedlm("results_Logistic_N_$(N)_thres_$(thres)_upper.csv", upper)
 
-varnames = ["nsp", "nsp2", "upper2"]
+varnames = ["nsp_normal", "nsp_normal2", "nsp_logit", "nsp_logit2", "upper2"]
 
 for i = 1:length(varnames)
     writestr = "results_Logistic_N_$(N)_thres_$(thres)_"*varnames[i]*".csv"
