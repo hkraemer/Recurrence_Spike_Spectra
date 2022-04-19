@@ -1,17 +1,13 @@
-using ClusterManagers
-using Distributed
-@everywhere N_tasks = parse(Int, ARGS[1])
-@everywhere N_worker = N_tasks
-addprocs(SlurmManager(N_worker))
-
-@everywhere begin
+begin
+    import Pkg
+    Pkg.activate(".")
     using InterSpikeSpectra
     using DelayEmbeddings
     using RecurrenceAnalysis
     using DelimitedFiles
     using Random
 
-    include("handy_functions.jl")
+    include("../../../Methods/handy_functions.jl")
 
     # Parameter-values for Logistic map
     rs = 3.4:0.001:4
@@ -35,13 +31,19 @@ addprocs(SlurmManager(N_worker))
     upper3, _ = compute_percentiles_of_surrogate_spectra(spec_surros3)
 
     params = tuple(N, ε, rs, thresholds)
-
 end
 
-@time begin
-# loop over different r's
-results = @distributed (vcat) for i in eachindex(rs)
+number_of_significant_peaks1 = zeros(length(rs))
+number_of_significant_peaks2 = zeros(length(rs))
+number_of_significant_peaks3 = zeros(length(rs))
 
+number_of_significant_peaks_iafft1 = zeros(length(rs))
+number_of_significant_peaks_iafft2 = zeros(length(rs))
+number_of_significant_peaks_iafft3 = zeros(length(rs))
+
+# loop over different r's
+for i in eachindex(rs)
+    print("Run $i")
     r = rs[i]
     # compute τ-RR
     s = logistic_map_time_series(N, r)
@@ -82,29 +84,15 @@ results = @distributed (vcat) for i in eachindex(rs)
     significant_peaks_iafft3 = spectrum3[idx3] .> upper_iafft3[idx3]
 
 
-    number_of_significant_peaks1 = sum(significant_peaks1)
-    number_of_significant_peaks2 = sum(significant_peaks2)
-    number_of_significant_peaks3 = sum(significant_peaks3)
+    number_of_significant_peaks1[i] = sum(significant_peaks1)
+    number_of_significant_peaks2[i] = sum(significant_peaks2)
+    number_of_significant_peaks3[i] = sum(significant_peaks3)
 
-    number_of_significant_peaks_iafft1 = sum(significant_peaks_iafft1)
-    number_of_significant_peaks_iafft2 = sum(significant_peaks_iafft2)
-    number_of_significant_peaks_iafft3 = sum(significant_peaks_iafft3)
-
-    # Output
-    tuple(number_of_significant_peaks1, number_of_significant_peaks2, number_of_significant_peaks3, number_of_significant_peaks_iafft1, 
-    number_of_significant_peaks_iafft2, number_of_significant_peaks_iafft3, upper_iafft1, upper_iafft2, upper_iafft3)
-end
+    number_of_significant_peaks_iafft1[i] = sum(significant_peaks_iafft1)
+    number_of_significant_peaks_iafft2[i] = sum(significant_peaks_iafft2)
+    number_of_significant_peaks_iafft3[i] = sum(significant_peaks_iafft3)
 
 end
-
-writedlm("results_Logistic_N_$(N)_params.csv", params)
-writedlm("results_Logistic_N_$(N)_thres_$(thresholds[1])_spec_surros.csv", spec_surros1)
-writedlm("results_Logistic_N_$(N)_thres_$(thresholds[2])_spec_surros.csv", spec_surros2)
-writedlm("results_Logistic_N_$(N)_thres_$(thresholds[3])_spec_surros.csv", spec_surros3)
-writedlm("results_Logistic_N_$(N)_thres_$(thresholds[1])_upper.csv", upper1)
-writedlm("results_Logistic_N_$(N)_thres_$(thresholds[2])_upper.csv", upper2)
-writedlm("results_Logistic_N_$(N)_thres_$(thresholds[3])_upper.csv", upper3)
-
 
 varnames = ["nsp", "nsp_iafft"]
 
@@ -117,38 +105,10 @@ writestr4 = "results_Logistic_N_$(N)_thres_$(thresholds[1])_"*varnames[i]*".csv"
 writestr5 = "results_Logistic_N_$(N)_thres_$(thresholds[2])_"*varnames[i]*".csv"
 writestr6 = "results_Logistic_N_$(N)_thres_$(thresholds[3])_"*varnames[i]*".csv"
 
-writestr7 = "results_Logistic_N_$(N)_thres_$(thresholds[1])_upper_iafft.csv"
-writestr8 = "results_Logistic_N_$(N)_thres_$(thresholds[2])_upper_iafft.csv"
-writestr9 = "results_Logistic_N_$(N)_thres_$(thresholds[3])_upper_iafft.csv"
+writedlm(writestr1, number_of_significant_peaks1)
+writedlm(writestr2, number_of_significant_peaks2)
+writedlm(writestr3, number_of_significant_peaks3)
 
-
-data1 = []
-data2 = []
-data3 = []
-data4 = []
-data5 = []
-data6 = []
-data7 = []
-data8 = []
-data9 = []
-for j = 1:length(results)
-    push!(data1,results[j][1])
-    writedlm(writestr1, data1)
-    push!(data2,results[j][2])
-    writedlm(writestr2, data2)
-    push!(data3,results[j][3])
-    writedlm(writestr3, data3)
-    push!(data4,results[j][4])
-    writedlm(writestr4, data4)
-    push!(data5,results[j][5])
-    writedlm(writestr5, data5)
-    push!(data6,results[j][6])
-    writedlm(writestr6, data6)
-    push!(data7,results[j][7])
-    writedlm(writestr7, data7)
-    push!(data8,results[j][8])
-    writedlm(writestr8, data8)
-    push!(data9,results[j][9])
-    writedlm(writestr9, data9)
-end
-
+writedlm(writestr4, number_of_significant_peaks_iafft1)
+writedlm(writestr5, number_of_significant_peaks_iafft2)
+writedlm(writestr6, number_of_significant_peaks_iafft3)

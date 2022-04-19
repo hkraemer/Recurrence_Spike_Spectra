@@ -21,9 +21,17 @@ using Distributions
                       `λ`. `λ` gets adjusted automatically with respect to `ρ_thres`.
     `tol = 1e-3`: Allowed tolerance between `ρ_thres` and `ρ`.
     `max_iter = 20`: Determines after how many tried Lambdas the algorithm stopps.
+    `method::AbstractRegressionMethod = lasso()` : The method for sparse regression. 
+                        Pick either lasso() or STLS() (sequential thresholded least squares)
+    `regression_type::AbstractRegressionType = auto()` : Regression type. For probability 
+                        input (like the τ-recurrence rate), a logit regression is needed 
+                        'regression_type=logit()'. If this is not the case, select 
+                        'regression_type=normal()'. By default it is automatically set with 
+                        respect to the distribution of `s`.
 """
 function tau_spectrum(Y::Union{Vector,Dataset}, ϵ::Real=0.05; fixedrate::Bool=true, ρ_thres::Real = 0.99,
-                                                tol::Real=1e-3, max_iter::Integer=20)
+        tol::Real=1e-3, max_iter::Integer=20, regression_type=InterSpikeSpectra.normal(), 
+        method=InterSpikeSpectra.lasso())
 
     @assert 0.8 <= ρ_thres <= 1 "Optional input `ρ_thres` must be a value in the interval [0.8, 1]"
     @assert 1e-5 <= tol <= 1 "Optional input `tol` must be a value in the interval [1e-5, 1]"
@@ -34,7 +42,7 @@ function tau_spectrum(Y::Union{Vector,Dataset}, ϵ::Real=0.05; fixedrate::Bool=t
     τ_rr = RecurrenceAnalysis.tau_recurrence(RP)
     τ_rr /= maximum(τ_rr)
 
-    spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres = ρ_thres, tol = tol, max_iter = max_iter)
+    spectrum, _ = inter_spike_spectrum(τ_rr; ρ_thres, tol, max_iter, regression_type, method)
     return spectrum
 end
  
@@ -120,13 +128,26 @@ end
     `tol = 1e-3`: Allowed tolerance between `ρ_thres` and `ρ`.
     `max_iter = 20`: Determines after how many tried Lambdas the algorithm stopps.
 """
-function compute_surrogate_spectra(τ_RR_surrogates::AbstractMatrix; ρ_thres::Real = 0.99,
-                                                tol::Real=1e-3, max_iter::Integer=20)
-    NumTrials, N = size(τ_RR_surrogates)
-    τ_surrogate_spectra = zeros(NumTrials, N)
+function compute_surrogate_spectra(τ_RR_surrogates::Union{AbstractMatrix,AbstractVector}; ρ_thres::Real = 0.99,
+        tol::Real=1e-3, max_iter::Integer=20, regression_type=InterSpikeSpectra.normal(), 
+        method=InterSpikeSpectra.lasso())
+
+    if typeof(τ_RR_surrogates)<:AbstractVector
+        NumTrials = 1
+        N = length(τ_RR_surrogates)
+        τ_surrogate_spectra = zeros(Int(ceil(N/2)))
+    else
+        NumTrials, N = size(τ_RR_surrogates)
+        τ_surrogate_spectra = zeros(NumTrials, Int(ceil(N/2)))
+    end
     for i = 1:NumTrials
-        τ_surrogate_spectra[i,:], _ = inter_spike_spectrum(τ_RR_surrogates[i,:];
-                                        ρ_thres = ρ_thres, tol = tol, max_iter = max_iter)
+        if typeof(τ_RR_surrogates)<:AbstractVector
+            τ_surrogate_spectra[:], _ = inter_spike_spectrum(τ_RR_surrogates;
+                                        ρ_thres, tol, max_iter, regression_type, method, verbose=false)
+        else
+            τ_surrogate_spectra[i,:], _ = inter_spike_spectrum(τ_RR_surrogates[i,:];
+            ρ_thres, tol, max_iter, regression_type, method, verbose=false)
+        end
     end
     return τ_surrogate_spectra
 end
@@ -138,7 +159,7 @@ end
     confidence interval obtained from the surrogate τ-recurrence spectra stored in
     `τ_surrogate_spectra`.
 """
-function compute_percentiles_of_surrogate_spectra(τ_surrogate_spectra::AbstractMatrix, α::Real = 0.05)
+function compute_percentiles_of_surrogate_spectra(τ_surrogate_spectra::Union{AbstractMatrix,AbstractVector}, α::Real = 0.05)
     @assert 1 > α > 0 "Significance level α must be ∈ [0, 1]"
 
     NumTrials, N = size(τ_surrogate_spectra)

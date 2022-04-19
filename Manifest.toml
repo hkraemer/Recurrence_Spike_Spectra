@@ -337,10 +337,10 @@ uuid = "d7e528f0-a631-5988-bf34-fe36492bcfd7"
 version = "2.10.4+0"
 
 [[deps.FreeTypeAbstraction]]
-deps = ["ColorVectorSpace", "Colors", "FreeType", "GeometryBasics", "StaticArrays"]
-git-tree-sha1 = "99d6d4f51a7667ec748b3e5c8ad69884f0f2f43e"
+deps = ["ColorVectorSpace", "Colors", "FreeType", "GeometryBasics"]
+git-tree-sha1 = "b5c7fe9cea653443736d264b85466bad8c574f4a"
 uuid = "663a7486-cb36-511b-a19d-713bb74d65c9"
-version = "0.9.8"
+version = "0.9.9"
 
 [[deps.FunctionWrappers]]
 git-tree-sha1 = "241552bc2209f0fa068b6415b1942cc0aa486bcc"
@@ -405,11 +405,11 @@ version = "2018.0.3+2"
 
 [[deps.InterSpikeSpectra]]
 deps = ["GLMNet", "IterativeSolvers", "LinearAlgebra", "Revise", "SparseArrays", "Statistics", "StatsBase"]
-git-tree-sha1 = "d848c8ffe4fc40ef0b880ebfe4c1673e7a54de85"
+git-tree-sha1 = "b03981ccc70b7e3fea6a2cca99a52bc4e45a2412"
 repo-rev = "main"
 repo-url = "git@github.com:hkraemer/InterSpikeSpectra.jl.git"
 uuid = "2a2b4b4d-1d85-44c5-81bd-1c3b0471c142"
-version = "0.9.0"
+version = "0.9.2"
 
 [[deps.InteractiveUtils]]
 deps = ["Markdown"]
@@ -970,9 +970,9 @@ uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
 
 [[deps.UnicodePlots]]
 deps = ["ColorTypes", "Contour", "Crayons", "Dates", "FileIO", "FreeTypeAbstraction", "LinearAlgebra", "MarchingCubes", "NaNMath", "SparseArrays", "StaticArrays", "StatsBase", "Unitful"]
-git-tree-sha1 = "e7b68f6d25a79dff79acbd3bcf324db4385c2c6f"
+git-tree-sha1 = "c3bab41f0910b8e3e70d88ee24a68ab952ec0a76"
 uuid = "b8865327-cd53-5732-bb35-84acbb429228"
-version = "2.10.1"
+version = "2.10.3"
 
 [[deps.Unitful]]
 deps = ["ConstructionBase", "Dates", "LinearAlgebra", "Random"]
@@ -982,9 +982,9 @@ version = "1.11.0"
 
 [[deps.VectorizationBase]]
 deps = ["ArrayInterface", "CPUSummary", "HostCPUFeatures", "Hwloc", "IfElse", "LayoutPointers", "Libdl", "LinearAlgebra", "SIMDTypes", "Static"]
-git-tree-sha1 = "a48484def839a98571683a8b5b942fc910329480"
+git-tree-sha1 = "83dde373d2695470a6e8abd1380ec4b5e0dd935e"
 uuid = "3d5dd08c-fd9d-11e8-17fa-ed2836048c2f"
-version = "0.21.26"
+version = "0.21.27"
 
 [[deps.Wavelets]]
 deps = ["DSP", "FFTW", "LinearAlgebra", "Reexport", "SpecialFunctions", "Statistics"]
