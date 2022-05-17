@@ -1,3 +1,6 @@
+import Pkg
+Pkg.activate(".")
+
 using DelimitedFiles
 using PyPlot
 using Statistics
@@ -37,7 +40,7 @@ begin
     coeff1 = zeros(length(thresholds))
     coeff2 = zeros(length(thresholds))
 
-    for i = 1:lenght(thresholds)
+    for i = 1:length(thresholds)
 
         # number of significant peaks vs random H0 (normal LASSO)
         nsp[i,:] = vec(readdlm("./Applications/Logistic Map Example/Results/results_Logistic_N_$(N)_thres_$(thresholds[i])_nsp.csv"))
@@ -79,7 +82,7 @@ begin
         ylabel("no. of significant peaks")
         title("Inter spike spectrum of τ-RR (H0 random, normal LASSO, thres=$(thresholds[i]))")
         xlim([rs[1], rs[end]])
-        ylim([-2, 60])
+        ylim([-2, 30])
         grid()
 
         ax4 = subplot(313)
@@ -92,7 +95,7 @@ begin
         ylabel("no. of significant peaks")
         title("Inter spike spectrum of τ-RR  (H0 iAAFT, normal LASSO, thres=$(thresholds[i]))")
         xlim([rs[1], rs[end]])
-        ylim([-2, 60])
+        ylim([-2, 30])
         grid()
         subplots_adjust(hspace=.4)
 

@@ -1,3 +1,6 @@
+import Pkg
+Pkg.activate(".")
+
 using InterSpikeSpectra
 using LinearAlgebra
 using Random
