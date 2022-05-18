@@ -102,12 +102,12 @@ Germany \email{hkraemer@pik-potsdam.de}\and
 \maketitle
 
 \begin{abstract}
-A novel kind of power spectrum is constructed, the \textit{inter spike spectrum}, which transforms spike-train-like signals into their frequency domain. This method 
-clearly shows the apparent cycles in the data and overcomes the problems when using the obvious idea of Fourier-transforming it. We invent this instructive approach with the 
+A novel kind of power spectrum is constructed, the \textit{inter spike spectrum}, which transforms any signal into its spike-frequency domain. This method 
+clearly shows the apparent cycles in the data and overcomes the problems for spike-train-like signals when using the obvious idea of Fourier-transforming it. 
+We invent this instructive approach with the 
 idea of transforming the $\tau$-recurrence rate of a recurrence plot (RP), which often has a spiky appearance. The $\tau$-recurrence rate is the density of recurrence points 
 along diagonals of the RP, which are parallel to the main diagonal with a distance of $\tau$. In this context the inter spike spectrum can be interpreted as a nonlinear power 
-spectrum of a potentially high dimensional system which constitutes the RP. The proposed measure is simple to compute, robust to noise and is able to detect bifurcations 
-inducing regular-regular, regular-chaos as well as chaos-chaos transitions.
+spectrum of a potentially high dimensional system which constitutes the RP. The proposed measure is robust to noise and is able to detect and analyze bifurcations.
 
 \keywords{Bifurcations \and Recurrence Analysis \and Decomposition \and Frequency Analysis}
 \PACS{05.45.Tp, 05.90.+m, 89.90.+n, 02.70.Uu, 05.10.Ln, 05.45.-a, 05.45.Ac}
@@ -181,7 +181,8 @@ for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coi
  \textbf{C} Proposed inter spike spectrum of the signal in \textbf{A} showing a single frequency, which corresponds to the inter-spike period $T_{\text{is}}$ ($f=0.01$).
  \textbf{D} DC with randomly chosen amplitudes and same $T_{\text{is}}$ as in \textbf{A}, and
  \textbf{E} its FFT-based powerspectrum. 
- \textbf{F} Proposed inter spike spectrum of the signal in \textbf{D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text{is}}$ ($f=0.01$).  
+ \textbf{F} Proposed inter spike spectrum of the signal in \textbf{D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text{is}}$ ($f=0.01$). 
+ Inter spike spectra were obtained with a regularization threshold corresponding to $\rho=0.9$ accordance of the signals in (\textbf{A},\textbf{D}) and its re-composed signals. 
 }
 \label{fig_tau_rr_dirac_comb}
 \end{figure}
