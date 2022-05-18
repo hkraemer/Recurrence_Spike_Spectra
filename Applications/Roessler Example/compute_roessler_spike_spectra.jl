@@ -4,7 +4,7 @@ using InterSpikeSpectra
 using DelimitedFiles
 using DSP
 
-# load the computed data (computed in `compute_roessler_trajectories_and_tau_rr.jl`)
+# load the computed data (computed in `compute_roessler_trajectories_and_tau_rr.m`)
 τ_rr1 = vec(readdlm("./Applications/Roessler Example/computed data/tau_rr_1.csv"))
 τ_rr1_n = vec(readdlm("./Applications/Roessler Example/computed data/tau_rr_1_n.csv"))
 τ_rr2 = vec(readdlm("./Applications/Roessler Example/computed data/tau_rr_2.csv"))
@@ -33,17 +33,17 @@ spectrum1_n = zeros(length(thresholds), Int(N/2))
 spectrum2_n = zeros(length(thresholds), Int(N/2))
 spectrum3_n = zeros(length(thresholds), Int(N/2))
 
-for ρ in thresholds 
+for (i,ρ) in enumerate(thresholds) 
     println("This is for ρ: $ρ")
     println("s1")
-    spectrum1, _ = inter_spike_spectrum(τ_rr1; ρ_thres = ρ)
-    spectrum1_n, _ = inter_spike_spectrum(τ_rr1_n; ρ_thres = ρ)
+    spectrum1[i,:], _ = inter_spike_spectrum(τ_rr1; ρ_thres = ρ)
+    spectrum1_n[i,:], _ = inter_spike_spectrum(τ_rr1_n; ρ_thres = ρ)
     println("s2")
-    spectrum2, _ = inter_spike_spectrum(τ_rr2; ρ_thres = ρ)
-    spectrum2_n, _ = inter_spike_spectrum(τ_rr2_n; ρ_thres = ρ)
+    spectrum2[i,:], _ = inter_spike_spectrum(τ_rr2; ρ_thres = ρ)
+    spectrum2_n[i,:], _ = inter_spike_spectrum(τ_rr2_n; ρ_thres = ρ)
     println("s3")
-    spectrum3, _ = inter_spike_spectrum(τ_rr3; ρ_thres = ρ)
-    spectrum3_n, _ = inter_spike_spectrum(τ_rr3_n; ρ_thres = ρ)
+    spectrum3[i,:], _ = inter_spike_spectrum(τ_rr3; ρ_thres = ρ)
+    spectrum3_n[i,:], _ = inter_spike_spectrum(τ_rr3_n; ρ_thres = ρ)
 end
 
 # Save data
