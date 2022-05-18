@@ -1,0 +1,105 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{DOI~\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Baptista et~al.(2010)Baptista, Ngamga, Pinto, Brito, and
+  Kurths}]{baptista2010}
+Baptista MS, Ngamga EJ, Pinto PRF, Brito M, Kurths J (2010) {Kolmogorov-Sinai
+  entropy from recurrence times}. Physics Letters A 374(9):1135--1140,
+  \doi{10.1016/j.physleta.2009.12.057}
+
+\bibitem[{Brunton and Kutz(2019)}]{Brunton2019}
+Brunton SL, Kutz JN (2019) Data-Driven Science and Engineering: Machine
+  Learning, Dynamical Systems, and Control. Cambridge University Press,
+  \doi{10.1017/9781108380690}
+
+\bibitem[{C{\'o}rdoba(1989)}]{Cordoba1989}
+C{\'o}rdoba A (1989) Dirac combs. Letters in Mathematical Physics
+  17(3):191--196, \doi{10.1007/BF00401584},
+  \urlprefix\url{https://doi.org/10.1007/BF00401584}
+
+\bibitem[{Datseris(2018)}]{datseris2018}
+Datseris G (2018) Dynamicalsystems.jl: A julia software library for chaos and
+  nonlinear dynamics. Journal of Open Source Software 3(23):598,
+  \doi{10.21105/joss.00598},
+  \urlprefix\url{https://doi.org/10.21105/joss.00598}
+
+\bibitem[{Kraemer and Marwan(2019)}]{Kraemer2019}
+Kraemer KH, Marwan N (2019) Border effect corrections for diagonal line based
+  recurrence quantification analysis measures. Physics Letters A
+  383(34):125977, \doi{https://doi.org/10.1016/j.physleta.2019.125977},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0375960119308448}
+
+\bibitem[{Kraemer et~al.(2021)Kraemer, Datseris, Kurths, Kiss,
+  Ocampo-Espindola, and Marwan}]{Kraemer2021}
+Kraemer KH, Datseris G, Kurths J, Kiss IZ, Ocampo-Espindola JL, Marwan N (2021)
+  A unified and automated approach to attractor reconstruction. New Journal of
+  Physics 23(3):033017, \doi{10.1088/1367-2630/abe336},
+  \urlprefix\url{https://doi.org/10.1088/1367-2630/abe336}
+
+\bibitem[{Lorenz(1963)}]{lorenz1963}
+Lorenz EN (1963) Deterministic nonperiodic flow. Journal of the Atmospheric
+  Sciences 20(2):130--141, \doi{10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2}
+
+\bibitem[{March et~al.(2005)March, Chapman, and Dendy}]{march2005}
+March TK, Chapman SC, Dendy RO (2005) Recurrence plot statistics and the effect
+  of embedding. Physica D 200(1--2):171--184, \doi{10.1016/j.physd.2004.11.002}
+
+\bibitem[{Marwan and Kurths(2002)}]{marwan2002pla}
+Marwan N, Kurths J (2002) {Nonlinear analysis of bivariate data with cross
+  recurrence plots}. {Physics Letters A} 302(5--6):299--307,
+  \doi{10.1016/S0375-9601(02)01170-2}
+
+\bibitem[{Marwan et~al.(2007)Marwan, Romano, Thiel, and Kurths}]{marwan2007}
+Marwan N, Romano MC, Thiel M, Kurths J (2007) {Recurrence Plots for the
+  Analysis of Complex Systems}. Physics Reports 438(5--6):237--329,
+  \doi{10.1016/j.physrep.2006.11.001}
+
+\bibitem[{Rackauckas and Nie(2017)}]{rackauckas2017}
+Rackauckas C, Nie Q (2017) Differentialequations.jl--a performant and
+  feature-rich ecosystem for solving differential equations in julia. Journal
+  of Open Research Software 5(1)
+
+\bibitem[{Rössler(1976)}]{roessler1976}
+Rössler O (1976) An equation for continuous chaos. Physics Letters A 57(5):397
+  -- 398, \doi{https://doi.org/10.1016/0375-9601(76)90101-8},
+  \urlprefix\url{http://www.sciencedirect.com/science/article/pii/0375960176901018}
+
+\bibitem[{Schild(1982)}]{Schild1982}
+Schild D (1982) An efficient method for the fourier transform of a neuronal
+  spike train. International Journal of Neuroscience 17(3):179--182,
+  \doi{10.3109/00207458208985921},
+  \urlprefix\url{https://doi.org/10.3109/00207458208985921},
+  \eprint{https://doi.org/10.3109/00207458208985921}
+
+\bibitem[{Schreiber and Schmitz(1996)}]{Schreiber1996}
+Schreiber T, Schmitz A (1996) Improved surrogate data for nonlinearity tests.
+  Phys Rev Lett 77:635--638, \doi{10.1103/PhysRevLett.77.635},
+  \urlprefix\url{https://link.aps.org/doi/10.1103/PhysRevLett.77.635}
+
+\bibitem[{Schreiber and Schmitz(2000)}]{Schreiber2000}
+Schreiber T, Schmitz A (2000) Surrogate time series. Physica D: Nonlinear
+  Phenomena 142(3):346--382,
+  \doi{https://doi.org/10.1016/S0167-2789(00)00043-9},
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0167278900000439}
+
+\bibitem[{Tibshirani(1996)}]{Tibshirani1996}
+Tibshirani R (1996) Regression shrinkage and selection via the lasso. Journal
+  of the Royal Statistical Society: Series B (Methodological) 58(1):267--288,
+  \doi{https://doi.org/10.1111/j.2517-6161.1996.tb02080.x},
+  \urlprefix\url{https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/j.2517-6161.1996.tb02080.x},
+  \eprint{https://rss.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2517-6161.1996.tb02080.x}
+
+\bibitem[{Zbilut and Marwan(2008)}]{Zbilut2008}
+Zbilut JP, Marwan N (2008) The wiener–khinchin theorem and recurrence
+  quantification. Physics Letters A 372(44):6622--6626,
+  \doi{https://doi.org/10.1016/j.physleta.2008.09.027},
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0375960108014102}
+
+\end{thebibliography}
