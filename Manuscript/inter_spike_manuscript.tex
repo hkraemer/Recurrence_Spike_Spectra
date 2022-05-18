@@ -289,18 +289,19 @@ In this example, the according null hypothesis is that the data stems from a pro
 amplitude distribution. We consider the number of significant peaks in the inter spike spectrum with
 respect to the control parameter in order to distinguish the corresponding dynamics (Fig.~\ref{fig_tau_rr_logistic}C).
 A correlation with the positive Lyapunov exponent (Fig.~\ref{fig_tau_rr_logistic}A) is discernible 
-($\rho_{\text{Pearson}}=0.88$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. 
+($\rho_{\text{Pearson}}=0.72$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. 
 
 A less computationally intensive approach is to compute surrogates for the $\tau$-RR analytically, rather than computing a RP and its $\tau$-RR for each iAAFT surrogate of the 
 time series. This translates into a null hypothesis 
 that the $\tau$-RR and its corresponding inter spike spectrum stems from a RP of a random signal. In this case the probability of finding a black point in the RP can be obtained 
 from a binomial distribution with probability parameter $p$ set to the recurrence rate of the RP of the signal. This way $100$ surrogate $\tau$-RRs are computed in step (5). 
-The results are similar to the ones obtained from the iAAFT surrogates and nearly as good (Fig.~\ref{fig_tau_rr_logistic}B). The first period doubling at 
-$r \approx 3.458$ cannot be detected, while the correlation to the positive Lyapunov exponent is only slightly worse ($\rho_{\text{Pearson}}=0.84$). 
+The results are even slightly better compared to the ones obtained from the iAAFT surrogates (Fig.~\ref{fig_tau_rr_logistic}B, $\rho_{\text{Pearson}}=0.81$). The first period doubling at 
+$r \approx 3.458$ cannot be detected by any of the surrogates.
 
 The described procedure does work well for map data, because most often the $\tau$-RR for those kind of data reveals a ``spiky enough'' nature. 
 On the contrary, highly sampled (flow-) data often yield not as 
-spiky $\tau$-RR's and, thus, the number of significant peaks in the inter spike spectrum may not be sensitive enough to detect period-doubling bifurcations. Nevertheless the 
+spiky $\tau$-RR's and, thus, the number of significant peaks in the inter spike spectrum may not be sensitive enough to detect period-doubling bifurcations. Moreover the sensitivity of the 
+inter spike spectrum to detect the regime shifts also depends on the critical regularization threshold. Nevertheless the 
 according inter spike spectra is still revealing important information (Fig.~\ref{fig_tau_rr_example_roessler}) and practitioners can design appropriate quantifying statistics based 
 on these spectra, which suit the 
 research task.
@@ -309,8 +310,10 @@ research task.
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_tau_rr_logistic}
  \caption{\textbf{A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. 
- \textbf{B} Number of significant peaks ($\alpha=0.05$) in the inter spike spectrum of the $\tau$-RR, random surrogates. 
- \textbf{C} Same as \textbf{B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite{Schreiber1996,Schreiber2000}.
+ \textbf{B} Number of significant peaks ($\alpha=0.05$) in the inter spike spectrum of the $\tau$-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf{A} 
+ (white noise surrogates). 
+ \textbf{C} Same as \textbf{B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite{Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used 
+ a regularization threshold corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals.  
 }
 \label{fig_tau_rr_logistic}
 \end{figure}
