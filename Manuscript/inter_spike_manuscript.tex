@@ -197,45 +197,55 @@ characteristic time scales of high dimensional systems, which is not possible wh
 
 \section{Method}\label{sec_tau_rr_method}
     
-The idea is as simple as it is obvious. The signal, which we would like to transform -- we focus on $\tau$-RR in this article, but this can be applied to any sort of signal -- 
+The signal, which we would like to transform -- we focus on $\tau$-RR in this article, but this can be applied to any sort of signal -- 
 is decomposed into a set of appropriate basis functions. Instead of using trigonometric functions, as it is the idea in the Fourier decomposition, we use Dirac combs (DC) with 
 different inter-spike periods as basis functions, Eq.~\eqref{eq_dirac_comb}. Let $s(t_i)$ be the normalized signal we want to transform with length $N$ and 
-$t_i=i\cdot \Delta t,~i=1,\ldots,N$, where $\Delta t$ denotes the sampling time and $s(t_i) \in [0,\ 1]\ \forall\ i$. In the following we label this time series as a $(1\times N)$-dimensional vector $\bf{s}$. 
-First, $N$ different DC's of length $N$ are constructed with inter-spike periods $T_\text{is} \in [1,\ldots,N]$. Second, in order to account for possible phase shifts of 
-these basis functions occurring 
-in $\bf{s}$, each of these $N$ different DC's also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of $M = \sum_{i=1}^{N}i$ 
+$t_i=i\cdot \Delta t,~i=1,\ldots,N$, where $\Delta t$ denotes the sampling time and $s(t_i) \in [0,\ 1]\ \forall\ i$. In the following we label this time series as a $(1\times N)$-dimensional 
+vector $\bf{s}$. 
+First, $\tilde{N}$ different DC's of length $N$ are constructed with inter-spike periods $T_\text{is} \in [1,\ldots,\tilde{N}]$ and $\tilde{N}=\ceil*{N/2}+1$. Second, in order to account 
+for possible phase shifts of 
+these basis functions occurring in $\bf{s}$, each of these $\tilde{N}$ different DC's also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of 
+$M = \sum_{i=1}^{\tilde{N}}i$ 
 basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\bfX$
-(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure)
+(Fig.~\ref{fig_tau_rr_basis_functions}A illustrates the described procedure)
 \begin{align}
-\bfX_{i,j} &= \sum_{k=0}^N\delta\left(j-1-kT(i)-i+T(i) \right),\\
+\bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT(i)-i+T(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
 T(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \label{eq_basis_matrix}
 \end{align}
-Due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, 
-$\bfX$ is not linear independent anymore. Thus, an under-determined linear system
+Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
+Furthermore, there will be identical basis functions and also basis functions, which do not allow for a unambiguous inter spike period, 
+if we would include all $N$ possible inter spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A). 
+The reason is that in contrast to a trigonometric decomposition, where the Nyquist frequency marks a lower bound for the corresponding wave period, here 
+the maximum considered inter spike period is bounded by $T_{\text{is}}^{\text{max}} = \ceil*{N/2}+1$ (schematically illustrated in 
+Fig.~\ref{fig_tau_rr_basis_functions}B).\\ 
+
+\noindent Eventually, an under-determined linear system
 \begin{equation}
 \bf{X}^T\bf{\beta}=\bf{s}
 \label{eq_linear_system}
 \end{equation}  
-has to be solved for $\bf{\beta}$, a $(M\times 1)$-sized vector carrying the loadings we are interested in. Along a variety of algorithms, which can solve this problem, we are 
+has to be solved for $\bf{\beta}$, a $(M\times 1)$-sized vector carrying the loadings we are interested in. Along a variety of algorithms which can solve this problem, we are 
 particularly interested in those solutions, which promote sparsity in $\bf{\beta}$, since our goal is to decompose the signal $\bfs$ into a minimal number of basis 
 functions (for an excellent overview of the topic we refer to \citet{Brunton2019}). Therefore, we here choose the \textit{least absolute shrinkage and selection operator} 
-(LASSO regression) \cite{Tibshirani1996}. Finally, we group loadings which correspond to basis functions having the same period $T_\text{is}$ into $\bf{\beta}_f$ and obtain the 
-\textit{inter spike spectrum} by simply plotting $\bf{\beta}_f$ as a function of the frequency $f=T_\text{is}^{-1}$ (Fig.~\ref{fig_tau_rr_dirac_comb}C, F).
+(LASSO regression) \cite{Tibshirani1996} to obtain a solution $\hat{\bf{\beta}}$. Finally, we group loadings which correspond to basis functions having the same period 
+$T_\text{is}$ into $\hat{\bf{\beta}}_f$ and obtain the 
+\textit{inter spike spectrum} by simply plotting $\hat{\bf{\beta}}_f$ as a function of the frequency $f=T_\text{is}^{-1}$, with $T_\text{is}=\Delta t, 2\Delta t, \dots, (\ceil*{N/2}+1) \Delta t$ 
+(Fig.~\ref{fig_tau_rr_dirac_comb}C, F).
 
 \begin{figure}
-  \begin{minipage}[b]{0.3\textwidth}
-    \vspace{0pt}
-    \includegraphics[width=0.95\textwidth]{./figures/fig_tau_rr_basis_functions}
-  \end{minipage}\hfill
-  \begin{minipage}[b]{0.7\textwidth}
-    \vspace{0pt}
-    \caption{Example for a set of basis functions for an input signal of length $N=4$, aligned in the matrix $\bfX$. Inter spike periods $T_{\text{is}}$ larger 
-    than $\ceil*{N/2}$ lead to redundant basis functions (i.e., repeated lines in $\bfX$, red sheared) or basis functions, which can not be uniquely assigned to a certain inter spike period 
-    (blue sheared).} \label{fig_tau_rr_basis_functions}
-  \end{minipage}
+\centering
+\includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_basis_functions}
+\caption{\textbf{A} Example for a full set of basis functions for an input signal of length $N=4$, aligned in the matrix $\bfX'$. Inter spike periods $T_{\text{is}}$ larger 
+than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in $\bfX$, red sheared) or basis functions, which can not be uniquely assigned to a certain inter spike period 
+(blue sheared). \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
 \end{figure}
 
+In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the proposed method must also deal with the free choice of the regression regularization parameter $\alpha$, 
+which determines the sparsity of the regression coefficient vector $\hat{\bf{\beta}}$. Obviously, there will be numerous peaks in the inter spike spectrum of a given signal, when $\alpha$ is small, 
+since $\alpha=0$ corresponds to the least squares solution and the corresponding $\hat{\bf{\beta}}$ is an exact solution of Eq.~\ref{eq_linear_system} and not sparse. On the other hand, only a sparse number 
+of non-zero loadings in $\hat{\bf{\beta}}$ -- \textit{aka} peaks in the inter spike spectrum -- are obtained when $\alpha$ is sufficiently large. In this paper we select $\alpha$ such that the 
+re-composed signal $\tilde{\bf{s}}=\bf{X}^T\hat{\bf{\beta}}$ matches a given (Pearson) correlation coefficient $\rho$ between the original signal $\bf{s}$ and itself.
 
 \section{Application}\label{sec_tau_rr_application}
 
