@@ -184,7 +184,8 @@ for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coi
  \textbf{D} DC with randomly chosen amplitudes and same $T_{\text{is}}$ as in \textbf{A}, and
  \textbf{E} its FFT-based powerspectrum. 
  \textbf{F} Proposed inter spike spectrum of the signal in \textbf{D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text{is}}$ ($f=0.01$). 
- Inter spike spectra were obtained with a regularization threshold corresponding to $\rho=0.9$ accordance of the signals in (\textbf{A},\textbf{D}) and its re-composed signals. 
+ Inter spike spectra were obtained with a LASSO regression and a regularization threshold corresponding to $\rho=0.9$ accordance of the signals in (\textbf{A},\textbf{D}) and 
+ its re-composed signals (c.f. Section~\ref{sec_tau_rr_method}). 
 }
 \label{fig_tau_rr_dirac_comb}
 \end{figure}
@@ -227,8 +228,9 @@ Fig.~\ref{fig_tau_rr_basis_functions}B).\\
 \end{equation}  
 has to be solved for $\bf{\beta}$, a $(M\times 1)$-sized vector carrying the loadings we are interested in. Along a variety of algorithms which can solve this problem, we are 
 particularly interested in those solutions, which promote sparsity in $\bf{\beta}$, since our goal is to decompose the signal $\bfs$ into a minimal number of basis 
-functions (for an excellent overview of the topic we refer to \citet{Brunton2019}). Therefore, we here choose the \textit{least absolute shrinkage and selection operator} 
-(LASSO regression) \cite{Tibshirani1996} to obtain a solution $\hat{\bf{\beta}}$. Finally, we group loadings which correspond to basis functions having the same period 
+functions (for an excellent overview of the topic we refer to \citet{Brunton2019}). In this paper we either use the \textit{least absolute shrinkage and selection operator} 
+(LASSO) \cite{Tibshirani1996} or a \textit{sequentially thresholded least squares} (STLS) regression \cite{Brunton2016,Brunton2019} to obtain a solution $\hat{\bf{\beta}}$. Finally, we group loadings 
+which correspond to basis functions having the same period 
 $T_\text{is}$ into $\hat{\bf{\beta}}_f$ and obtain the 
 \textit{inter spike spectrum} by simply plotting $\hat{\bf{\beta}}_f$ as a function of the frequency $f=T_\text{is}^{-1}$, with $T_\text{is}=\Delta t, 2\Delta t, \dots, (\ceil*{N/2}+1) \Delta t$ 
 (Fig.~\ref{fig_tau_rr_dirac_comb}C, F).
@@ -273,8 +275,8 @@ period-3 limit cycle dynamics ($a=0.41$, Fig.~\ref{fig_tau_rr_example_roessler}B
  \textbf{D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global 
  recurrence rate for D \& E and 5\% for F. 
   \textbf{G, H, I} $\tau$-RR's of the shown RPs. 
-  \textbf{J, K, L} The proposed inter spike spectra of the $\tau$-RR's shown in panels G, H, I. Spectra were obtained with a regularization threshold corresponding to 
-  $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic.  
+  \textbf{J, K, L} The proposed inter spike spectra of the $\tau$-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold 
+  corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic.  
   \textbf{M, N, P} Fourier power spectra of the $\tau$-RR's shown in panels G, H, I.
  }
 \label{fig_tau_rr_example_roessler}
@@ -327,7 +329,7 @@ research task.
  \textbf{B} Number of significant peaks ($\alpha=0.05$) in the inter spike spectrum of the $\tau$-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf{A} 
  (white noise surrogates). 
  \textbf{C} Same as \textbf{B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite{Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used 
- a regularization threshold corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals.  
+ a LASSO regression and a regularization threshold corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals.  
 }
 \label{fig_tau_rr_logistic}
 \end{figure}

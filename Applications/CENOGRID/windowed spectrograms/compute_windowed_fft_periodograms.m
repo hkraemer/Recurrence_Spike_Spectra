@@ -27,16 +27,14 @@ Fs = 1/dt; % Sampling frequency
 
 %%
 windowsize2 = 1000; % windowsize for trajectory
-windowsize1 = 100; % windowsize for the spectrum
 ws = 1; % windowstep
 
-
-[s, f, ~] = spectrogram(O18_raw,windowsize2,windowsize2-ws,[],1);
-pxx_raw = abs(s).^2;
-[s, ~, ~] = spectrogram(O18,windowsize2,windowsize2-ws,[],1);
+% [s, f, ~] = spectrogram(O18_raw,windowsize2,windowsize2-ws,[],1);
+% pxx_raw = abs(s).^2;
+[s, f, ~] = spectrogram(O18,windowsize2,windowsize2-ws,[],1);
 pxx_filtered = abs(s).^2;
-[s, ~, ~] = spectrogram(C13_raw,windowsize2,windowsize2-ws,[],1);
-pxy_raw = abs(s).^2;
+% [s, ~, ~] = spectrogram(C13_raw,windowsize2,windowsize2-ws,[],1);
+% pxy_raw = abs(s).^2;
 [s, ~, ~] = spectrogram(C13,windowsize2,windowsize2-ws,[],1);
 pxy_filtered = abs(s).^2;
 [s, ~, ~] = spectrogram(ecc,windowsize2,windowsize2-ws,[],1);
@@ -44,6 +42,4 @@ p_ecc = abs(s).^2;
 
 f = f .* Fs;
 
-
-save("periodograms_raw.mat",'f','pxx_raw','pxy_raw','p_ecc')
-save("periodograms_filtered.mat",'f','pxx_filtered','pxy_filtered','p_ecc')
+save("./computed spectra/periodograms_short_time_fourier.mat",'f','pxx_filtered','pxy_filtered','p_ecc')
