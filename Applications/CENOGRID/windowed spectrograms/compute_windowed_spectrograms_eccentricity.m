@@ -38,15 +38,15 @@ for i = 1:ws:M
     % extract time series
     x = data(i:i+windowsize);
     % 1) MCDTS embedding gained from whole dataset analysis
-%     Yx = genembed(x,taus_mcdts, ones(1,length(taus_mcdts)));
+    Yx = genembed(x,taus_mcdts, ones(1,length(taus_mcdts)));
 
     % compute RP and tau-rr
-%     RPx = rp(Yx,epsilon,'var');
+    RPx = rp(Yx,epsilon,'var');
     RPx_ne = rp(x,epsilon,'var');
-%     tauRRx = tau_recurrence_rate(RPx);
+    tauRRx = tau_recurrence_rate(RPx);
     tauRRx_ne = tau_recurrence_rate(RPx_ne);
     % compute spike powerspectra
-%     spectrum_ecc_mcdts(:,cnt) = inter_spike_spectrum(tauRRx(1:window_tau), "method", "STLS", "threshold", rho_thres);
+    spectrum_ecc_mcdts(:,cnt) = inter_spike_spectrum(tauRRx(1:window_tau), "method", "STLS", "threshold", rho_thres);
     spectrum_ecc_ne(:,cnt) = inter_spike_spectrum(tauRRx_ne(1:window_tau), "method", "STLS", "threshold", rho_thres);
 
     cnt = cnt + 1;
@@ -54,5 +54,5 @@ for i = 1:ws:M
 end
 toc
 
-% save("./computed spectra/spectrum_ecc_mcdts.mat", "spectrum_ecc_mcdts")
+save("./computed spectra/spectrum_ecc_mcdts.mat", "spectrum_ecc_mcdts")
 save("./computed spectra/spectrum_ecc_ne.mat", "spectrum_ecc_ne")
