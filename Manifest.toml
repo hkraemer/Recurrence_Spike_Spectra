@@ -459,6 +459,12 @@ git-tree-sha1 = "a3f24677c21f5bbe9d2a714f95dcd58337fb2856"
 uuid = "82899510-4779-5014-852e-03e436cf321d"
 version = "1.0.0"
 
+[[deps.JLD2]]
+deps = ["FileIO", "MacroTools", "Mmap", "OrderedCollections", "Pkg", "Printf", "Reexport", "TranscodingStreams", "UUIDs"]
+git-tree-sha1 = "81b9477b49402b47fbe7f7ae0b252077f53e4a08"
+uuid = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+version = "0.4.22"
+
 [[deps.JLLWrappers]]
 deps = ["Preferences"]
 git-tree-sha1 = "abc9885a7ca2052a736a600f7fa66209f96506e1"
@@ -965,6 +971,12 @@ deps = ["AbstractFFTs", "DSP", "DelayEmbeddings", "Distances", "Distributions", 
 git-tree-sha1 = "a2a003facd3ce0f0200538cb173cfa6e8f4b1c70"
 uuid = "c804724b-8c18-5caa-8579-6025a0767c70"
 version = "2.0.0"
+
+[[deps.TranscodingStreams]]
+deps = ["Random", "Test"]
+git-tree-sha1 = "216b95ea110b5972db65aa90f88d8d89dcb8851c"
+uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
+version = "0.9.6"
 
 [[deps.TreeEmbedding]]
 deps = ["DataFrames", "DelayEmbeddings", "Distances", "Distributions", "DynamicalSystemsBase", "GLM", "LinearAlgebra", "Neighborhood", "Pkg", "Random", "Statistics", "StatsBase"]
