@@ -50,70 +50,70 @@ len = 90;
 
 cax_max = 0.013;
 
-
-figure('Units','normalized','Position',[.01 .01 .99 .99])
-
-subplot(4,1,[1,2])
-surf(t1,t2,spectrum1')
-view(2)
-shading flat
-caxis([0 0.01])
-xlim([t1(1) t1(end)])
-ylim([2 t2(end)])
-title("Evolutionary inter spike spectrum of Kuramoto with switch")
-ylabel("Period [log_{10} a.u.]")
-set(gca,'Yscale','log')
-set(gca,'FontSize',fs)
-set(gca,'LineWidth',2)
-legend("\rho-thres = 0.8")
-grid on
-
-subplot(4,1,[3,4])
-surf(t1,t2,spectrum2')
-view(2)
-shading flat
-caxis([0 0.01])
-xlim([t1(1) t1(end)])
-ylim([2 t2(end)])
-ylabel("Period [log_{10} a.u.]")
-xlabel("time [a.u.]")
-set(gca,'Yscale','log')
-set(gca,'FontSize',fs)
-set(gca,'LineWidth',2)
-legend("\rho-thres = 0.85")
-grid on
-
-figure('Units','normalized','Position',[.01 .01 .99 .99])
-
-subplot(4,1,[1,2])
-surf(t1,t2,spectrum3')
-view(2)
-shading flat
-caxis([0 0.01])
-xlim([t1(1) t1(end)])
-ylim([2 t2(end)])
-title("Evolutionary inter spike spectrum of Kuramoto with switch")
-ylabel("Period [log_{10} a.u.]")
-set(gca,'Yscale','log')
-set(gca,'FontSize',fs)
-set(gca,'LineWidth',2)
-legend("\rho-thres = 0.9")
-grid on
-
-subplot(4,1,[3,4])
-surf(t1,t2,spectrum4')
-view(2)
-shading flat
-caxis([0 0.01])
-xlim([t1(1) t1(end)])
-ylim([2 t2(end)])
-ylabel("Period [log_{10} a.u.]")
-xlabel("time [a.u.]")
-set(gca,'Yscale','log')
-set(gca,'FontSize',fs)
-set(gca,'LineWidth',2)
-legend("\rho-thres = 0.95")
-grid on
+% 
+% figure('Units','normalized','Position',[.01 .01 .99 .99])
+% 
+% subplot(4,1,[1,2])
+% surf(t1,t2,spectrum1')
+% view(2)
+% shading flat
+% caxis([0 0.01])
+% xlim([t1(1) t1(end)])
+% ylim([2 t2(end)])
+% title("Evolutionary inter spike spectrum of Kuramoto with switch")
+% ylabel("Period [log_{10} a.u.]")
+% set(gca,'Yscale','log')
+% set(gca,'FontSize',fs)
+% set(gca,'LineWidth',2)
+% legend("\rho-thres = 0.8")
+% grid on
+% 
+% subplot(4,1,[3,4])
+% surf(t1,t2,spectrum2')
+% view(2)
+% shading flat
+% caxis([0 0.01])
+% xlim([t1(1) t1(end)])
+% ylim([2 t2(end)])
+% ylabel("Period [log_{10} a.u.]")
+% xlabel("time [a.u.]")
+% set(gca,'Yscale','log')
+% set(gca,'FontSize',fs)
+% set(gca,'LineWidth',2)
+% legend("\rho-thres = 0.85")
+% grid on
+% 
+% figure('Units','normalized','Position',[.01 .01 .99 .99])
+% 
+% subplot(4,1,[1,2])
+% surf(t1,t2,spectrum3')
+% view(2)
+% shading flat
+% caxis([0 0.01])
+% xlim([t1(1) t1(end)])
+% ylim([2 t2(end)])
+% title("Evolutionary inter spike spectrum of Kuramoto with switch")
+% ylabel("Period [log_{10} a.u.]")
+% set(gca,'Yscale','log')
+% set(gca,'FontSize',fs)
+% set(gca,'LineWidth',2)
+% legend("\rho-thres = 0.9")
+% grid on
+% 
+% subplot(4,1,[3,4])
+% surf(t1,t2,spectrum4')
+% view(2)
+% shading flat
+% caxis([0 0.01])
+% xlim([t1(1) t1(end)])
+% ylim([2 t2(end)])
+% ylabel("Period [log_{10} a.u.]")
+% xlabel("time [a.u.]")
+% set(gca,'Yscale','log')
+% set(gca,'FontSize',fs)
+% set(gca,'LineWidth',2)
+% legend("\rho-thres = 0.95")
+% grid on
 
 
 
@@ -176,4 +176,9 @@ set(gca,'FontSize',fs)
 set(gca,'LineWidth',2)
 legend("\rho-thres = 0.95")
 grid on
+
+%% Plot Wasserstein distance of all the spectra
+% This has been computed in the script `compute_emd_system_with_transition.jl`
+
+
 
