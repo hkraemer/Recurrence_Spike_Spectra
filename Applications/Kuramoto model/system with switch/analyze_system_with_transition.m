@@ -180,5 +180,11 @@ grid on
 %% Plot Wasserstein distance of all the spectra
 % This has been computed in the script `compute_emd_system_with_transition.jl`
 
+emd1 = load("./results/emd1.csv");
+emd2 = load("./results/emd2.csv");
+emd3 = load("./results/emd3.csv");
+emd4 = load("./results/emd4.csv");
 
+%%
 
+imagesc(emd1<30), colormap([1 1 1; 0 0 0]), axis xy square
