@@ -1,0 +1,37 @@
+Description of the measurement data provided by F. Massi and collaborators
+
+Measurement channels:
+- 1st col: Time
+- 2nd col: Point A: fixed sample velocity
+- 3rd col: Point B: test setup acceleration
+- 4th col: Tangential force
+- 5th col: Normal force
+
+
+Friction coefficient:
+- 1st col: Time
+- 2nd col: friction coefficient
+
+Velocity profile: Deceleration frmo 20 to 0 mm/s
+Sampling frequency: 100kHz
+
+Experimental modal analysis (transfer accelerance between A and B):
+- available up to 8kHz, proper coherence up to 6.5kHz
+- several modes visible, but strongly damped
+
+Signal_test_n1:
+
+Signal_test_n2:
+
+Signal_test_n3:
+
+Signal_test_n4:
+
+Signal_test_n5:
+
+---------------------
+Numerical experiments:
+
+FE model computes modes at 5645, 10935, 13690, 16081, 20416 and 23783Hz
+(see Num_modal_analysis.xlsx)
+
