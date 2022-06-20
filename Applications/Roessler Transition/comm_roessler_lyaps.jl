@@ -17,11 +17,12 @@ for (i,a) in enumerate(as)
   println(i)
   set_parameter!(roe, 1, a)
   λ1[i] = lyapunov(roe, 100000; Ttr = 10000)
-  λs[i,:] = lyapunovspectrum(roe, 100000; Ttr = 10000)
+  λs[:,i] = lyapunovspectrum(roe, 100000; Ttr = 10000)
 
 end
 
 writedlm("./Applications/Roessler Transition/results/Lyaps_Roessler_0_36_to_0_43.csv", λ1)
+writedlm("./Applications/Roessler Transition/results/All_lyaps_Roessler_0_36_to_0_43.csv", λs)
 
 λ1 = readdlm("./Applications/Roessler Transition/results/Lyaps_Roessler_0_36_to_0_43.csv")
 λ1 = vec(λ1[:])

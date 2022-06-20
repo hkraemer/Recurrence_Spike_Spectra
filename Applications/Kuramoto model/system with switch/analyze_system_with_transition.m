@@ -180,11 +180,88 @@ grid on
 %% Plot Wasserstein distance of all the spectra
 % This has been computed in the script `compute_emd_system_with_transition.jl`
 
+%% Load the EMD-Distance matrices
 emd1 = load("./results/emd1.csv");
 emd2 = load("./results/emd2.csv");
 emd3 = load("./results/emd3.csv");
 emd4 = load("./results/emd4.csv");
 
+% emd1t = load("./results/emd1t.csv");
+% emd2t = load("./results/emd2t.csv");
+% emd3t = load("./results/emd3t.csv");
+% emd4t = load("./results/emd4t.csv");
+% 
+% emd_fft = load("./results/emd_fft.csv");
+% emd_fft_t = load("./results/emd_fft_t.csv");
+
+%% save as .mat-files
+save("./results/emd1.mat","emd1")
+save("./results/emd2.mat","emd2")
+save("./results/emd3.mat","emd3")
+save("./results/emd4.mat","emd4")
+
+% save("./results/emd1t.mat","emd1t")
+% save("./results/emd2t.mat","emd2t")
+% save("./results/emd3t.mat","emd3t")
+% save("./results/emd4t.mat","emd4t")
+% 
+% save("./results/emd_fft.mat","emd_fft")
+% save("./results/emd_fft_t.mat","emd_fft_t")
+
+%% Load .mat files
+emd1 = load("./results/emd1.mat");
+emd2 = load("./results/emd2.mat");
+emd3 = load("./results/emd3.mat");
+emd4 = load("./results/emd4.mat");
+
+emd1 = emd1.emd1;
+emd2 = emd2.emd2;
+emd3 = emd3.emd3;
+emd4 = emd4.emd4;
+
+% emd1t = load("./results/emd1t.mat");
+% emd2t = load("./results/emd2t.mat");
+% emd3t = load("./results/emd3t.mat");
+% emd4t = load("./results/emd4t.mat");
+
+% emd1t = emd1t.emd1t;
+% emd2t = emd2t.emd2t;
+% emd3t = emd3t.emd3t;
+% emd4t = emd4t.emd4t;
+
+% emd_fft = load("./results/emd_fft.mat");
+% emd_fft_t = load("./results/emd_fft_t.mat");
+
+% emd_fft = emd_fft.emd_fft;
+% emd_fft_t = emd_fft_t.emd_fft_t;
+
+%% Compute and plot RPs of EMDs
+
+method = "var";
+e  = 0.25;
+RP = compute_rp_from_distance_matrix(emd1, method, e);
+
+imagesc(RP), colormap([1 1 1; 0 0 0]), axis xy square
+
+
+
+
 %%
 
-imagesc(emd1<30), colormap([1 1 1; 0 0 0]), axis xy square
+%% Helper function
+
+function y = compute_rp_from_distance_matrix(P, method, e)
+
+len = length(P);
+% compute recurrence matrix
+if strcmp(method,"var")
+    epsilon = quantile(P(:),e);
+    y = double(P < epsilon); 
+else
+    q = quantile(P,e); % distance that corresponds to the fraction e of rec. points per column
+    thresholds = repmat(q,len,1); % q has to be applied for each row in d
+    % apply individual thresholds
+    % apply threshold(s)
+    y=double(P<thresholds);
+end
+end
