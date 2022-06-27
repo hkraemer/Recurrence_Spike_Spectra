@@ -6,36 +6,48 @@
 clear, clc
 % load the results for the different rho-thresholds:
 
-spectrum1 = load("./results/results_kuramoto_switchspectrum_0_8.csv");
-spectrum2 = load("./results/results_kuramoto_switchspectrum_0_85.csv");
-spectrum3 = load("./results/results_kuramoto_switchspectrum_0_9.csv");
-spectrum4 = load("./results/results_kuramoto_switchspectrum_0_95.csv");
+spectrum1 = load("./results/results_kuramoto_switch_spectrum_0_8.csv");
+spectrum2 = load("./results/results_kuramoto_switch_spectrum_0_85.csv");
+spectrum3 = load("./results/results_kuramoto_switch_spectrum_0_9.csv");
+spectrum4 = load("./results/results_kuramoto_switch_spectrum_0_95.csv");
 
-spectrum1t = load("./results/results_kuramoto_switchspectrum_0_8_t.csv");
-spectrum2t = load("./results/results_kuramoto_switchspectrum_0_85_t.csv");
-spectrum3t = load("./results/results_kuramoto_switchspectrum_0_9_t.csv");
-spectrum4t = load("./results/results_kuramoto_switchspectrum_0_95_t.csv");
+% spectrum1t = load("./results/results_kuramoto_switch_spectrum_0_8_t.csv");
+% spectrum2t = load("./results/results_kuramoto_switch_spectrum_0_85_t.csv");
+% spectrum3t = load("./results/results_kuramoto_switch_spectrum_0_9_t.csv");
+% spectrum4t = load("./results/results_kuramoto_switch_spectrum_0_95_t.csv");
 
-rhos1 = load("./results/results_kuramoto_switchrhos1.csv");
-rhos2 = load("./results/results_kuramoto_switchrhos2.csv");
-rhos3 = load("./results/results_kuramoto_switchrhos3.csv");
-rhos4 = load("./results/results_kuramoto_switchrhos4.csv");
+spectrum1t = load("./results/results_kuramoto_switch_spectrum_0_8_t_no_noise.csv");
+spectrum2t = load("./results/results_kuramoto_switch_spectrum_0_85_t_no_noise.csv");
+spectrum3t = load("./results/results_kuramoto_switch_spectrum_0_9_t_no_noise.csv");
+spectrum4t = load("./results/results_kuramoto_switch_spectrum_0_95_t_no_noise.csv");
 
-rhos1t = load("./results/results_kuramoto_switchrhos1t.csv");
-rhos2t = load("./results/results_kuramoto_switchrhos2t.csv");
-rhos3t = load("./results/results_kuramoto_switchrhos3t.csv");
-rhos4t = load("./results/results_kuramoto_switchrhos4t.csv");
+rhos1 = load("./results/results_kuramoto_switch_rhos1.csv");
+rhos2 = load("./results/results_kuramoto_switch_rhos2.csv");
+rhos3 = load("./results/results_kuramoto_switch_rhos3.csv");
+rhos4 = load("./results/results_kuramoto_switch_rhos4.csv");
 
-spectrum_fft = load("./results/results_kuramoto_switchfft_spectrum.csv");
-spectrum_fft_t = load("./results/results_kuramoto_switchfft_spectrum_t.csv");
+% rhos1t = load("./results/results_kuramoto_switch_rhos1t.csv");
+% rhos2t = load("./results/results_kuramoto_switch_rhos2t.csv");
+% rhos3t = load("./results/results_kuramoto_switch_rhos3t.csv");
+% rhos4t = load("./results/results_kuramoto_switch_rhos4t.csv");
 
-%% Plotting
-k = 10;
+rhos1t = load("./results/results_kuramoto_switch_rhos1t_no_noise.csv");
+rhos2t = load("./results/results_kuramoto_switch_rhos2t_no_noise.csv");
+rhos3t = load("./results/results_kuramoto_switch_rhos3t_no_noise.csv");
+rhos4t = load("./results/results_kuramoto_switch_rhos4t_no_noise.csv");
+
+spectrum_fft = load("./results/results_kuramoto_switch_fft_spectrum.csv");
+% spectrum_fft_t = load("./results/results_kuramoto_switch_fft_spectrum_t.csv");
+
+spectrum_fft_t = load("./results/results_kuramoto_switch_fft_spectrum_t_no_noise.csv");
+
+%% Plotting example of a single spectrum
+k = 2500;
 
 figure
 subplot(211)
 plot(1:250,spectrum1(k,:))
-title("ISS")
+title(strcat("ISS, k=",num2str(k)))
 grid on
 subplot(212)
 plot(1:250,spectrum1t(k,:))
@@ -322,11 +334,77 @@ grid on
 %% Plot Wasserstein distance of all the spectra
 % This has been computed in the script `compute_emd_system_with_transition.jl`
 
-emd1 = load("./results/emd1.csv");
-emd2 = load("./results/emd2.csv");
-emd3 = load("./results/emd3.csv");
-emd4 = load("./results/emd4.csv");
+%% Load .mat files
+emd1 = load("./results/emd1.mat");
+emd2 = load("./results/emd2.mat");
+emd3 = load("./results/emd3.mat");
+emd4 = load("./results/emd4.mat");
+
+emd1 = emd1.emd1;
+emd2 = emd2.emd2;
+emd3 = emd3.emd3;
+emd4 = emd4.emd4;
+
+% emd1t = load("./results/emd1t.mat");
+% emd2t = load("./results/emd2t.mat");
+% emd3t = load("./results/emd3t.mat");
+% emd4t = load("./results/emd4t.mat");
+% 
+% emd1t = emd1t.emd1t;
+% emd2t = emd2t.emd2t;
+% emd3t = emd3t.emd3t;
+% emd4t = emd4t.emd4t;
+% 
+% emd_fft = load("./results/emd_fft.mat");
+% emd_fft_t = load("./results/emd_fft_t_nn.mat");
+% 
+% emd_fft = emd_fft.emd_fft;
+% emd_fft_t = emd_fft_t.emd_fft_t;
+
+%% Compute and plot RPs of EMDs
+
+method = "fan";
+e  = 0.15;
+RP = compute_rp_from_distance_matrix(emd1, method, e);
+RP2 = compute_rp_from_distance_matrix(emd1t, method, e);
+RP_fft = compute_rp_from_distance_matrix(emd_fft, method, e);
+RP_fft_t = compute_rp_from_distance_matrix(emd_fft_t, method, e);
 
 %%
 
-imagesc(emd1<30), colormap([1 1 1; 0 0 0]), axis xy square
+figure('Units','normalized','Position',[.001 .001 .7 .999])
+subplot(4,4,[1,2,5,6])
+imagesc(RP), colormap([1 1 1; 0 0 0]), axis xy square
+title("EMD-RP of Inter Spike Spectrum of \tau-RR of phases")
+subplot(4,4,[3,4,7,8])
+imagesc(RP2), colormap([1 1 1; 0 0 0]), axis xy square
+title("EMD-RP of Inter Spike Spectrum of \tau-RR of  TRANSFORMED phases")
+
+subplot(4,4,[9,10,13,14])
+imagesc(RP_fft), colormap([1 1 1; 0 0 0]), axis xy square
+title("EMD-RP of FFT of \tau-RR of phases")
+subplot(4,4,[11,12,15,16])
+imagesc(RP_fft_t), colormap([1 1 1; 0 0 0]), axis xy square
+title("EMD-RP of FFT of \tau-RR of TRANSFORMED phases")
+
+
+%%
+
+%% Helper function
+
+function y = compute_rp_from_distance_matrix(P, method, e)
+
+len = length(P);
+% compute recurrence matrix
+if strcmp(method,"var")
+    epsilon = quantile(P(:),e);
+    y = double(P < epsilon); 
+else
+    q = quantile(P,e); % distance that corresponds to the fraction e of rec. points per column
+    thresholds = repmat(q,len,1); % q has to be applied for each row in d
+    % apply individual thresholds
+    % apply threshold(s)
+    y=double(P<thresholds);
+end
+end
+

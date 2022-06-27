@@ -56,3 +56,7 @@ Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_s
 Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_9_t.csv
 
 Applications/Kuramoto model/system with switch/results/results_kuramoto_switchfft_spectrum.csv
+
+Applications/Kuramoto model/system with switch/results/emd1t.csv
+
+*.csv

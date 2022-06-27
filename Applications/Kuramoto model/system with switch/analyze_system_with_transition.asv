@@ -224,26 +224,26 @@ emd4 = emd4.emd4;
 % emd3t = load("./results/emd3t.mat");
 % emd4t = load("./results/emd4t.mat");
 
-% emd1t = emd1t.emd1t;
-% emd2t = emd2t.emd2t;
-% emd3t = emd3t.emd3t;
-% emd4t = emd4t.emd4t;
+emd1t = emd1t.emd1t;
+emd2t = emd2t.emd2t;
+emd3t = emd3t.emd3t;
+emd4t = emd4t.emd4t;
 
 emd1t = load("./results/emd1t_nn.mat");
 emd2t = load("./results/emd2t_nn.mat");
 emd3t = load("./results/emd3t_nn.mat");
 emd4t = load("./results/emd4t_nn.mat");
 
-emd1t = emd1t.emd1t_no_noise;
-emd2t = emd2t.emd2t_no_noise;
-emd3t = emd3t.emd3t_no_noise;
-emd4t = emd4t.emd4t_no_noise;
+emd1t = emd1t.emd1t;
+emd2t = emd2t.emd2t;
+emd3t = emd3t.emd3t;
+emd4t = emd4t.emd4t;
 
-emd_fft = load("./results/emd_fft.mat");
-emd_fft_t = load("./results/emd_fft_t_nn.mat");
+% emd_fft = load("./results/emd_fft.mat");
+% emd_fft_t = load("./results/emd_fft_t.mat");
 
-emd_fft = emd_fft.emd_fft;
-emd_fft_t = emd_fft_t.emd_fft_t_no_noise;
+% emd_fft = emd_fft.emd_fft;
+% emd_fft_t = emd_fft_t.emd_fft_t;
 
 %% Compute and plot RPs of EMDs
 

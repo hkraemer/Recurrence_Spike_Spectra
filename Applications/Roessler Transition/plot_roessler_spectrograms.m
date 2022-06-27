@@ -28,7 +28,7 @@ w2 = tau_window/2;
 tt = 0:dt:(tau_window-1)*dt;
 
 % plotting params
-% cax_max = 0.013;
+cax_max = 0.013;
 Fs = 22;
 lw2 = 1;
 
@@ -45,7 +45,7 @@ shading flat
 % xline(61,'r--','LineWidth',lw2)
 colormap(parula)
 % caxis([0 cax_max])
-title('ISS1')
+title('FFT')
 ylabel('Period [\Delta t]')
 ylim([tt(1) tt(w2)])
 xlim([as(1) as(end)])
@@ -59,7 +59,7 @@ view(2)
 shading flat
 colormap(parula)
 % caxis([0 cax_max])
-title('ISS1 true')
+title('FFT true')
 ylabel('Period [\Delta t]')
 ylim([tt(1) tt(w2)])
 xlim([as(1) as(end)])
@@ -81,7 +81,7 @@ shading flat
 % xline(61,'r--','LineWidth',lw2)
 colormap(parula)
 caxis([0 cax_max])
-title('ISS1')
+title('ISS')
 ylabel('Period [\Delta t]')
 ylim([tt(1) tt(w2)])
 xlim([as(1) as(end)])
@@ -95,7 +95,7 @@ view(2)
 shading flat
 colormap(parula)
 caxis([0 cax_max])
-title('ISS1 true')
+title('ISS true')
 ylabel('Period [\Delta t]')
 ylim([tt(1) tt(w2)])
 xlim([as(1) as(end)])

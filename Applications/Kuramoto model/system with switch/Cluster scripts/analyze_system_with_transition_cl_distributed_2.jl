@@ -96,7 +96,7 @@ end
 varnames = ["spectrum_0_8", "spectrum_0_85", "spectrum_0_9", "spectrum_0_95", "spectrum_0_8_t", "spectrum_0_85_t", "spectrum_0_9_t", "spectrum_0_95_t", "fft_spectrum", "fft_spectrum_t", "rhos1", "rhos2", "rhos3", "rhos4", "rhos1t", "rhos2t", "rhos3t", "rhos4t"]
 
 for i = 1:length(varnames)
-    writestr = "results_kuramoto_switch_"*varnames[i]*".csv"
+    writestr = "results_kuramoto_switch_"*varnames[i]*"_no_noise.csv"
     data = []
     for j = 1:length(results)
         push!(data,results[j][i])

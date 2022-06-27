@@ -74,32 +74,32 @@ lw1 = 0.5;
 figure('Units','normalized','Position',[.01 .01 .99 .99])
 subplot(3,4,[1,2,5,6])
 imagesc(as,as,RP_emd1), colormap([1 1 1; 0 0 0]), axis xy square
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 title("EMD 1")
 grid on
 
 subplot(3,4,[3,4,7,8])
 imagesc(as,as,RP_emd2), colormap([1 1 1; 0 0 0]), axis xy square
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 title("EMD 2")
 grid on
 
 subplot(3,4,[9,10])
 plot(as,RR_emd1), hold on
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 xlim([as(1) as(end)])
 grid on
 subplot(3,4,[11,12])
 plot(as,RR_emd2), hold on
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 xlim([as(1) as(end)])
 grid on
 
@@ -107,64 +107,64 @@ grid on
 figure('Units','normalized','Position',[.01 .01 .99 .99])
 subplot(3,4,[1,2,5,6])
 imagesc(as,as,RP_emd3), colormap([1 1 1; 0 0 0]), axis xy square
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 title("EMD 3")
 grid on
 
 subplot(3,4,[3,4,7,8])
 imagesc(as,as,RP_emd4), colormap([1 1 1; 0 0 0]), axis xy square
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 title("EMD 4")
 grid on
 
 subplot(3,4,[9,10])
 plot(as,RR_emd3), hold on
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 xlim([as(1) as(end)])
 grid on
 subplot(3,4,[11,12])
 plot(as,RR_emd4), hold on
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 xlim([as(1) as(end)])
 grid on
 
 figure('Units','normalized','Position',[.01 .01 .99 .99])
 subplot(3,4,[1,2,5,6])
 imagesc(as,as,RP_fft1), colormap([1 1 1; 0 0 0]), axis xy square
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 title("FFT 1")
 grid on
 
 subplot(3,4,[3,4,7,8])
 imagesc(as,as,RP_fft3), colormap([1 1 1; 0 0 0]), axis xy square
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 title("FFT 3")
 grid on
 
 subplot(3,4,[9,10])
 plot(as,RR_fft1), hold on
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 xlim([as(1) as(end)])
 grid on
 subplot(3,4,[11,12])
 plot(as,RR_fft3), hold on
-for j = 1:length(transitions)
-    xline(transitions(j),'r--','linewidth',lw1)
-end
+% for j = 1:length(transitions)
+%     xline(transitions(j),'r--','linewidth',lw1)
+% end
 xlim([as(1) as(end)])
 grid on
 
