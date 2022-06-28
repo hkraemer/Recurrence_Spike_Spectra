@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -18,6 +18,14 @@ Baptista MS, Ngamga EJ, Pinto PRF, Brito M, Kurths J (2010) {Kolmogorov-Sinai
 Brunton SL, Kutz JN (2019) Data-Driven Science and Engineering: Machine
   Learning, Dynamical Systems, and Control. Cambridge University Press,
   \doi{10.1017/9781108380690}
+
+\bibitem[{Brunton et~al.(2016)Brunton, Proctor, and Kutz}]{Brunton2016}
+Brunton SL, Proctor JL, Kutz JN (2016) Discovering governing equations from
+  data by sparse identification of nonlinear dynamical systems. Proceedings of
+  the National Academy of Sciences 113(15):3932--3937,
+  \doi{10.1073/pnas.1517384113},
+  \urlprefix\url{https://www.pnas.org/doi/abs/10.1073/pnas.1517384113},
+  \eprint{https://www.pnas.org/doi/pdf/10.1073/pnas.1517384113}
 
 \bibitem[{C{\'o}rdoba(1989)}]{Cordoba1989}
 C{\'o}rdoba A (1989) Dirac combs. Letters in Mathematical Physics
@@ -42,6 +50,13 @@ Kraemer KH, Datseris G, Kurths J, Kiss IZ, Ocampo-Espindola JL, Marwan N (2021)
   A unified and automated approach to attractor reconstruction. New Journal of
   Physics 23(3):033017, \doi{10.1088/1367-2630/abe336},
   \urlprefix\url{https://doi.org/10.1088/1367-2630/abe336}
+
+\bibitem[{Kraemer et~al.(2022)Kraemer, Gelbrecht, Pavithran, Sujith, and
+  Marwan}]{Kraemer2022}
+Kraemer KH, Gelbrecht M, Pavithran I, Sujith RI, Marwan N (2022) Optimal state
+  space reconstruction via monte carlo decision tree search. Nonlinear Dynamics
+  108(2):1525--1545, \doi{10.1007/s11071-022-07280-2},
+  \urlprefix\url{https://doi.org/10.1007/s11071-022-07280-2}
 
 \bibitem[{Lorenz(1963)}]{lorenz1963}
 Lorenz EN (1963) Deterministic nonperiodic flow. Journal of the Atmospheric

@@ -33,10 +33,11 @@
 \newlabel{fig_tau_rr_spectrum_example}{{1}{2}{Schematic illustration of a $\tau $-recurrence rate based spectrum. \textbf {A} $x$-component time series of the Lorenz63-System (Eq.~\eqref {eq_model_Lorenz63}) and \textbf {B} its corresponding Fourier power spectrum. \textbf {C} Reconstructed state space portrait from the time series shown in \textbf {A} using PECUZAL time-delay embedding \cite {Kraemer2021}. \textbf {D} Subset of the recurrence plot and the corresponding $\tau $-recurrence rate obtained from the state space trajectory in \textbf {C}. The shaded interval in the time series in \textbf {A} corresponds to the shown subset. \textbf {E} Fourier Power spectrum obtained from the $\tau $-recurrence (subset shown in panel \textbf {D}) \cite {Zbilut2008}}{figure.1}{}}
 \newlabel{eq_tau_rr}{{2}{2}{Introduction}{equation.1.2}{}}
 \newlabel{eq_dirac_comb}{{4}{3}{Introduction}{equation.1.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The transformation of a Dirac comb (series of Dirac delta functions) with a single inter-spike period $T_{\text  {is}}=100$ ($\setbox \z@ \hbox {\mathsurround \z@ $\textstyle =$}\mathaccent "0362{=}f=0.01$) into the frequency domain. \textbf  {A} Dirac Comb (DC) with equal amplitudes and \textbf  {B} its FFT-based powerspectrum. \textbf  {C} Proposed inter spike spectrum of the signal in \textbf  {A} showing a single frequency, which corresponds to the inter-spike period $T_{\text  {is}}$ ($f=0.01$). \textbf  {D} DC with randomly chosen amplitudes and same $T_{\text  {is}}$ as in \textbf  {A}, and \textbf  {E} its FFT-based powerspectrum. \textbf  {F} Proposed inter spike spectrum of the signal in \textbf  {D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text  {is}}$ ($f=0.01$). Inter spike spectra were obtained with a regularization threshold corresponding to $\rho =0.9$ accordance of the signals in (\textbf  {A},\textbf  {D}) and its re-composed signals. }}{3}{figure.2}\protected@file@percent }
-\newlabel{fig_tau_rr_dirac_comb}{{2}{3}{The transformation of a Dirac comb (series of Dirac delta functions) with a single inter-spike period $T_{\text {is}}=100$ ($\widehat {=}f=0.01$) into the frequency domain. \textbf {A} Dirac Comb (DC) with equal amplitudes and \textbf {B} its FFT-based powerspectrum. \textbf {C} Proposed inter spike spectrum of the signal in \textbf {A} showing a single frequency, which corresponds to the inter-spike period $T_{\text {is}}$ ($f=0.01$). \textbf {D} DC with randomly chosen amplitudes and same $T_{\text {is}}$ as in \textbf {A}, and \textbf {E} its FFT-based powerspectrum. \textbf {F} Proposed inter spike spectrum of the signal in \textbf {D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text {is}}$ ($f=0.01$). Inter spike spectra were obtained with a regularization threshold corresponding to $\rho =0.9$ accordance of the signals in (\textbf {A},\textbf {D}) and its re-composed signals}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The transformation of a Dirac comb (series of Dirac delta functions) with a single inter-spike period $T_{\text  {is}}=100$ ($\setbox \z@ \hbox {\mathsurround \z@ $\textstyle =$}\mathaccent "0362{=}f=0.01$) into the frequency domain. \textbf  {A} Dirac Comb (DC) with equal amplitudes and \textbf  {B} its FFT-based powerspectrum. \textbf  {C} Proposed inter spike spectrum of the signal in \textbf  {A} showing a single frequency, which corresponds to the inter-spike period $T_{\text  {is}}$ ($f=0.01$). \textbf  {D} DC with randomly chosen amplitudes and same $T_{\text  {is}}$ as in \textbf  {A}, and \textbf  {E} its FFT-based powerspectrum. \textbf  {F} Proposed inter spike spectrum of the signal in \textbf  {D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text  {is}}$ ($f=0.01$). Inter spike spectra were obtained with a LASSO regression and a regularization threshold corresponding to $\rho =0.9$ accordance of the signals in (\textbf  {A},\textbf  {D}) and its re-composed signals (c.f. Section\nobreakspace  {}\ref  {sec_tau_rr_method}). }}{3}{figure.2}\protected@file@percent }
+\newlabel{fig_tau_rr_dirac_comb}{{2}{3}{The transformation of a Dirac comb (series of Dirac delta functions) with a single inter-spike period $T_{\text {is}}=100$ ($\widehat {=}f=0.01$) into the frequency domain. \textbf {A} Dirac Comb (DC) with equal amplitudes and \textbf {B} its FFT-based powerspectrum. \textbf {C} Proposed inter spike spectrum of the signal in \textbf {A} showing a single frequency, which corresponds to the inter-spike period $T_{\text {is}}$ ($f=0.01$). \textbf {D} DC with randomly chosen amplitudes and same $T_{\text {is}}$ as in \textbf {A}, and \textbf {E} its FFT-based powerspectrum. \textbf {F} Proposed inter spike spectrum of the signal in \textbf {D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text {is}}$ ($f=0.01$). Inter spike spectra were obtained with a LASSO regression and a regularization threshold corresponding to $\rho =0.9$ accordance of the signals in (\textbf {A},\textbf {D}) and its re-composed signals (c.f. Section~\ref {sec_tau_rr_method})}{figure.2}{}}
 \citation{Brunton2019}
 \citation{Tibshirani1996}
+\citation{Brunton2016,Brunton2019}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Method}{4}{section.2}\protected@file@percent }
 \newlabel{sec_tau_rr_method}{{2}{4}{Method}{section.2}{}}
 \newlabel{eq_basis_matrix}{{6}{4}{Method}{equation.2.6}{}}
@@ -46,21 +47,23 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Application}{5}{section.3}\protected@file@percent }
 \newlabel{sec_tau_rr_application}{{3}{5}{Application}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Period estimation for different dynamics in the R\"ossler system}{5}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Inter spike spectra of the $\tau $-RR of the R\"ossler system in three different dynamical regimes with parameters $b=2$, $c=4$. Trajectory of the system in a \textbf  {A} period-2 (parameter $a=0.36$), \textbf  {B} in a period-3 (parameter $a=0.41$) and \textbf  {C} in a chaotic regime (parameter $a=0.428$). \textbf  {D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global recurrence rate for D \& E and 5\% for F. \textbf  {G, H, I} $\tau $-RR's of the shown RPs. \textbf  {J, K, L} The proposed inter spike spectra of the $\tau $-RR's shown in panels G, H, I. Spectra were obtained with a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic. \textbf  {M, N, P} Fourier power spectra of the $\tau $-RR's shown in panels G, H, I. }}{6}{figure.4}\protected@file@percent }
-\newlabel{fig_tau_rr_example_roessler}{{4}{6}{Inter spike spectra of the $\tau $-RR of the R\"ossler system in three different dynamical regimes with parameters $b=2$, $c=4$. Trajectory of the system in a \textbf {A} period-2 (parameter $a=0.36$), \textbf {B} in a period-3 (parameter $a=0.41$) and \textbf {C} in a chaotic regime (parameter $a=0.428$). \textbf {D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global recurrence rate for D \& E and 5\% for F. \textbf {G, H, I} $\tau $-RR's of the shown RPs. \textbf {J, K, L} The proposed inter spike spectra of the $\tau $-RR's shown in panels G, H, I. Spectra were obtained with a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic. \textbf {M, N, P} Fourier power spectra of the $\tau $-RR's shown in panels G, H, I}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Inter spike spectra of the $\tau $-RR of the R\"ossler system in three different dynamical regimes with parameters $b=2$, $c=4$. Trajectory of the system in a \textbf  {A} period-2 (parameter $a=0.36$), \textbf  {B} in a period-3 (parameter $a=0.41$) and \textbf  {C} in a chaotic regime (parameter $a=0.428$). \textbf  {D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global recurrence rate for D \& E and 5\% for F. \textbf  {G, H, I} $\tau $-RR's of the shown RPs. \textbf  {J, K, L} The proposed inter spike spectra of the $\tau $-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic. \textbf  {M, N, P} Fourier power spectra of the $\tau $-RR's shown in panels G, H, I. }}{6}{figure.4}\protected@file@percent }
+\newlabel{fig_tau_rr_example_roessler}{{4}{6}{Inter spike spectra of the $\tau $-RR of the R\"ossler system in three different dynamical regimes with parameters $b=2$, $c=4$. Trajectory of the system in a \textbf {A} period-2 (parameter $a=0.36$), \textbf {B} in a period-3 (parameter $a=0.41$) and \textbf {C} in a chaotic regime (parameter $a=0.428$). \textbf {D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global recurrence rate for D \& E and 5\% for F. \textbf {G, H, I} $\tau $-RR's of the shown RPs. \textbf {J, K, L} The proposed inter spike spectra of the $\tau $-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic. \textbf {M, N, P} Fourier power spectra of the $\tau $-RR's shown in panels G, H, I}{figure.4}{}}
 \citation{Schreiber1996,Schreiber2000}
 \citation{Schreiber1996,Schreiber2000}
 \citation{Schreiber1996,Schreiber2000}
-\citation{Zbilut2008}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Bifurcations in the Logistic map}{7}{subsection.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. \textbf  {B} Number of significant peaks ($\alpha =0.05$) in the inter spike spectrum of the $\tau $-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf  {A} (white noise surrogates). \textbf  {C} Same as \textbf  {B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite  {Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals. }}{8}{figure.5}\protected@file@percent }
-\newlabel{fig_tau_rr_logistic}{{5}{8}{\textbf {A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. \textbf {B} Number of significant peaks ($\alpha =0.05$) in the inter spike spectrum of the $\tau $-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf {A} (white noise surrogates). \textbf {C} Same as \textbf {B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite {Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals}{figure.5}{}}
+\citation{Zbilut2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. \textbf  {B} Number of significant peaks ($\alpha =0.05$) in the inter spike spectrum of the $\tau $-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf  {A} (white noise surrogates). \textbf  {C} Same as \textbf  {B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite  {Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used a LASSO regression and a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals. }}{8}{figure.5}\protected@file@percent }
+\newlabel{fig_tau_rr_logistic}{{5}{8}{\textbf {A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. \textbf {B} Number of significant peaks ($\alpha =0.05$) in the inter spike spectrum of the $\tau $-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf {A} (white noise surrogates). \textbf {C} Same as \textbf {B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite {Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used a LASSO regression and a regularization threshold corresponding to $\rho =0.95$ accordance of $\tau $-RR's and re-composed signals}{figure.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Evolutionary spike spectrogram of CENOGRID isotope time series}{8}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{8}{section.4}\protected@file@percent }
 \newlabel{sec_tau_rr_conclusion}{{4}{8}{Conclusion}{section.4}{}}
-\citation{Kraemer2021}
+\citation{Kraemer2021,Kraemer2022}
 \citation{datseris2018}
 \citation{rackauckas2017}
+\@writefile{tdo}{\contentsline {todo}{Here a quick summary of the other applications.}{9}{section*.1}\protected@file@percent }
+\pgfsyspdfmark {pgfid1}{16090397}{41339210}
 \citation{lorenz1963}
 \@writefile{toc}{\contentsline {section}{\numberline {A}Inter spike spectra for noisy R\"ossler system}{10}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Same as in Fig.\nobreakspace  {}\ref  {fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise. The appearance of the inter spike spectra in \textbf  {J, K, L} and the Fourier spectra in \textbf  {M, N, P} are unaffected by the additive noise noise. }}{10}{figure.6}\protected@file@percent }
@@ -70,17 +73,16 @@
 \bibdata{inter_spike_bib}
 \bibcite{baptista2010}{{1}{2010}{{Baptista et~al.}}{{Baptista, Ngamga, Pinto, Brito, and Kurths}}}
 \bibcite{Brunton2019}{{2}{2019}{{Brunton and Kutz}}{{}}}
-\bibcite{Cordoba1989}{{3}{1989}{{C{\'o}rdoba}}{{}}}
-\bibcite{datseris2018}{{4}{2018}{{Datseris}}{{}}}
-\bibcite{Kraemer2019}{{5}{2019}{{Kraemer and Marwan}}{{}}}
-\bibcite{Kraemer2021}{{6}{2021}{{Kraemer et~al.}}{{Kraemer, Datseris, Kurths, Kiss, Ocampo-Espindola, and Marwan}}}
-\bibcite{lorenz1963}{{7}{1963}{{Lorenz}}{{}}}
-\bibcite{march2005}{{8}{2005}{{March et~al.}}{{March, Chapman, and Dendy}}}
-\bibcite{marwan2002pla}{{9}{2002}{{Marwan and Kurths}}{{}}}
-\bibcite{marwan2007}{{10}{2007}{{Marwan et~al.}}{{Marwan, Romano, Thiel, and Kurths}}}
-\bibcite{rackauckas2017}{{11}{2017}{{Rackauckas and Nie}}{{}}}
-\bibcite{roessler1976}{{12}{1976}{{Rössler}}{{}}}
-\bibcite{Schild1982}{{13}{1982}{{Schild}}{{}}}
+\bibcite{Brunton2016}{{3}{2016}{{Brunton et~al.}}{{Brunton, Proctor, and Kutz}}}
+\bibcite{Cordoba1989}{{4}{1989}{{C{\'o}rdoba}}{{}}}
+\bibcite{datseris2018}{{5}{2018}{{Datseris}}{{}}}
+\bibcite{Kraemer2019}{{6}{2019}{{Kraemer and Marwan}}{{}}}
+\bibcite{Kraemer2021}{{7}{2021}{{Kraemer et~al.}}{{Kraemer, Datseris, Kurths, Kiss, Ocampo-Espindola, and Marwan}}}
+\bibcite{Kraemer2022}{{8}{2022}{{Kraemer et~al.}}{{Kraemer, Gelbrecht, Pavithran, Sujith, and Marwan}}}
+\bibcite{lorenz1963}{{9}{1963}{{Lorenz}}{{}}}
+\bibcite{march2005}{{10}{2005}{{March et~al.}}{{March, Chapman, and Dendy}}}
+\bibcite{marwan2002pla}{{11}{2002}{{Marwan and Kurths}}{{}}}
+\bibcite{marwan2007}{{12}{2007}{{Marwan et~al.}}{{Marwan, Romano, Thiel, and Kurths}}}
 \@writefile{toc}{\contentsline {section}{\numberline {B}Exemplary models}{11}{appendix.B}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {B.1}Lorenz system}{11}{subsection.B.1}\protected@file@percent }
 \newlabel{sec_models_lorenz63}{{B.1}{11}{Lorenz system}{subsection.B.1}{}}
@@ -88,7 +90,10 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {B.2}R\"ossler system}{11}{subsection.B.2}\protected@file@percent }
 \newlabel{sec_models_roessler}{{B.2}{11}{R\"ossler system}{subsection.B.2}{}}
 \newlabel{eq_model_roessler}{{9}{11}{R\"ossler system}{equation.B.9}{}}
-\bibcite{Schreiber1996}{{14}{1996}{{Schreiber and Schmitz}}{{}}}
-\bibcite{Schreiber2000}{{15}{2000}{{Schreiber and Schmitz}}{{}}}
-\bibcite{Tibshirani1996}{{16}{1996}{{Tibshirani}}{{}}}
-\bibcite{Zbilut2008}{{17}{2008}{{Zbilut and Marwan}}{{}}}
+\bibcite{rackauckas2017}{{13}{2017}{{Rackauckas and Nie}}{{}}}
+\bibcite{roessler1976}{{14}{1976}{{Rössler}}{{}}}
+\bibcite{Schild1982}{{15}{1982}{{Schild}}{{}}}
+\bibcite{Schreiber1996}{{16}{1996}{{Schreiber and Schmitz}}{{}}}
+\bibcite{Schreiber2000}{{17}{2000}{{Schreiber and Schmitz}}{{}}}
+\bibcite{Tibshirani1996}{{18}{1996}{{Tibshirani}}{{}}}
+\bibcite{Zbilut2008}{{19}{2008}{{Zbilut and Marwan}}{{}}}

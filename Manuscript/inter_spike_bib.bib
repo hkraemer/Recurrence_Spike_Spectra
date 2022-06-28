@@ -1853,3 +1853,34 @@ author = {Thomas Schreiber and Andreas Schmitz},
 keywords = {Time series, Surrogate data, Nonlinearity},
 abstract = {Before we apply nonlinear techniques, e.g. those inspired by chaos theory, to dynamical phenomena occurring in nature, it is necessary to first ask if the use of such advanced techniques is justified by the data. While many processes in nature seem very unlikely a priori to be linear, the possible nonlinear nature might not be evident in specific aspects of their dynamics. The method of surrogate data has become a very popular tool to address such a question. However, while it was meant to provide a statistically rigorous, foolproof framework, some limitations and caveats have shown up in its practical use. In this paper, recent efforts to understand the caveats, avoid the pitfalls, and to overcome some of the limitations, are reviewed and augmented by new material. In particular, we will discuss specific as well as more general approaches to constrained randomisation, providing a full range of examples. New algorithms will be introduced for unevenly sampled and multivariate data and for surrogate spike trains. The main limitation, which lies in the interpretability of the test results, will be illustrated through instructive case studies. We will also discuss some implementational aspects of the realisation of these methods in the TISEAN software package.}
 }
+
+
+@article{Kraemer2022,
+	abstract = {A novel idea for an optimal time delay state space reconstruction from uni- and multivariate time series is presented. The entire embedding process is considered as a game, in which each move corresponds to an embedding cycle and is subject to an evaluation through an objective function. This way the embedding procedure can be modeled as a tree, in which each leaf holds a specific value of the objective function. By using a Monte Carlo ansatz, the proposed algorithm populates the tree with many leafs by computing different possible embedding paths and the final embedding is chosen as that particular path, which ends at the leaf with the lowest achieved value of the objective function. The method aims to prevent getting stuck in a local minimum of the objective function and can be used in a modular way, enabling practitioners to choose a statistic for possible delays in each embedding cycle as well as a suitable objective function themselves. The proposed method guarantees the optimization of the chosen objective function over the parameter space of the delay embedding as long as the tree is sampled sufficiently. As a proof of concept, we demonstrate the superiority of the proposed method over the classical time delay embedding methods using a variety of application examples. We compare recurrence plot-based statistics inferred from reconstructions of a Lorenz-96 system and highlight an improved forecast accuracy for map-like model data as well as for palaeoclimate isotope time series. Finally, we utilize state space reconstruction for the detection of causality and its strength between observables of a gas turbine type thermoacoustic combustor.},
+	author = {Kraemer, K. Hauke and Gelbrecht, Maximilian and Pavithran, Induja and Sujith, R. I. and Marwan, Norbert},
+	date = {2022/04/01},
+	date-added = {2022-06-27 22:29:41 +0200},
+	date-modified = {2022-06-27 22:29:41 +0200},
+	doi = {10.1007/s11071-022-07280-2},
+	id = {Kraemer2022},
+	isbn = {1573-269X},
+	journal = {Nonlinear Dynamics},
+	number = {2},
+	pages = {1525--1545},
+	title = {Optimal state space reconstruction via Monte Carlo decision tree search},
+	url = {https://doi.org/10.1007/s11071-022-07280-2},
+	volume = {108},
+	year = {2022},
+	bdsk-url-1 = {https://doi.org/10.1007/s11071-022-07280-2}}
+
+@article{Laskar2011,
+	author = {{Laskar, J.} and {Fienga, A.} and {Gastineau, M.} and {Manche, H.}},
+	title = {La2010: a new orbital solution for the long-term motion  of the Earth},
+	DOI= "10.1051/0004-6361/201116836",
+	url= "https://doi.org/10.1051/0004-6361/201116836",
+	journal = {A\&A},
+	year = 2011,
+	volume = 532,
+	pages = "A89",
+	month = "",
+}

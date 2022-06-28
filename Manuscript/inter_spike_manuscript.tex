@@ -72,7 +72,7 @@ grestore
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 %
 % please place your own definitions here and don't use \def but
-% \newcommand{}{}
+\newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
 %
 % Insert the name of "your journal" with
 \journalname{Nonlinear Dynamics}
@@ -334,36 +334,13 @@ research task.
 \label{fig_tau_rr_logistic}
 \end{figure}
 
-\subsection{Evolutionary spike spectrogram of CENOGRID isotope time series}
+\subsection{Evolutionary spike spectrogram of Earth's orbit time series}
 
-%To demonstrate XXXXXX we applied it to the recently published CENOzoic Global Reference
-%benthic foraminifer carbon and oxygen Isotope Dataset (CENOGRID) \cite{Westerhold2020}. 
-%The temperature-dependent fractionation of carbon and oxygen isotopes in benthic foraminifera
-%is an important means to reconstruct past global temperatures and environmental conditions.
-%Moreover, the Cenozoic is interesting, because it provides an analogue of future greenhouse 
-%climate and how and which regime shifts in large-scale atmospheric and ocean circulation 
-%can be expected in the future warming climate. The dataset consists of a detrended $\delta^{18}$O and a detrended $\delta^{13}$C isotope record with a total length
-%of $N=13,421$ samples and a sampling period of $\Delta t= 5,000 \text{yrs}$ (Figure \ref{fig_time_series_cenogrid} in Appendix \ref{sec_appendix_cenogrid}). Here we made predictions 
-%on the $\delta^{13}$C isotope record.
-%
-%We again utilize the Cenozoic Global Reference benthic foraminifer carbon and oxygen Isotope Dataset (CENOGRID) \cite{Westerhold2020}. The time series 
-%have a total length of $N=13,421$ samples and a sampling period of 
-%$\Delta t= 5,000 \text{yrs}$. The records and their corresponding RPs are shown in 
-%Figure~\ref{fig_tauRR_cenogrid_RPs} together with remarkable climate transitions in the Cenozoic (detrended time series in Fig.~\ref{fig_time_series_cenogrid} in 
-%Appendix~\ref{sec_appendix_cenogrid}). Among other things, the large-scale patterns in the RPs shown were used by \textcite{Westerhold2020} to classify major climate 
-%states: Hothouse, Warmhouse, Coldhouse and Icehouse. 
-%
-%\begin{figure}[h!]
-% \centering
-% \includegraphics[width=\textwidth]{./figures/chapter06_tauRR/fig_tauRR_cenogrid_RPs}
-% \caption{\textbf{A} $\delta^{13}$C and \textbf{B} $\delta^{18}$O isotope records and their corresponding RPs (\textbf{C+D}), obtained from the non-embedded time 
-% series under a fixed recurrence threshold corresponding to 8\% global RR. These plots were used by \textcite{Westerhold2020} to classify the major climate states 
-% Hothouse, Warmhouse, Cold- and Icehouse.
-% }
-%\label{fig_tauRR_cenogrid_RPs}
-%\end{figure}
-%
-%
+To demonstrate the usefulness of the proposed inter spike spectrum, we apply it to the freely available eccentricity time series of 
+\citet{Laskar2011}. \todo[inline]{blabla what is this used for usually? etc.} We use a time series which covers the past \mytilde $67$ Mio. years, which a total length
+of $N=13,421$ samples and a sampling period of $\Delta t= 5,000$. 
+
+
 %While in Chapter \ref{chapter:MCDTS}, 
 %Section \ref{sec_mcdts_cenogrid_prediction} predictions were made for the detrended $\delta^{13}$C record, here the focus is on the analysis of the characteristic time scales 
 %in both, the detrended $\delta^{18}$O and the detrended $\delta^{13}$C isotope records. Specifically, we have computed spike powerspectra of the $\tau$-RR windowed over each record. 
@@ -410,28 +387,34 @@ research task.
 \section{Conclusion}\label{sec_tau_rr_conclusion}
 
 A novel type of powerspectrum, the \textit{inter spike spectrum}, has been proposed. The method decomposes any arbitrary signal into basis functions which consist of (lagged) Dirac 
-combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution (we chose LASSO). Since there are 
-$M = \sum_{i=1}^{N}i$ basis functions for a signal of length $N$ the regression can get computationally intensive for $N>1,000$. When plotting the computed loadings as a function 
-of the frequency (or period) the inter spike spectrum is obtained. This novel powerspectrum is superior to an ordinary FFT-based powerspectrum, when the signal has a spike-train-like 
-appearance. The invention of the proposed method has been motivated by the idea of transforming $\tau$-recurrence rate signals ($\tau$-RR's) into their frequency domain. 
+combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution (we chose LASSO or a sequentially 
+thresholded least squares regression STLS). Since there are 
+$M = \sum_{i=1}^{\ceil*{N/2}+1}i$ basis functions for a signal of length $N$ the regression can get computationally intensive for $N>1,000$. When plotting the computed loadings as a function 
+of the period (or frequency) the inter spike spectrum is obtained. This novel powerspectrum is superior to an ordinary FFT-based powerspectrum, when the signal has a spike-train-like 
+appearance. Due to the sparse regression underlying the method, there is no unique inverse of the transformation and the regularization parameter plays a crucial role and determines the 
+appearance of the obtained inter spike spectrum. Moreover, similar to the Nyquist frequency barrier in the Fourier Transform which sets a lower bound for the corresponding wave period, here 
+the maximum considered inter spike period is bounded by $T_{\text{is}}^{\text{max}} = \ceil*{N/2}+1$.
+
+The invention of the proposed method has been motivated by the idea of transforming $\tau$-recurrence rate signals ($\tau$-RR's) into their frequency domain. 
 This general idea \cite{Zbilut2008} allows for a frequency analysis of high dimensional systems, because the RP is a representation of the system's state space trajectory.   
 The $\tau$-RR of a recurrence plot (RP) usually has a spiky shape, especially for map-like data, and the inter spike spectrum can reliably reveal the system's dominant frequencies, 
 which is not possible when Fourier transforming the $\tau$-RR or the underlying signal itself. Since the position of the peaks 
 in the $\tau$-RR are not sensitive to noise, the corresponding inter spike spectrum also yields robust results in the presence of noise. We have successfully used the idea 
 of transforming the $\tau$-RR for the detection of bifurcations in the Logistic map. By constructing appropriate surrogates of the inter spike spectra, and thus a null model, 
 the number of significant peaks in the inter spike spectrum correlated well with the positive Lyapunov exponent. This measure was also able to resolve period-doubling bifurcations. 
+\todo[inline]{Here a quick summary of the other applications.}
 
 We could think of a broad range of applications of the proposed idea. The inter spike spectrum itself can serve as a valuable tool for the analysis of any sort of 
 spike-train-like data. On the other hand, the inter spike spectrum of the $\tau$-RR of a signal can serve as a generalized, nonlinear frequency analysis tool for complex systems. 
-When there is only a subset of state variables available, the state space has to be reconstructed as a pre-processing step. Recent findings \cite{Kraemer2021} show that 
+When there is only a subset of state variables available, the state space has to be reconstructed as a pre-processing step. Recent findings \cite{Kraemer2021,Kraemer2022} show that 
 this reconstruction process can be reliably automated and applied to multivariate data as well. This would allow for a ``running window'' approach, in order to detect transitions. 
 Due to the mentioned computational constraints of our proposed method, a window size $w\leq 1,000$ would possibly suffice for most data, especially when it is map-like, i.e., not 
 highly sampled.  
 
 
 \begin{acknowledgements}
-This work has been financially supported by the German Research Foundation (DFG projects MA4759/8 and MA4759/9). All computations have been carried out in the Julia language 
-and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} and \textit{DifferentialEquations.jl} \cite{rackauckas2017}.
+This work has been financially supported by the German Research Foundation (DFG projects MA4759/8 and MA4759/9). All computations have been carried out in MATLAB\textsuperscript{\textregistered} 
+and the Julia language and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} and \textit{DifferentialEquations.jl} \cite{rackauckas2017}.
 \end{acknowledgements}
 
 
@@ -439,9 +422,17 @@ and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} an
 % could have direct or potential influence or impart bias on 
 % the work: 
 %
- \section*{Conflict of interest}
+\section*{Conflict of interest}
 
- The authors declare that they have no conflict of interest.
+The authors declare that they have no conflict of interest.
+ 
+\section*{Code availability}
+
+The study that we present here is available as a fully reproducible code base
+**Repository will be published and cited here, when accepted** and the method
+will be available in the Julia language **Package will be published and cited here, 
+when accepted** and as a MATLAB\textsuperscript{\textregistered} toolbox 
+**Toolbox will be published and cited here, when accepted**.
 
 \clearpage
 \appendix

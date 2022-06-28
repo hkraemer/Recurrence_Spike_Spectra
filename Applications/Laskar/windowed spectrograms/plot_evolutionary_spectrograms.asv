@@ -42,15 +42,13 @@ for i = 1:length(spec_ecc)
     spec_ecc(:,i) = spec_ecc(:,i) ./ sum(spec_ecc(:,i));
 end
 for i = 1:length(spectrum_ecc_ne)
-    spectrum_ecc_ne(:,i) = spectrum_ecc_ne(:,i) ./ sum(spectrum_ecc_ne(:,i));
-    spectrum_ecc_mcdts(:,i) = spectrum_ecc_mcdts(:,i) ./ sum(spectrum_ecc_mcdts(:,i));
-    spectrum_ecc_fft(:,i) = spectrum_ecc_fft(:,i) ./ sum(spectrum_ecc_fft(:,i));
-    spectrum_ecc_fft_ne(:,i) = spectrum_ecc_fft_ne(:,i) ./ sum(spectrum_ecc_fft_ne(:,i));
-end
+    spectrum_ecc_ne(:,i) = spectrum_ecc_ne(:,i)
+
+
 
 %% Plot the wavelet-like spectrograms 
 
-method = 2; % 1 = MCDTS, 2 = no embedding
+method = 1; % 1 = MCDTS, 2 = no embedding
 
 m_string = ["(MCDTS)", "(no embedding)"];
 
@@ -82,7 +80,7 @@ ttf = 1./f(2:end); % periods for short FT of raw time series
 ylines2 = [21000 41000 100000 405000];
 ylimms2 = [10000 450000];
 
-c_ax_upper = 0.05;
+c_ax_upper = 0.5;
 
 figure('Units','normalized','Position',[.01 .01 .99 .99])
 

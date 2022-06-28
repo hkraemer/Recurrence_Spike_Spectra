@@ -4,44 +4,44 @@ The top-level auxiliary file: inter_spike_manuscript.aux
 The style file: spbasic.bst
 Database file #1: inter_spike_bib.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 17 entries,
+You've used 19 entries,
             3269 wiz_defined-function locations,
-            820 strings with 8502 characters,
-and the built_in function-call counts, 17474 in all, are:
-= -- 1630
-> -- 370
+            842 strings with 9170 characters,
+and the built_in function-call counts, 20303 in all, are:
+= -- 1895
+> -- 446
 < -- 13
-+ -- 139
-- -- 114
-* -- 1574
-:= -- 2372
-add.period$ -- 17
-call.type$ -- 17
-change.case$ -- 122
-chr.to.int$ -- 17
-cite$ -- 17
-duplicate$ -- 1581
-empty$ -- 1675
-format.name$ -- 167
-if$ -- 3688
++ -- 165
+- -- 138
+* -- 1854
+:= -- 2745
+add.period$ -- 19
+call.type$ -- 19
+change.case$ -- 140
+chr.to.int$ -- 19
+cite$ -- 19
+duplicate$ -- 1830
+empty$ -- 1939
+format.name$ -- 197
+if$ -- 4286
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 171
-newline$ -- 61
-num.names$ -- 68
-pop$ -- 291
+missing$ -- 195
+newline$ -- 67
+num.names$ -- 76
+pop$ -- 334
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 122
 quote$ -- 0
-skip$ -- 268
+skip$ -- 302
 stack$ -- 0
-substring$ -- 2062
-swap$ -- 432
+substring$ -- 2424
+swap$ -- 493
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 150
+type$ -- 168
 warning$ -- 0
-while$ -- 126
+while$ -- 145
 width$ -- 0
-write$ -- 223
+write$ -- 250
