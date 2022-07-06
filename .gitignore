@@ -60,3 +60,7 @@ Applications/Kuramoto model/system with switch/results/results_kuramoto_switchff
 Applications/Kuramoto model/system with switch/results/emd1t.csv
 
 *.csv
+
+Applications/Power Grid/CE and GB frequencies/data/Frequency_OLD_2016_2017.txt
+
+Applications/Power Grid/CE and GB frequencies/data/Frequency_UK_2016.txt
