@@ -36,7 +36,7 @@ spectrum_fft = readdlm("./Applications/Kuramoto model/system with switch/results
 spectrum_fft_t = readdlm("./Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_fft_spectrum_t_no_noise.csv")
 
 
-N, M = size(spectrum1)
+N, M = size(spectrum1t)
 
 # standardize FFT-spectra to probabilities
 for j = 1:N
