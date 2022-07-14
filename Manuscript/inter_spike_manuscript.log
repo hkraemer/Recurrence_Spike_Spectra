@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.7.14)  14 JUL 2022 18:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.7.14)  14 JUL 2022 19:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1150,46 +1150,50 @@ LaTeX Warning: Reference `' on page 8 undefined on input line 346.
 LaTeX Warning: Reference `' on page 8 undefined on input line 346.
 
 
+LaTeX Warning: Reference `' on page 8 undefined on input line 349.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 345--350
 
  []
 
-<./figures/fig_power_grid_spectra_lasso_standard_20s.png, id=392, 1794.705pt x 
+[8 <./figures/fig_tau_rr_logistic.pdf>]
+<./figures/fig_power_grid_spectra_lasso_standard_20s.png, id=508, 1794.705pt x 
 915.42pt>
 File: ./figures/fig_power_grid_spectra_lasso_standard_20s.png Graphic file (typ
 e png)
 <use ./figures/fig_power_grid_spectra_lasso_standard_20s.png>
 Package pdftex.def Info: ./figures/fig_power_grid_spectra_lasso_standard_20s.pn
-g  used on input line 354.
+g  used on input line 356.
 (pdftex.def)             Requested size: 347.0pt x 176.99063pt.
-[8 <./figures/fig_tau_rr_logistic.pdf>]
+
 
 Package natbib Warning: Citation `Zbilut2008' on page 9 undefined on input line
- 372.
+ 374.
 
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 378.
+ine 380.
 [9 <./figures/fig_power_grid_spectra_lasso_standard_20s.png (PNG copy)>]
 
 Package natbib Warning: Citation `Kraemer2021' on page 10 undefined on input li
-ne 382.
+ne 384.
 
 
 Package natbib Warning: Citation `Kraemer2022' on page 10 undefined on input li
-ne 382.
+ne 384.
 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-89.
+91.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
 Package natbib Warning: Citation `datseris2018' on page 10 undefined on input l
-ine 390.
+ine 392.
 
 
 Package natbib Warning: Citation `rackauckas2017' on page 10 undefined on input
- line 390.
+ line 392.
 
 [10]
 
@@ -1201,11 +1205,11 @@ lowed
 File: ./figures/fig_tau_rr_example_roessler_noise.pdf Graphic file (type pdf)
 <use ./figures/fig_tau_rr_example_roessler_noise.pdf>
 Package pdftex.def Info: ./figures/fig_tau_rr_example_roessler_noise.pdf  used 
-on input line 416.
+on input line 418.
 (pdftex.def)             Requested size: 312.29788pt x 464.86333pt.
 
 Package natbib Warning: Citation `lorenz1963' on page 11 undefined on input lin
-e 427.
+e 429.
 
 
 Underfull \vbox (badness 4108) has occurred while \output is active []
@@ -1215,7 +1219,7 @@ Underfull \vbox (badness 4108) has occurred while \output is active []
  <./figures/fig_tau_rr_example_roessler_noise.pdf>]
 
 Package natbib Warning: Citation `roessler1976' on page 12 undefined on input l
-ine 444.
+ine 446.
 
 (./inter_spike_manuscript.bbl
 
@@ -1233,11 +1237,11 @@ Package natbib Warning: Empty `thebibliography' environment on input line 11.
 Package natbib Warning: There were undefined citations.
 
 [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 471.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 471.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 473.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 473.
  (./inter_spike_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 471.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 471.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 473.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 473.
 Package rerunfilecheck Info: File `inter_spike_manuscript.out' has not changed.
 
 (rerunfilecheck)             Checksum: 584BBD7E34D45BBD58B88A837CB7CFD1;314.
@@ -1245,7 +1249,7 @@ Package rerunfilecheck Info: File `inter_spike_manuscript.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 471.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 473.
  ) 
 Here is how much of TeX's memory you used:
  23049 strings out of 483107
@@ -1265,7 +1269,7 @@ rw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on inter_spike_manuscript.pdf (12 pages, 9908913 bytes).
+Output written on inter_spike_manuscript.pdf (12 pages, 9909037 bytes).
 PDF statistics:
  646 PDF objects out of 1000 (max. 8388607)
  387 compressed objects within 4 object streams
