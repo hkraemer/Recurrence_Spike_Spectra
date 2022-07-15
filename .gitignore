@@ -64,3 +64,14 @@ Applications/Kuramoto model/system with switch/results/emd1t.csv
 Applications/Power Grid/CE and GB frequencies/data/Frequency_OLD_2016_2017.txt
 
 Applications/Power Grid/CE and GB frequencies/data/Frequency_UK_2016.txt
+
+# remove compilation output(s)
+Manuscript/*.aux
+Manuscript/*.bbl
+Manuscript/*.blg
+Manuscript/*.loc
+Manuscript/*.log
+Manuscript/*.out
+Manuscript/*.pdf
+Manuscript/*.soc
+Manuscript/*.synctex.gz
