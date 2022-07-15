@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.24)  15 JUL 2022 12:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.24)  15 JUL 2022 17:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1058,33 +1058,25 @@ File: ./figures/fig_tau_rr_logistic.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./figures/fig_tau_rr_logistic.pdf  used on input line 
 329.
 (pdftex.def)             Requested size: 347.0pt x 236.99962pt.
-
-LaTeX Warning: Reference `' on page 7 undefined on input line 351.
-
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 351.
 [7]
-
-LaTeX Warning: Reference `' on page 8 undefined on input line 352.
-
-
-LaTeX Warning: Reference `' on page 8 undefined on input line 355.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 351--356
 
  []
 
 [8 <./figures/fig_tau_rr_logistic.pdf>]
-<./figures/fig_power_grid_spectra_lasso_standard_20s.png, id=556, 1794.705pt x 
-915.42pt>
-File: ./figures/fig_power_grid_spectra_lasso_standard_20s.png Graphic file (typ
-e png)
-<use ./figures/fig_power_grid_spectra_lasso_standard_20s.png>
-Package pdftex.def Info: ./figures/fig_power_grid_spectra_lasso_standard_20s.pn
-g  used on input line 362.
-(pdftex.def)             Requested size: 347.0pt x 176.99063pt.
- [9 <./figures/fig_power_grid_spectra_lasso_standard_20s.png (PNG copy)>]
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figures/fig_power_grid_spe
+ctra.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5> al
+lowed
+<./figures/fig_power_grid_spectra.pdf, id=561, 1621.2469pt x 899.46942pt>
+File: ./figures/fig_power_grid_spectra.pdf Graphic file (type pdf)
+<use ./figures/fig_power_grid_spectra.pdf>
+Package pdftex.def Info: ./figures/fig_power_grid_spectra.pdf  used on input li
+ne 362.
+(pdftex.def)             Requested size: 347.0pt x 192.51749pt.
+[9 <./figures/fig_power_grid_spectra.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
 97.
 
@@ -1095,7 +1087,7 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figures/fig_tau_rr_example
 _roessler_noise.pdf): PDF inclusion: found PDF version <1.6>, but at most versi
 on <1.5> allowed
-<./figures/fig_tau_rr_example_roessler_noise.pdf, id=579, 755.99242pt x 1125.30
+<./figures/fig_tau_rr_example_roessler_noise.pdf, id=607, 755.99242pt x 1125.30
 411pt>
 File: ./figures/fig_tau_rr_example_roessler_noise.pdf Graphic file (type pdf)
 <use ./figures/fig_tau_rr_example_roessler_noise.pdf>
@@ -1107,9 +1099,18 @@ Underfull \vbox (badness 4108) has occurred while \output is active []
 
  [11
 
- <./figures/fig_tau_rr_example_roessler_noise.pdf>] (./inter_spike_manuscript.b
-bl
-[12]
+ <./figures/fig_tau_rr_example_roessler_noise.pdf>]
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figures/fig_power_grid_tim
+e_series.pdf): PDF inclusion: found PDF version <1.6>, but at most version <1.5
+> allowed
+<./figures/fig_power_grid_time_series.pdf, id=680, 1632.81012pt x 879.89525pt>
+File: ./figures/fig_power_grid_time_series.pdf Graphic file (type pdf)
+<use ./figures/fig_power_grid_time_series.pdf>
+Package pdftex.def Info: ./figures/fig_power_grid_time_series.pdf  used on inpu
+t line 469.
+(pdftex.def)             Requested size: 347.0pt x 186.98534pt.
+(./inter_spike_manuscript.bbl [12 <./figures/fig_power_grid_time_series.pdf>]
 Underfull \hbox (badness 1769) in paragraph at lines 118--121
 \T1/ptm/m/n/8 DOI $10 . 1103 / PhysRevLett . 77 . 635$, URL []$\T1/cmtt/m/n/8 h
 ttps : / / link . aps . org / doi / 10 . 1103 / PhysRevLett .
@@ -1141,25 +1142,21 @@ Underfull \hbox (badness 5985) in paragraph at lines 129--134
 \openout6 = `inter_spike_manuscript.loc'.
 
  [13]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 478.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 478.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 485.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 485.
  (./inter_spike_manuscript.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 478.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 478.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 485.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 485.
 Package rerunfilecheck Info: File `inter_spike_manuscript.out' has not changed.
 
 (rerunfilecheck)             Checksum: 584BBD7E34D45BBD58B88A837CB7CFD1;314.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 478.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 485.
  ) 
 Here is how much of TeX's memory you used:
- 23147 strings out of 480608
- 457609 string characters out of 5903629
- 696491 words of memory out of 5000000
- 38435 multiletter control sequences out of 15000+600000
+ 23155 strings out of 480608
+ 457818 string characters out of 5903629
+ 698556 words of memory out of 5000000
+ 38441 multiletter control sequences out of 15000+600000
  601603 words of font info for 159 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,14n,87p,1253b,876s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1176,10 +1173,10 @@ f-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2020/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on inter_spike_manuscript.pdf (13 pages, 9953007 bytes).
+Output written on inter_spike_manuscript.pdf (13 pages, 10726199 bytes).
 PDF statistics:
- 746 PDF objects out of 1000 (max. 8388607)
- 480 compressed objects within 5 object streams
- 71 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 806 PDF objects out of 1000 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
