@@ -338,17 +338,23 @@ research task.
 
 \subsection{Inter spike spectra of power grid frequency data}
 
-Power grids are a large synchronized complex network that modern societies are depend on the stable functionality of them. To maintain the stability of a power grid, the balance between the energy consumption and energy production should be provided. In an AC-power grid, the grid frequency is an observable variable that reflects how well this balance is satisfied. Thereby, the grid frequency and, indeed its variations over the nominal frequency (which is $50$ \si{Hz} in Europe and many parts of the world, or $60$ \si{Hz} in the Americas, Southern Japan and some other
-regions) is continuously recorded and monitored by grid operators. For instance, in the case that there is more (less) demand than supply, the grid frequency decreases (increases) form nominal frequency \cite{kundur1994power}.
+Power grids are large, synchronized, complex networks whose stable functioning is indispensable for modern societies.
+To maintain the stability of a power grid, the balance between energy consumption and energy generation must be ensured. 
+In an AC-power grid, the grid frequency is an observable variable that reflects how well this balance is satisfied. 
+In this process, the grid frequency and its deviations from the nominal frequency are continuously recorded and monitored by 
+the grid operators (in Europe and many parts of the world this is $50$ \si{Hz} or $60$ \si{Hz} in America and, for example, southern Japan).
+For example, if there is more (less) demand than supply supply, the network frequency decreases (increases) compared to the nominal frequency \cite{kundur1994power}.
 \\
-
 The frequency variations can include other information, such as the functionality of control systems \cite{gorjao2020data}, the effect of fluctuations in
-renewable energies (REs) and demands on the grid \cite{anvari2020stochastic} and, moreover, the effect of regular dispatches due to the trading market \cite{meyer2020identifying}. The latter induce periodic frequency jumps. The frequency trajectory for the Great Britain (GB) grid Continental Europe (CE) grid shown in Fig.~\ref{} demonstrates clear jumps every hour {\color{red} (maybe we should add this figure and one from auto-correlation or $\tau$-RP)}. Moreover, autocorrelation/$\tau$-RP shows the regular peaks every $30$ \si{min} and one hour (see Fig.~\ref{}). These peaks are caused by a mismatch of power
+renewable energies (REs), demands on the grid \cite{anvari2020stochastic} and, moreover, the effect of regular dispatches due to the trading market 
+\cite{meyer2020identifying}. The latter induce periodic frequency jumps. The frequency trajectory for the Great Britain (GB) and Continental Europe (CE) 
+grid shown in Fig.~\ref{} demonstrates clear jumps every hour \todo[inline]{(maybe we should add this figure and one from auto-correlation or $\tau$-RP)}. 
+Furthermore, autocorrelation/$\tau$-RP shows the regular peaks every $30$ \si{min} and one hour (see Fig.~\ref{}). These peaks are caused by a mismatch of power 
 supply and demand \cite{weissbach2009high} during dispatches. In most electricity grids the
 operation of dispatchable power plants is scheduled in one hour blocks, where additional (shorter) $30$ and $15$ \si{min} intervals
-might exist. Looking at the frequency spectrum in Fig.~\ref{}, however does not display sharp peaks exactly at $30$ and $60$ \si{min}. \\
+might exist. Looking at the frequency spectrum in Fig.~\ref{}, however, does not display sharp peaks exactly at $30$ and $60$ \si{min}. \\
 
-{\color{red} Now we should start the story of Inter-spike-spectrum}.
+\todo[inline]{Now we should start the story of Inter-spike-spectrum}.
 
 
 \begin{figure}
@@ -466,8 +472,7 @@ obtained from which we computed the RPs and the corresponding $\tau$-RR's. For t
 
 % Non-BibTeX users please use
 \bibliographystyle{spbasic} 
-\bibliography{in\\
-	pike_bib}
+\bibliography{inter_spike_bib}
 
 
 \end{document}
