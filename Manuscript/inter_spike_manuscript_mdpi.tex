@@ -1,57 +1,76 @@
-%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This is a general template file for the LaTeX package SVJour3
-% for Springer journals.          Springer Heidelberg 2010/09/16
-%
-% Copy it to a new file with a new name and use it as the basis
-% for your article. Delete % signs as needed.
-%
-% This template includes a few options for different layouts and
-% content for various journals. Please consult a previous issue of
-% your journal as needed.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% First comes an example EPS file -- just ignore it and
-% proceed on the \documentclass line
-% your LaTeX will extract the file if required
-\begin{filecontents*}{example.eps}
-%!PS-Adobe-3.0 EPSF-3.0
-%%BoundingBox: 19 19 221 221
-%%CreationDate: Mon Sep 29 1997
-%%Creator: programmed by hand (JK)
-%%EndComments
-gsave
-newpath
-  20 20 moveto
-  20 220 lineto
-  220 220 lineto
-  220 20 lineto
-closepath
-2 setlinewidth
-gsave
-  .4 setgray fill
-grestore
-stroke
-grestore
-\end{filecontents*}
-%
-\RequirePackage{fix-cm}
-%
-%\documentclass{svjour3}                     % onecolumn (standard format)
-\documentclass[smallcondensed]{svjour3}    % onecolumn (ditto)
-%\documentclass[smallextended]{svjour3}       % onecolumn (second format)
-%\documentclass[twocolumn]{svjour3}          % twocolumn
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
 
-%
-\smartqed  % flush right qed marks, e.g. at end of proof
-%
-\usepackage{graphicx}
-%
+%=================================================================
+\documentclass[entropy,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+%----------
+% journal
+%----------
+% Choose between the following MDPI journals:
+% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by: 
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{} 
+%\daterevised{} % Only for the journal Acoustics
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
 % \usepackage{mathptmx}      % use Times fonts if available on your TeX system
 %
 % insert here the call for the packages your document requires
 %\usepackage{latexsym}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
 \setlength{\marginparwidth}{2cm}
@@ -59,14 +78,9 @@ grestore
 \usepackage{bbm}
 %\usepackage[mathlines]{lineno}% Enable numbering of text and display math
 %\linenumbers\relax % Commence numbering lines
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{mathptmx}
-\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{statmath}
-\usepackage[numbers]{natbib}
-\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{siunitx}
@@ -74,48 +88,67 @@ grestore
 %
 % please place your own definitions here and don't use \def but
 \newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
-%
-% Insert the name of "your journal" with
-\journalname{Nonlinear Dynamics}
-%
-\begin{document}
 
-\title{Recurrence spike spectra}
+%=================================================================
+%% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
 
-\titlerunning{Recurrence spike spectra}        % if too long for running head
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Spike spectra for recurrences}
 
-\author{K. Hauke Kraemer \and
-		Frank Hellmann \and
-		Mehrnaz Anvari \and
-        J\"urgen Kurths \and 
-        Norbert Marwan
-}
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Spike spectra for recurrences}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-9943-5391} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{K. Hauke Kraemer $^{1,}$*\orcidA{}, Frank Hellmann $^{1,}$, Mehrnaz Anvari $^{1,4}$, J\"urgen Kurths $^{1,2,4}$ and Norbert Marwan $^{1,3,}$*}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{K. Hauke Kraemer, Frank Hellmann, Mehrnaz Anvari, J\"urgen Kurths and Norbert Marwan}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Kraemer, K.H..; Hellmann, F.; Anvari M.; Kurths, J.; Marwan, N.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Potsdam Institute for Climate Impact Research, Member of the Leibniz Association, 14473 Potsdam, Germany\\
+$^{2}$ \quad Institute of Physics and Astronomy, University of Potsdam, 14476 Potsdam, Germany\\
+$^{3}$ \quad Institute of Geosciences, University of Potsdam, 14476 Potsdam, Germany\\
+$^{4}$ \quad Institute of Physics, Humboldt Universit\"at zu Berlin, 12489 Berlin, Germany}
+
+% Contact information of the corresponding author
+\corres{Correspondence: hkraemer@pik-potsdam.de; marwan@pik-potsdam.de}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+%\secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
+
+%\simplesumm{} % Simple summary
 
 
-\institute{K. Hauke Kraemer \and J\"urgen Kurths \and Norbert Marwan \and Frank Hellmann \and Mehrnaz Anvari \at Potsdam Institute for Climate Impact Research, Member of the Leibniz Association, 14473 Potsdam, 
-Germany \email{hkraemer@pik-potsdam.de}\and
-           K. Hauke Kraemer \and J\"urgen Kurths \at Institute of Physics and Astronomy, University of Potsdam, 14476 Potsdam, Germany \and
-		   Norbert Marwan \at Institute of Geosciences, University of Potsdam, 14476 Potsdam, Germany \and
-		   J\"urgen Kurths \at Institute of Physics, Humboldt Universit\"at zu Berlin, 12489 Berlin, Germany
-}
-
-\date{Received: date / Accepted: date}
-% The correct dates will be entered by the editor
-
-
-\maketitle
-
-\begin{abstract}
-A novel kind of power spectrum is constructed, the \textit{inter spike spectrum}, which transforms any signal into its spike-frequency domain. This method 
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{A novel kind of power spectrum is constructed, the \textit{inter spike spectrum}, which transforms any signal into its spike-frequency domain. This method 
 clearly shows the apparent cycles in the data and overcomes the problems for spike-train-like signals when using the obvious idea of Fourier-transforming it. 
 We invent this instructive approach with the 
 idea of transforming the $\tau$-recurrence rate of a recurrence plot (RP), which often has a spiky appearance. The $\tau$-recurrence rate is the density of recurrence points 
 along diagonals of the RP, which are parallel to the main diagonal with a distance of $\tau$. In this context the inter spike spectrum can be interpreted as a nonlinear power 
-spectrum of a potentially high dimensional system which constitutes the RP. The proposed measure is robust to noise and is able to detect and analyze bifurcations.
+spectrum of a potentially high dimensional system which constitutes the RP. The proposed measure is robust to noise and is able to detect and analyze bifurcations.}
 
-\keywords{Bifurcations \and Recurrence Analysis \and Decomposition \and Frequency Analysis}
+% Keywords
+\keyword{Decomposition; Frequency Analysis; Recurrence Analysis; Bifurcations}
 \PACS{05.45.Tp, 05.90.+m, 89.90.+n, 02.70.Uu, 05.10.Ln, 05.45.-a, 05.45.Ac}
-\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
 
 \section{Introduction}\label{sec_tau_rr_intro}
 
@@ -195,14 +228,16 @@ for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coi
 In this article we propose a new way of transforming a spike-train-like signal into its frequency domain. This novel \textit{inter spike spectrum} does not show resonance 
 behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Section \ref{sec_tau_rr_method} explains the idea, which can be used to decompose 
 any arbitrary signal and is not restricted to the $\tau$-RR, which we exemplify here. However, the more spiky the signal is, the more outstanding our new approach is compared to a 
-FT. In Section \ref{sec_tau_rr_application} we exemplify \sout{its use} \todo{the usage of inter spike spectrum} when transforming the $\tau$-RR of a system under study. In this case, the inter spike spectrum can unravel 
-characteristic time scales of high dimensional systems, which is not possible when using a FT. \todo{Finally, in Section \ref{sec_tau_rr_conclusion} our results are summarized} 
+FT. In Section \ref{sec_tau_rr_application} we exemplify the usage of inter spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter spike spectrum 
+can unravel characteristic time scales of high dimensional systems, which is not possible when using a FT. Finally, in Section \ref{sec_tau_rr_conclusion} our results are summarized.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method}\label{sec_tau_rr_method}
     
-The signal, which we would like to transform -- we focus on $\tau$-RR in this article, but this can be applied to any sort of signal \todo{what do you mean with any signal? do you mean to look at data set instead of $\tau$-RP or RP?}-- 
+The signal, which we would like to transform -- we focus on $\tau$-RR in this article, but this can be applied to any sort of signal \todo{MA: what do you mean with any signal? do you mean to look at data set instead of $\tau$-RP or RP?}-- 
 is decomposed into a set of appropriate basis functions. Instead of using trigonometric functions, as it is the idea in the Fourier decomposition, we use Dirac combs (DC) with 
-different inter-spike periods as basis functions, Eq.~\eqref{eq_dirac_comb}. Let $s(t_i)$ be the normalized signal \todo{which} we want to transform. \sout{with}\todo{The signal has} length $N$ and 
+different inter-spike periods as basis functions, Eq.~\eqref{eq_dirac_comb}. Let $s(t_i)$ be the normalized signal we want to transform of length $N$ and 
 $t_i=i\cdot \Delta t,~i=1,\ldots,N$, where $\Delta t$ denotes the sampling time and $s(t_i) \in [0,\ 1]\ \forall\ i$. In the following we label this time series as a $(1\times N)$-dimensional 
 vector $\bf{s}$. 
 First, $\tilde{N}$ different DC's of length $N$ are constructed with inter-spike periods $T_\text{is} \in [1,\ldots,\tilde{N}]$ and $\tilde{N}=\ceil*{N/2}+1$. Second, in order to account 
@@ -210,10 +245,10 @@ for possible phase shifts of
 these basis functions occurring in $\bf{s}$, each of these $\tilde{N}$ different DC's also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of 
 $M = \sum_{i=1}^{\tilde{N}}i$ 
 basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\bfX$
-(Fig.~\ref{fig_tau_rr_basis_functions}A illustrates the described procedure) \todo{$T$ in the following eqs. should not be $T_{is}$ to be consistent with the text?}\todo{$n$ in eq.6 is not clear for me}
+(Fig.~\ref{fig_tau_rr_basis_functions}A illustrates the described procedure) \todo{MA: $n$ in eq.6 is not clear for me}
 \begin{align}
-\bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT(i)-i+T(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
-T(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
+\bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
+T_\text{is}(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \label{eq_basis_matrix}
 \end{align}
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
@@ -225,16 +260,16 @@ Fig.~\ref{fig_tau_rr_basis_functions}B).\\
 
 \noindent Eventually, an under-determined linear system
 \begin{equation}
-\bf{X}^T\bf{\beta}=\bf{s}
+\bf{X}^T \boldsymbol\beta=\bf{s}
 \label{eq_linear_system}
 \end{equation}  
-has to be solved for $\bf{\beta}$, a $(M\times 1)$-sized vector carrying the loadings we are interested in. Along a variety of algorithms which can solve this problem, we are 
-particularly interested in those solutions, which promote sparsity in $\bf{\beta}$, since our goal is to decompose the signal $\bfs$ into a minimal number of basis 
+has to be solved for $\boldsymbol\beta$, a $(M\times 1)$-sized vector carrying the loadings we are interested in. Along a variety of algorithms which can solve this problem, we are 
+particularly interested in those solutions, which promote sparsity in $\boldsymbol\beta$, since our goal is to decompose the signal $\bfs$ into a minimal number of basis 
 functions (for an excellent overview of the topic we refer to \citet{Brunton2019}). In this paper we either use the \textit{least absolute shrinkage and selection operator} 
-(LASSO) \cite{Tibshirani1996} or a \textit{sequentially thresholded least squares} (STLS) regression \cite{Brunton2016,Brunton2019} to obtain a solution $\hat{\bf{\beta}}$. Finally, we group loadings 
+(LASSO) \cite{Tibshirani1996} or a \textit{sequentially thresholded least squares} (STLS) regression \cite{Brunton2016,Brunton2019} to obtain a solution $\hat{\boldsymbol\beta}$. Finally, we group loadings 
 which correspond to basis functions having the same period 
-$T_\text{is}$ into $\hat{\bf{\beta}}_f$ and obtain the 
-\textit{inter spike spectrum} by simply plotting $\hat{\bf{\beta}}_f$ as a function of the frequency $f=T_\text{is}^{-1}$, with $T_\text{is}=\Delta t, 2\Delta t, \dots, (\ceil*{N/2}+1) \Delta t$ 
+$T_\text{is}$ into $\hat{\boldsymbol\beta}_f$ and obtain the 
+\textit{inter spike spectrum} by simply plotting $\hat{\boldsymbol\beta}_f$ as a function of the frequency $f=T_\text{is}^{-1}$, with $T_\text{is}=\Delta t, 2\Delta t, \dots, (\ceil*{N/2}+1) \Delta t$ 
 (Fig.~\ref{fig_tau_rr_dirac_comb}C, F).
 
 \begin{figure}
@@ -245,13 +280,16 @@ than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in 
 (blue sheared). \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
 \end{figure}
 
-In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the proposed method \todo{which method? STLS?}must also deal with the free choice of the regression regularization parameter $\alpha$, 
-which determines the sparsity of the regression coefficient vector $\hat{\bf{\beta}}$. Obviously, there will be numerous peaks in the inter spike spectrum of a given signal, when $\alpha$ is small, 
-since $\alpha=0$ corresponds to the least squares solution and the corresponding $\hat{\bf{\beta}}$ is an exact solution of Eq.~\ref{eq_linear_system} and not sparse. On the other hand, only a sparse number 
-of non-zero loadings in $\hat{\bf{\beta}}$ -- \textit{aka} \todo{what is aka?}peaks in the inter spike spectrum -- are obtained when $\alpha$ is sufficiently large. In this paper we select $\alpha$ such that the 
-re-composed signal $\tilde{\bf{s}}=\bf{X}^T\hat{\bf{\beta}}$ matches a given (Pearson) correlation coefficient $\rho$ between the original signal $\bf{s}$ and itself.
+In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the solving algorithm must also deal with the free choice of the regression regularization parameter $\alpha$, 
+which determines the sparsity of the regression coefficient vector $\hat{\boldsymbol\beta}$. Obviously, there will be numerous peaks in the inter spike spectrum of a given signal, when $\alpha$ is small, 
+since $\alpha=0$ corresponds to the least squares solution and the corresponding $\hat{\boldsymbol\beta}$ is an exact solution of Eq.~\ref{eq_linear_system} and not sparse. On the other hand, 
+only a sparse number of non-zero loadings in $\hat{\boldsymbol\beta}$, i.e., peaks in the inter spike spectrum, are obtained when $\alpha$ is sufficiently large. 
+The actual implementation of the regularization depends on the regression method chosen (in our case, LASSO or STLS), and consequently a given value of $\alpha$ will generally result in 
+different sparse loading vectors $\hat{\boldsymbol\beta}$. Therefore, in this paper we select $\alpha$ such that the re-composed signal $\tilde{\bf{s}}=\bf{X}^T\hat{\boldsymbol\beta}$ matches a 
+given (Pearson) correlation coefficient $\rho$ between the original signal $\bf{s}$ and itself.
 
-\section{Application}\label{sec_tau_rr_application}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Results}\label{sec_tau_rr_application}
 
 We exemplify the use of the inter spike spectrum in combination with the $\tau$-RR as outlined in 
 Section \ref{sec_tau_rr_intro} on several interesting research questions. The procedure is the following:
@@ -280,7 +318,7 @@ period-3 limit cycle dynamics ($a=0.41$ in Fig.~\ref{fig_tau_rr_example_roessler
   \textbf{J, K, L} The proposed inter spike spectra of the $\tau$-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold 
   corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic.  
   \textbf{M, N, P} Fourier power spectra of the $\tau$-RR's shown in panels G, H, I.
-\todo[inline]{why you have not used STLS method here?} }
+\todo[inline]{MA: why you have not used STLS method here?} }
 \label{fig_tau_rr_example_roessler}
 \end{figure}
 
@@ -364,7 +402,12 @@ might exist. Looking at the frequency spectrum in Fig.~\ref{fig_power_grid_spect
 \label{fig_power_grid_spectra}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
 
+Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{sec_tau_rr_conclusion}
 
 A novel type of powerspectrum, the \textit{inter spike spectrum}, has been proposed. The method decomposes any arbitrary signal into basis functions which consist of (lagged) Dirac 
@@ -390,49 +433,63 @@ spike-train-like data. On the other hand, the inter spike spectrum of the $\tau$
 When there is only a subset of state variables available, the state space has to be reconstructed as a pre-processing step. Recent findings \cite{Kraemer2021,Kraemer2022} show that 
 this reconstruction process can be reliably automated and applied to multivariate data as well. This would allow for a ``running window'' approach, in order to detect transitions. 
 Due to the mentioned computational constraints of our proposed method, a window size $w\leq 1,000$ would possibly suffice for most data, especially when it is map-like, i.e., not 
-highly sampled.  
+highly sampled. 
 
 
-\begin{acknowledgements}
-This work has been financially supported by the German Research Foundation (DFG projects MA4759/8 and MA4759/9). All computations have been carried out in MATLAB\textsuperscript{\textregistered} 
-and the Julia language and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} and \textit{DifferentialEquations.jl} \cite{rackauckas2017}.
-\end{acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{6pt} 
 
 
-% Authors must disclose all relationships or interests that 
-% could have direct or potential influence or impart bias on 
-% the work: 
-%
-\section*{Conflict of interest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{Conceptualization, KHK and FH; methodology, KHK, FH and NM; software, KHK and FH; validation, KHK, FH, MA and NM.; formal analysis, KHK; data curation, KHK and MA; writing---original draft preparation, KHK; writing---review and editing, KHK, FH, MA and NM; visualization, KHK; supervision, NM; project administration, JK; All authors have read and agreed to the published version of the manuscript.}
 
-The authors declare that they have no conflict of interest.
- 
-\section*{Code availability}
+\funding{This work has been financially supported by the German Research Foundation (DFG projects MA4759/8 and MA4759/9).}
 
-The study that we present here is available as a fully reproducible code base
+\dataavailability{The study that we present here is available as a fully reproducible code base
 **Repository will be published and cited here, when accepted** and the method
 will be available in the Julia language **Package will be published and cited here, 
 when accepted** and as a MATLAB\textsuperscript{\textregistered} toolbox 
-**Toolbox will be published and cited here, when accepted**.
+**Toolbox will be published and cited here, when accepted**.} 
 
-\clearpage
+\acknowledgments{
+All computations have been carried out in MATLAB\textsuperscript{\textregistered} and the Julia language 
+and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} and \textit{DifferentialEquations.jl} \cite{rackauckas2017}.
+}
+
+\conflictsofinterest{The authors declare that they have no conflict of interest.} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+\appendixtitles{yes} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
 \appendix
+
 \section{Inter spike spectra for noisy R\"ossler system}
 
 \begin{figure}[h!]
  \centering
  \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_example_roessler_noise}
- \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise. The appearance of the inter spike spectra 
- in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise. \todo[inline]{Where do you add the additive noise? for all components, i.e. x, y and z? What is the take home message of this figure? In your abstract you mention that " The proposed measure is robust to noise and is able to detect and analyze bifurcations." but then here there is also no noise effect on FFT. So please make clear the main message of this figure.
+ \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise on each component $x$, $y$ and $z$. The appearance of the inter spike spectra 
+ in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise. \todo[inline]{MA: Where do you add the additive noise? for all components, i.e. x, y and z? What is the take home message of this figure? In your abstract you mention that " The proposed measure is robust to noise and is able to detect and analyze bifurcations." but then here there is also no noise effect on FFT. So please make clear the main message of this figure.
  }}
 \label{fig_tau_rr_example_roessler_noise}
+\end{figure}
+
+\section{Power grid frequency time series}\label{sec_power_grid_appendix}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=\textwidth]{./figures/fig_power_grid_time_series}
+ \caption{CAPTION WILL BE ADDED}
+\label{fig_power_grid_time_series}
 \end{figure}
 
 \section{Exemplary models}
  
 \subsection{Lorenz system}\label{sec_models_lorenz63}
 
-The classical Lorenz-63 system \cite{lorenz1963} is defined as
+\noindent The classical Lorenz-63 system \cite{lorenz1963} is defined as
 
 \begin{equation}
 \begin{array}{rcl}
@@ -449,7 +506,7 @@ $\sigma=10, \beta=8/3, \rho=28$ and we used a time series consisting of 6,000 sa
 
 \subsection{R\"ossler system}\label{sec_models_roessler}
 
-The R\"ossler system \cite{roessler1976} is defined as
+\noindent The R\"ossler system \cite{roessler1976} is defined as
 \begin{align}
 \begin{array}{rcl}
 \dot{x}&=&-y-z \\
@@ -462,26 +519,47 @@ For producing Figs.~\ref{fig_tau_rr_example_roessler_noise} and ~\ref{fig_tau_rr
 of $dt=0.05$ and in case of panel \textbf{C}, $u_0=[-0.1242, -2.5415, 0.2772]$ with a sampling time of $dt=0.1$. The first $5,000$ samples were discarded as transients and trajectories of length $N=5,000$ were 
 obtained from which we computed the RPs and the corresponding $\tau$-RR's. For the inter spike spectra only the first $1,000$ values of the $\tau$-RR's were considered.
  
-\subsection{Power grid frequency time series}\label{sec_power_grid_appendix}
 
-\begin{figure}
- \centering
- \includegraphics[width=\textwidth]{./figures/fig_power_grid_time_series}
- \caption{CAPTION WILL BE ADDED}
-\label{fig_power_grid_time_series}
-\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
 
+\reftitle{References}
+
+% References, variant A: external bibliography
+
+%\bibliography{your_external_BibTeX_file}
 % BibTeX users please use one of
 %\bibliographystyle{spbasic}      % basic style, author-year citations
 %\bibliographystyle{spmpsci}      % mathematics and physical sciences
 %\bibliographystyle{spphys}       % APS-like style for physics
 %\bibliography{}   % name your BibTeX data base
 
-% Non-BibTeX users please use
-\bibliographystyle{spbasic} 
+%\bibliographystyle{spbasic} 
 \bibliography{inter_spike_bib}
 
+% If authors have biography, please use the format below
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
+%{\textbf{Firstname Lastname} Biography of second author}
 
+% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
+% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
+% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors’ response\\
+%Reviewer 2 comments and authors’ response\\
+%Reviewer 3 comments and authors’ response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{adjustwidth}
 \end{document}
-% end of file 
 
