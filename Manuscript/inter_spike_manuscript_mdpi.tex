@@ -300,7 +300,7 @@ Section \ref{sec_tau_rr_intro} on several interesting research questions. The pr
 \end{itemize}
 
 \subsection{Period estimation for different dynamics in the R\"ossler system}
-First, we consider the R\"ossler system (Eq.~\eqref{eq_model_roessler} in Appendix \ref{sec_models_roessler}) 
+First, we consider the R\"ossler system (Eq.~\eqref{eq_model_roessler} \todo{why not C.2?} Appendix \ref{sec_models_roessler}) 
 in three different dynamical setups. We use the proposed inter spike spectrum to
 identify the type of dynamics.
 We set the parameters $b=2$, $c=4$ and analyze period-2 limit cycle dynamics ($a=0.36$ in Fig.~\ref{fig_tau_rr_example_roessler}A, D, G, J), 
@@ -313,7 +313,7 @@ period-3 limit cycle dynamics ($a=0.41$ in Fig.~\ref{fig_tau_rr_example_roessler
  \textbf{A} Trajectory of the system in a period-2 (parameter $a=0.36$), \textbf{B} in a period-3 (parameter $a=0.41$) and 
  \textbf{C} in a chaotic regime (parameter $a=0.428$). 
  \textbf{D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global 
- recurrence rate for D \& E and 5\% for F. 
+ recurrence rate for D \& E and 5\% for F \todo[inline]{what is the recurrence rate? does it relate to $\epsilon $ in Eq.(1).} 
   \textbf{G, H, I} $\tau$-RR's of the shown RPs. 
   \textbf{J, K, L} The proposed inter spike spectra of the $\tau$-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold 
   corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic.  
@@ -329,7 +329,7 @@ change in the presence of noise, its position does not, and this is what the int
 
 \subsection{Bifurcations in the Logistic map}
 
-We consider the Logistic map $x_{n+1}=r\cdot x_n \left( 1-x_n \right)$ for changing control parameter $r$. We vary $r$ from $r=3.4$ to $r=4$ in steps of $0.001$. For 
+We consider the Logistic map $x_{n+1}=r\cdot x_n \left( 1-x_n \right)$ for changing control parameter $r$. We vary $r$ from $r=3.4$ to $r=4$ in steps of $0.001$ \todo{is it correct?}. For 
 each setting of $r$ 
 \begin{itemize}[noitemsep]
 \item[(1)] a time series of length $N=201$ is computed with a random initial condition $u_0 \in [0,\ 1]$, neglecting the first $1,000$ samples as transients,
@@ -341,11 +341,11 @@ each setting of $r$
 \item[(7)] from the distribution of the surrogate inter spike spectra the $95^\text{th}$ percentile is computed. The peaks of the inter spike spectrum of the signal which exceed 
 this percentile are counted. 
 \end{itemize}
-In this example, the according null hypothesis is that the data stems from a process which yields the same auto-correlation, hence the same Fourier powerspectrum, and the same 
+In this example, the according null hypothesis \todo{null hypothesis refers to surrogate data?}is that the data stems from a process which yields the same auto-correlation, hence the same Fourier powerspectrum, and the same 
 amplitude distribution. We consider the number of significant peaks in the inter spike spectrum with
 respect to the control parameter in order to distinguish the corresponding dynamics (Fig.~\ref{fig_tau_rr_logistic}C).
 A correlation with the positive Lyapunov exponent (Fig.~\ref{fig_tau_rr_logistic}A) is discernible 
-($\rho_{\text{Pearson}}=0.72$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. 
+($\rho_{\text{Pearson}}=0.72$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. \todo{This part is not understandable}
 
 A less computationally intensive approach is to compute surrogates for the $\tau$-RR analytically, rather than computing a RP and its $\tau$-RR for each iAAFT surrogate of the 
 time series. This translates into a null hypothesis 
@@ -365,7 +365,7 @@ research task.
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_tau_rr_logistic}
- \caption{\textbf{A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. 
+ \caption{\textbf{A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. \todo[inline]{A shows also bifurcation diagram?}
  \textbf{B} Number of significant peaks ($\alpha=0.05$) in the inter spike spectrum of the $\tau$-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf{A} 
  (white noise surrogates). 
  \textbf{C} Same as \textbf{B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite{Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used 
