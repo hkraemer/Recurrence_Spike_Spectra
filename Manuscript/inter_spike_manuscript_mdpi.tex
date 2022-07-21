@@ -157,8 +157,9 @@ Recurrence Plots (RPs) provide a vivid representation of complex dynamics stemmi
 R_{i,j}(\varepsilon) = \Theta\left(\varepsilon - D_{i,j}\right) 
 = \Theta\left(\varepsilon - \| \vec{x}_i - \vec{x}_j\|\right), \qquad \vec{x} \in \mathbb{R}^d, \quad i,j \in [1,\ldots, N].
 \end{equation}
-The simple idea to 
-track recurring states of the $d$-dimensional trajectory $\vec{x}_i$ of the system under study not only allows for a beneficial visualization of the dynamics, but also for its 
+The crucial free parameter $\varepsilon$ (recurrence threshold) determines the visible structures in the RP. It can be chosen such, that the recurrence rate 
+$RR(\varepsilon)=N^{-2}\sum_{i,j}^N R_{i,j}(\varepsilon)$ exhibits a certain value.
+The simple idea to track recurring states of the $d$-dimensional trajectory $\vec{x}_i$ of the system under study not only allows for a beneficial visualization of the dynamics, but also for its 
 quantification, using certain structures in the RP, such as diagonal or vertical lines \cite{marwan2007}. 
 
 Some of these recurrence quantification measures, the entropy of diagonal lines and the entropy of 
@@ -188,8 +189,9 @@ Furthermore, the correlation structures of higher dimensional spaces can be reso
  \caption{Schematic illustration of a $\tau$-recurrence rate based spectrum. \textbf{A} $x$-component time series of the Lorenz63-System (Eq.~\eqref{eq_model_Lorenz63}) and 
  \textbf{B} its corresponding Fourier power spectrum. 
  \textbf{C} Reconstructed state space portrait from the time series shown in \textbf{A} using PECUZAL time-delay embedding \cite{Kraemer2021}. 
- \textbf{D} Subset of the recurrence plot and the corresponding $\tau$-recurrence rate obtained from the state space trajectory in \textbf{C}. \sout{The shaded interval in the time series in \textbf{A} corresponds to the shown subset.} 
- \textbf{E} Fourier Power spectrum obtained from the $\tau$-recurrence (subset shown in panel \textbf{D}) \cite{Zbilut2008}. \todo[inline]{\textbf{D} and \textbf{E} show the results of a part of the time series in \textbf{A} which is highlighted in pink. }\todo[inline]{I think Fig.~\ref{fig_tau_rr_spectrum_example} should be restructured. We could talk about it.}
+ \textbf{D} Subset of the recurrence plot and the corresponding $\tau$-recurrence rate obtained from the state space trajectory in \textbf{C}. 
+ \textbf{E} Fourier Power spectrum obtained from the $\tau$-recurrence rate (subset shown in panel \textbf{D}) \cite{Zbilut2008}. \textbf{D} and \textbf{E} show the results of a part of the time series, 
+ which is highlighted in pink in \textbf{A}.\todo[inline]{MA: I think Fig.~\ref{fig_tau_rr_spectrum_example} should be restructured. We could talk about it.}
  }\label{fig_tau_rr_spectrum_example}
 \end{figure}
 
@@ -300,7 +302,7 @@ Section \ref{sec_tau_rr_intro} on several interesting research questions. The pr
 \end{itemize}
 
 \subsection{Period estimation for different dynamics in the R\"ossler system}
-First, we consider the R\"ossler system (Eq.~\eqref{eq_model_roessler} \todo{why not C.2?} Appendix \ref{sec_models_roessler}) 
+First, we consider the R\"ossler system (Eq.~\eqref{eq_model_roessler} in Appendix \ref{sec_models_roessler}) 
 in three different dynamical setups. We use the proposed inter spike spectrum to
 identify the type of dynamics.
 We set the parameters $b=2$, $c=4$ and analyze period-2 limit cycle dynamics ($a=0.36$ in Fig.~\ref{fig_tau_rr_example_roessler}A, D, G, J), 
@@ -313,7 +315,7 @@ period-3 limit cycle dynamics ($a=0.41$ in Fig.~\ref{fig_tau_rr_example_roessler
  \textbf{A} Trajectory of the system in a period-2 (parameter $a=0.36$), \textbf{B} in a period-3 (parameter $a=0.41$) and 
  \textbf{C} in a chaotic regime (parameter $a=0.428$). 
  \textbf{D, E, F} The corresponding RPs, obtained by using a recurrence threshold corresponding to a 10\% global 
- recurrence rate for D \& E and 5\% for F \todo[inline]{what is the recurrence rate? does it relate to $\epsilon $ in Eq.(1).} 
+ recurrence rate for D \& E and 5\% for F. 
   \textbf{G, H, I} $\tau$-RR's of the shown RPs. 
   \textbf{J, K, L} The proposed inter spike spectra of the $\tau$-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold 
   corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic.  
@@ -329,7 +331,7 @@ change in the presence of noise, its position does not, and this is what the int
 
 \subsection{Bifurcations in the Logistic map}
 
-We consider the Logistic map $x_{n+1}=r\cdot x_n \left( 1-x_n \right)$ for changing control parameter $r$. We vary $r$ from $r=3.4$ to $r=4$ in steps of $0.001$ \todo{is it correct?}. For 
+We consider the Logistic map $x_{n+1}=r\cdot x_n \left( 1-x_n \right)$ for changing control parameter $r$. We vary $r$ from $r=3.4$ to $r=4$ in steps of $0.001$. For 
 each setting of $r$ 
 \begin{itemize}[noitemsep]
 \item[(1)] a time series of length $N=201$ is computed with a random initial condition $u_0 \in [0,\ 1]$, neglecting the first $1,000$ samples as transients,
@@ -341,11 +343,12 @@ each setting of $r$
 \item[(7)] from the distribution of the surrogate inter spike spectra the $95^\text{th}$ percentile is computed. The peaks of the inter spike spectrum of the signal which exceed 
 this percentile are counted. 
 \end{itemize}
-In this example, the according null hypothesis \todo{null hypothesis refers to surrogate data?}is that the data stems from a process which yields the same auto-correlation, hence the same Fourier powerspectrum, and the same 
+In this example, the according null hypothesis for constructing the surrogate data is that the data stems from a process which yields the same auto-correlation, 
+hence the same Fourier powerspectrum, and the same 
 amplitude distribution. We consider the number of significant peaks in the inter spike spectrum with
 respect to the control parameter in order to distinguish the corresponding dynamics (Fig.~\ref{fig_tau_rr_logistic}C).
 A correlation with the positive Lyapunov exponent (Fig.~\ref{fig_tau_rr_logistic}A) is discernible 
-($\rho_{\text{Pearson}}=0.72$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. \todo{This part is not understandable}
+($\rho_{\text{Pearson}}=0.72$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. \todo{MA: This part is not understandable}
 
 A less computationally intensive approach is to compute surrogates for the $\tau$-RR analytically, rather than computing a RP and its $\tau$-RR for each iAAFT surrogate of the 
 time series. This translates into a null hypothesis 
@@ -365,7 +368,7 @@ research task.
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_tau_rr_logistic}
- \caption{\textbf{A} Lyapunov exponent of the Logistic map as a function of the control parameter $r$. \todo[inline]{A shows also bifurcation diagram?}
+ \caption{\textbf{A} Bifurcation diagram and Lyapunov exponent and of the Logistic map as a function of the control parameter $r$.
  \textbf{B} Number of significant peaks ($\alpha=0.05$) in the inter spike spectrum of the $\tau$-RR and its Pearson correlation coefficient to the Lyapunov exponent shown in \textbf{A} 
  (white noise surrogates). 
  \textbf{C} Same as \textbf{B}, but for iterative Amplitude Adjusted Fourier Transform (iAAFT) surrogates \cite{Schreiber1996,Schreiber2000}. For obtaining the inter spike spectra we used 
@@ -405,7 +408,12 @@ might exist. Looking at the frequency spectrum in Fig.~\ref{fig_power_grid_spect
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 
-Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
+\begin{itemize}
+\item computationally expensive.
+\item STLS and LASSO yield different results.
+\item incorporates FFT-peaks (see Vostok data).
+\item bifurcation detection only possible when additional period(s) is not an integer multiple of the former period(s).
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{sec_tau_rr_conclusion}
@@ -465,26 +473,6 @@ and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} an
 \appendixstart
 \appendix
 
-\section{Inter spike spectra for noisy R\"ossler system}
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_example_roessler_noise}
- \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise on each component $x$, $y$ and $z$. The appearance of the inter spike spectra 
- in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise. \todo[inline]{MA: Where do you add the additive noise? for all components, i.e. x, y and z? What is the take home message of this figure? In your abstract you mention that " The proposed measure is robust to noise and is able to detect and analyze bifurcations." but then here there is also no noise effect on FFT. So please make clear the main message of this figure.
- }}
-\label{fig_tau_rr_example_roessler_noise}
-\end{figure}
-
-\section{Power grid frequency time series}\label{sec_power_grid_appendix}
-
-\begin{figure}
- \centering
- \includegraphics[width=\textwidth]{./figures/fig_power_grid_time_series}
- \caption{CAPTION WILL BE ADDED}
-\label{fig_power_grid_time_series}
-\end{figure}
-
 \section{Exemplary models}
  
 \subsection{Lorenz system}\label{sec_models_lorenz63}
@@ -518,7 +506,28 @@ $\sigma=10, \beta=8/3, \rho=28$ and we used a time series consisting of 6,000 sa
 For producing Figs.~\ref{fig_tau_rr_example_roessler_noise} and ~\ref{fig_tau_rr_example_roessler}, the initial condition for producing panels \textbf{A} \& \textbf{B} was set to $u_0=[.7, -1, 0.4]$ with a sampling time 
 of $dt=0.05$ and in case of panel \textbf{C}, $u_0=[-0.1242, -2.5415, 0.2772]$ with a sampling time of $dt=0.1$. The first $5,000$ samples were discarded as transients and trajectories of length $N=5,000$ were 
 obtained from which we computed the RPs and the corresponding $\tau$-RR's. For the inter spike spectra only the first $1,000$ values of the $\tau$-RR's were considered.
- 
+
+\section{Inter spike spectra for noisy R\"ossler system}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_example_roessler_noise}
+ \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise on each component $x$, $y$ and $z$. The appearance of the inter spike spectra 
+ in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise. \todo[inline]{MA: Where do you add the additive noise? for all components, i.e. x, y and z? What is the take home message of this figure? In your abstract you mention that " The proposed measure is robust to noise and is able to detect and analyze bifurcations." but then here there is also no noise effect on FFT. So please make clear the main message of this figure.
+ }}
+\label{fig_tau_rr_example_roessler_noise}
+\end{figure}
+
+\section{Power grid frequency time series}\label{sec_power_grid_appendix}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=\textwidth]{./figures/fig_power_grid_time_series}
+ \caption{CAPTION WILL BE ADDED}
+\label{fig_power_grid_time_series}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
