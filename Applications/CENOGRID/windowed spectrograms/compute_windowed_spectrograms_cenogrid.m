@@ -13,8 +13,8 @@ t = data(:,1);
 t = flipud(t);
 t = t.*1000000;
 
-O18 = load("../data/O18_filtered_time_reverse.txt");
-C13 = load("../data/C13_filtered_time_reverse.txt");
+O18 = flipud(data(:,3));
+C13 = flipud(data(:,2));
 
 % sampling time is dt = 5,000 yrs
 
@@ -32,13 +32,18 @@ M = length(1:ws:N-windowsize); % number of computed spectra
 window_tau = 200; % sampling time is 5.000 yrs so this corresponds to 1 Mio yrs
 length_of_spectra = ceil(window_tau/2);
 
-spectrum_O18_mcdts = zeros(length_of_spectra,M); 
+spectrum_O18_mcdts = zeros(length_of_spectra,M);
+spectrum_O18_cao = zeros(length_of_spectra,M);
 spectrum_O18_ne = zeros(length_of_spectra,M);
 spectrum_C13_mcdts = zeros(length_of_spectra,M); 
+spectrum_C13_cao = zeros(length_of_spectra,M); 
 spectrum_C13_ne = zeros(length_of_spectra,M);
 
 taus_O18_mcdts = [0  50  104  35  43  149  39  47  45]; % from script `compute_embedding_parameters.jl`
 taus_C13_mcdts = [0  136  32  123  130  126  133  128]; % from script `compute_embedding_parameters.jl`
+
+taus_O18_cao = [0, 7, 14, 21, 28, 35]; % from script `compute_embedding_parameters.jl`
+taus_C13_cao = [0, 15, 30, 45, 60, 75, 90]; % from script `compute_embedding_parameters.jl`
 
 %%
 cnt = 1;
@@ -49,30 +54,41 @@ for i = 1:ws:M
     x = O18(i:i+windowsize);
     y = C13(i:i+windowsize);
     % 1) MCDTS embedding gained from whole dataset analysis
-    Yx = genembed(x,taus_O18_mcdts, ones(1,length(taus_O18_mcdts)));
-    Yy = genembed(x,taus_C13_mcdts, ones(1,length(taus_C13_mcdts)));
+%     Yx = genembed(x,taus_O18_mcdts, ones(1,length(taus_O18_mcdts)));
+%     Yy = genembed(x,taus_C13_mcdts, ones(1,length(taus_C13_mcdts)));
+    % 2) Cao embedding
+    Yx2 = genembed(x,taus_O18_cao, ones(1,length(taus_O18_cao)));
+    Yy2 = genembed(x,taus_C13_cao, ones(1,length(taus_C13_cao)));
 
     % compute RP and tau-rr
-    RPx = rp(Yx,epsilon,'var');
-    RPx_ne = rp(x,epsilon,'var');
-    RPy = rp(Yy,epsilon,'var');
-    RPy_ne = rp(y,epsilon,'var');
-    tauRRx = tau_recurrence_rate(RPx);
-    tauRRx_ne = tau_recurrence_rate(RPx_ne);
-    tauRRy = tau_recurrence_rate(RPy);
-    tauRRy_ne = tau_recurrence_rate(RPy_ne);
+%     RPx = rp(Yx,epsilon,'var');
+    RPx_cao = rp(Yx2,epsilon,'var');
+%     RPx_ne = rp(x,epsilon,'var');
+%     RPy = rp(Yy,epsilon,'var');
+    RPy_cao = rp(Yy2,epsilon,'var');
+%     RPy_ne = rp(y,epsilon,'var');
+%     tauRRx = tau_recurrence_rate(RPx);
+    tauRRx_cao = tau_recurrence_rate(RPx_cao);
+%     tauRRx_ne = tau_recurrence_rate(RPx_ne);
+%     tauRRy = tau_recurrence_rate(RPy);
+    tauRRy_cao = tau_recurrence_rate(RPy_cao);
+%     tauRRy_ne = tau_recurrence_rate(RPy_ne);
     % compute spike powerspectra 
-    spectrum_O18_mcdts(:,cnt) = inter_spike_spectrum(tauRRx(1:window_tau), "method", "STLS", "threshold", rho_thres);
-    spectrum_O18_ne(:,cnt) = inter_spike_spectrum(tauRRx_ne(1:window_tau), "method", "STLS", "threshold", rho_thres);
-    spectrum_C13_mcdts(:,cnt) = inter_spike_spectrum(tauRRy(1:window_tau), "method", "STLS", "threshold", rho_thres);
-    spectrum_C13_ne(:,cnt) = inter_spike_spectrum(tauRRy_ne(1:window_tau), "method", "STLS", "threshold", rho_thres);
+%     spectrum_O18_mcdts(:,cnt) = inter_spike_spectrum(tauRRx(1:window_tau), "method", "STLS", "threshold", rho_thres);
+    spectrum_O18_cao(:,cnt) = inter_spike_spectrum(tauRRx_cao(1:window_tau), "method", "STLS", "threshold", rho_thres);
+%     spectrum_O18_ne(:,cnt) = inter_spike_spectrum(tauRRx_ne(1:window_tau), "method", "STLS", "threshold", rho_thres);
+%     spectrum_C13_mcdts(:,cnt) = inter_spike_spectrum(tauRRy(1:window_tau), "method", "STLS", "threshold", rho_thres);
+    spectrum_C13_cao(:,cnt) = inter_spike_spectrum(tauRRy_cao(1:window_tau), "method", "STLS", "threshold", rho_thres);
+%     spectrum_C13_ne(:,cnt) = inter_spike_spectrum(tauRRy_ne(1:window_tau), "method", "STLS", "threshold", rho_thres);
     
     cnt = cnt + 1;
     
 end
 toc
 
-save("./computed spectra/spectrum_O18_mcdts.mat", "spectrum_O18_mcdts")
-save("./computed spectra/spectrum_O18_ne.mat", "spectrum_O18_ne")
-save("./computed spectra/spectrum_C13_mcdts.mat", "spectrum_C13_mcdts")
-save("./computed spectra/spectrum_C13_ne.mat", "spectrum_C13_ne")
+% save("./computed spectra/spectrum_O18_mcdts.mat", "spectrum_O18_mcdts")
+save("./computed spectra/spectrum_O18_cao.mat", "spectrum_O18_cao")
+% save("./computed spectra/spectrum_O18_ne.mat", "spectrum_O18_ne")
+% save("./computed spectra/spectrum_C13_mcdts.mat", "spectrum_C13_mcdts")
+save("./computed spectra/spectrum_C13_cao.mat", "spectrum_C13_cao")
+% save("./computed spectra/spectrum_C13_ne.mat", "spectrum_C13_ne")

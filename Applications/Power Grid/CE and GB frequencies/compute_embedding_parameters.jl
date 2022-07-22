@@ -19,3 +19,5 @@ D_gb, τ_gb, E_gb = optimal_traditional_de(f_gb[1:14400], "ifnn", "mi_min"; τs,
 # out Cao
 # D_ce = 7, τ_ce = 19 
 # D_gb = 7, τ_gb = 17
+
+# changing embedding params for different signal lengths

@@ -105,7 +105,7 @@
 %\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{K. Hauke Kraemer $^{1,}$*\orcidA{}, Frank Hellmann $^{1,}$, Mehrnaz Anvari $^{1,4}$, J\"urgen Kurths $^{1,2,4}$ and Norbert Marwan $^{1,3,}$*}
+\Author{K. Hauke Kraemer $^{1,}$*\orcidA{}, Frank Hellmann $^{1,}$, Mehrnaz Anvari $^{1}$, J\"urgen Kurths $^{1,2,4}$ and Norbert Marwan $^{1,3,}$*}
 
 %\longauthorlist{yes}
 
@@ -301,6 +301,8 @@ Section \ref{sec_tau_rr_intro} on several interesting research questions. The pr
 \item[(3)] Transform the $\tau$-RR into the proposed inter spike spectrum, see Section \ref{sec_tau_rr_method}.
 \end{itemize}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Period estimation for different dynamics in the R\"ossler system}
 First, we consider the R\"ossler system (Eq.~\eqref{eq_model_roessler} in Appendix \ref{sec_models_roessler}) 
 in three different dynamical setups. We use the proposed inter spike spectrum to
@@ -329,6 +331,9 @@ $\tau$-RRs (Fig.~\ref{fig_tau_rr_example_roessler}G, H, I). The proposed idea is
 robust to noise (see Fig.~\ref{fig_tau_rr_example_roessler_noise} in the Appendix). This is because the peaks of the $\tau$-RR are insensitive to noise. While the peak shape does 
 change in the presence of noise, its position does not, and this is what the inter spike spectrum encrypts after all.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bifurcations in the Logistic map}
 
 We consider the Logistic map $x_{n+1}=r\cdot x_n \left( 1-x_n \right)$ for changing control parameter $r$. We vary $r$ from $r=3.4$ to $r=4$ in steps of $0.001$. For 
@@ -377,6 +382,8 @@ research task.
 \label{fig_tau_rr_logistic}
 \end{figure}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Inter spike spectra of power grid frequency data}
 
 Power grids are large, synchronized, complex networks whose stable functioning is indispensable for modern societies.
@@ -405,8 +412,16 @@ might exist. Looking at the frequency spectrum in Fig.~\ref{fig_power_grid_spect
 \label{fig_power_grid_spectra}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}
+\subsection{Evolutionary inter spike spectra of astronomical data}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}\label{sec_tau_rr_discussion}
 
 \begin{itemize}
 \item computationally expensive.

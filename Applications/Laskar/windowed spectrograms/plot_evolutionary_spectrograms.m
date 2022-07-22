@@ -50,7 +50,7 @@ end
 
 %% Plot the wavelet-like spectrograms 
 
-method = 2; % 1 = MCDTS, 2 = no embedding
+method = 1; % 1 = MCDTS, 2 = no embedding
 
 m_string = ["(MCDTS)", "(no embedding)"];
 

@@ -7,28 +7,37 @@ using RecurrenceAnalysis
 using Statistics
 
 ## Downsampled frequency data
-f_ce = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_ce_downsampled.csv"))
-f_gb = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_gb_downsampled.csv"))
+# f_ce = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_ce_downsampled.csv"))
+# f_gb = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_gb_downsampled.csv"))
 
 # f_ce = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_ce_downsampled_30s.csv"))
 # f_gb = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_gb_downsampled_30s.csv"))
 
-T_ce = 60 # sampling time in secs
-T_gb = 60
+f_ce = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_ce_downsampled_20s.csv"))
+f_gb = vec(readdlm("./Applications/Power Grid/CE and GB frequencies/data/frequencies_gb_downsampled_20s.csv"))
+
+# T_ce = 60 # sampling time in secs
+# T_gb = 60
 
 # T_ce = 30 # sampling time in secs
 # T_gb = 30
 
-L_block_ce = 1440 # block length covering one full day (24 hours)
-L_block_gb = 1440
+T_ce = 20 # sampling time in secs
+T_gb = 20
+
+# L_block_ce = 1440 # block length covering one full day (24 hours)
+# L_block_gb = 1440
 
 # L_block_ce = 2880 # block length covering one full day (24 hours)
 # L_block_gb = 2880
 
+L_block_ce = 4320 # block length covering one full day (24 hours)
+L_block_gb = 4320
+
 rho = 0.95
 epsilon = 0.08
 τs = 0:150
-tau_window = 200
+tau_window = 600
 
 spec_ce, d_ce, taus_ce = iss_spec(f_ce, L_block_ce, τs, epsilon, tau_window, rho; embed_method="afnn")
 avrg_spec_ce = [mean(spec_ce[i,:]) for i = 1:size(spec_ce,1)]
@@ -36,18 +45,18 @@ avrg_spec_ce = [mean(spec_ce[i,:]) for i = 1:size(spec_ce,1)]
 spec_gb, d_gb, taus_gb = iss_spec(f_gb, L_block_gb, τs, epsilon, tau_window, rho; embed_method="afnn")
 avrg_spec_gb = [mean(spec_gb[i,:]) for i = 1:size(spec_gb,1)]
 
-writedlm("./Applications/Power Grid/CE and GB frequencies/data/iss_spec_ce_cao_STLS_60_0_95_0_8.csv", avrg_spec_ce)
-writedlm("./Applications/Power Grid/CE and GB frequencies/data/iss_spec_gb_cao_STLS_60_0_95_0_8.csv", avrg_spec_gb)
+writedlm("./Applications/Power Grid/CE and GB frequencies/data/iss_spec_ce_standard_20_0_95_0_8.csv", avrg_spec_ce)
+writedlm("./Applications/Power Grid/CE and GB frequencies/data/iss_spec_gb_standard_20_0_95_0_8.csv", avrg_spec_gb)
 
 using PyPlot
 pygui(true)
 
 figure()
 subplot(211)
-plot(1:100, avrg_spec_ce[1:100])
+plot(1:300, avrg_spec_ce[1:300])
 grid()
 subplot(212)
-plot(1:100, avrg_spec_gb[1:100])
+plot(1:300, avrg_spec_gb[1:300])
 grid()
 
 

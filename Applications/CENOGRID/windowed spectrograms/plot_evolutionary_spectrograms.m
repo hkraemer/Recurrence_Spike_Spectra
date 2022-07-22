@@ -23,10 +23,14 @@ C13 = flipud(C13);
 
 spectrum_O18_mcdts_mse = load("./computed spectra/spectrum_O18_mcdts.mat");
 spectrum_O18_mcdts_mse = spectrum_O18_mcdts_mse.spectrum_O18_mcdts;
+spectrum_O18_cao = load("./computed spectra/spectrum_O18_cao.mat");
+spectrum_O18_cao = spectrum_O18_cao.spectrum_O18_cao;
 spectrum_O18_ne = load("./computed spectra/spectrum_O18_ne.mat");
 spectrum_O18_ne = spectrum_O18_ne.spectrum_O18_ne;
 spectrum_C13_mcdts_mse = load("./computed spectra/spectrum_C13_mcdts.mat");
 spectrum_C13_mcdts_mse = spectrum_C13_mcdts_mse.spectrum_C13_mcdts;
+spectrum_C13_cao = load("./computed spectra/spectrum_C13_cao.mat");
+spectrum_C13_cao = spectrum_C13_cao.spectrum_C13_mcdts;
 spectrum_C13_ne = load("./computed spectra/spectrum_C13_ne.mat");
 spectrum_C13_ne = spectrum_C13_ne.spectrum_C13_ne;
 
@@ -56,20 +60,24 @@ f = spec_filtered.f;
 
 %% Plot the wavelet-like spectrograms for both isotope-time series
 
-method = 1; % 1 = MCDTS, 2 = no embedding
+method = 2; % 1 = MCDTS, 2 = CAO, 3 = no embedding
 
-m_string = ["(MCDTS)", "(no embedding)"];
+m_string = ["(MCDTS)", "(CAO)", "(no embedding)"];
 
 fs = 22;
 lw2 = 1;
 
 len = 90;
 cax_max = 0.013;
+cax_max = 0.9;
 
 if method == 1
     data1 = spectrum_C13_mcdts_mse;
     data2 = spectrum_O18_mcdts_mse; 
 elseif method == 2
+    data1 = spectrum_C13_cao;
+    data2 = spectrum_O18_cao;
+elseif method == 3
     data1 = spectrum_C13_ne;
     data2 = spectrum_O18_ne;
 end
@@ -140,9 +148,9 @@ grid on
 
 %% FFT- and ISS for raw data
 
-method = 1; % 1 = MCDTS, 2 = no embedding
+method = 1; % 1 = MCDTS, 2 = CAO, 3 = no embedding
 
-m_string = ["(MCDTS)", "(no embedding)"];
+m_string = ["(MCDTS)", "(CAO)", "(no embedding)"];
 
 len = 90;
 cax_max = 0.013;
@@ -171,6 +179,9 @@ if method == 1
     data1 = spectrum_C13_mcdts_mse;
     data2 = spectrum_O18_mcdts_mse; 
 elseif method == 2
+    data1 = spectrum_C13_cao;
+    data2 = spectrum_O18_cao;
+elseif method == 3
     data1 = spectrum_C13_ne;
     data2 = spectrum_O18_ne;
 end
@@ -376,33 +387,6 @@ set(gca,'FontSize',fs,'LineWidth',2,'YScale','log','XDir','reverse')
 h3_pos=get(h2,'Position'); 
 set(h3,'Position',[h1_pos(1) h2_pos(2)-(1.25*h1_pos(4)) h2_pos(3:end)])
 grid on
-
-%%
-
-i = 11100;
-
-figure
-subplot(411)
-plot(ttt, spectrum_ecc_mcdts(1:length(ttt),i))
-title("ISS eccentricity")
-grid on
-subplot(412)
-plot(ttf, spectrum_ecc_fft(1:length(ttt),i))
-title("FFT eccentricity")
-grid on
-subplot(413)
-plot(ttt, spectrum_O18_mcdts_mse(1:length(ttt),i))
-title("O18")
-grid on
-subplot(414)
-plot(ttt, spectrum_C13_mcdts_mse(1:length(ttt),i))
-title("O18")
-grid on
-
-%%
-figure
-plot(ecc)
-
 
 
 
