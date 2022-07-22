@@ -191,7 +191,7 @@ Furthermore, the correlation structures of higher dimensional spaces can be reso
  \textbf{C} Reconstructed state space portrait from the time series shown in \textbf{A} using PECUZAL time-delay embedding \cite{Kraemer2021}. 
  \textbf{D} Subset of the recurrence plot and the corresponding $\tau$-recurrence rate obtained from the state space trajectory in \textbf{C}. 
  \textbf{E} Fourier Power spectrum obtained from the $\tau$-recurrence rate (subset shown in panel \textbf{D}) \cite{Zbilut2008}. \textbf{D} and \textbf{E} show the results of a part of the time series, 
- which is highlighted in pink in \textbf{A}.\todo[inline]{MA: I think Fig.~\ref{fig_tau_rr_spectrum_example} should be restructured. We could talk about it.}
+ which is highlighted in pink in \textbf{A}.\todo[inline]{MA: I think Fig.~\ref{fig_tau_rr_spectrum_example} should be restructured. We could talk about it.\\ HK: I will do that.}
  }\label{fig_tau_rr_spectrum_example}
 \end{figure}
 
@@ -237,8 +237,9 @@ can unravel characteristic time scales of high dimensional systems, which is not
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method}\label{sec_tau_rr_method}
     
-The signal, which we would like to transform -- we focus on $\tau$-RR in this article, but this can be applied to any sort of signal \todo{MA: what do you mean with any signal? do you mean to look at data set instead of $\tau$-RP or RP?}-- 
-is decomposed into a set of appropriate basis functions. Instead of using trigonometric functions, as it is the idea in the Fourier decomposition, we use Dirac combs (DC) with 
+The signal, which we would like to transform is decomposed into a set of appropriate basis functions.\footnote{We focus on $\tau$-RR in this article, Eq.~\eqref{eq_tau_rr}, since 
+such time series are often spiky, which favors the proposed decomposition technique. But the proposed method can be applied to any sort of signal.} Instead of using trigonometric 
+functions, as it is the idea in the Fourier decomposition, we use Dirac combs (DC) with 
 different inter-spike periods as basis functions, Eq.~\eqref{eq_dirac_comb}. Let $s(t_i)$ be the normalized signal we want to transform of length $N$ and 
 $t_i=i\cdot \Delta t,~i=1,\ldots,N$, where $\Delta t$ denotes the sampling time and $s(t_i) \in [0,\ 1]\ \forall\ i$. In the following we label this time series as a $(1\times N)$-dimensional 
 vector $\bf{s}$. 
@@ -247,11 +248,10 @@ for possible phase shifts of
 these basis functions occurring in $\bf{s}$, each of these $\tilde{N}$ different DC's also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of 
 $M = \sum_{i=1}^{\tilde{N}}i$ 
 basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\bfX$
-(Fig.~\ref{fig_tau_rr_basis_functions}A illustrates the described procedure) \todo{MA: $n$ in eq.6 is not clear for me}
+(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure)
 \begin{align}
-\bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
-T_\text{is}(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
-\label{eq_basis_matrix}
+\label{eq_basis_matrix} \bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
+\label{eq_T_is} T_\text{is}(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \end{align}
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
 Furthermore, there will be identical basis functions and also basis functions, which do not allow for an unambiguous inter spike period, 
@@ -279,7 +279,7 @@ $T_\text{is}$ into $\hat{\boldsymbol\beta}_f$ and obtain the
 \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_basis_functions}
 \caption{\textbf{A} Example for a full set of basis functions for an input signal of length $N=4$, aligned in the matrix $\bfX'$. Inter spike periods $T_{\text{is}}$ larger 
 than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in $\bfX$, red sheared) or basis functions, which can not be uniquely assigned to a certain inter spike period 
-(blue sheared). \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
+(blue sheared). $T_{\text{is}}$ for each row can be obtained by Eq.~\eqref{eq_T_is}. \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
 \end{figure}
 
 In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the solving algorithm must also deal with the free choice of the regression regularization parameter $\alpha$, 
@@ -321,8 +321,7 @@ period-3 limit cycle dynamics ($a=0.41$ in Fig.~\ref{fig_tau_rr_example_roessler
   \textbf{G, H, I} $\tau$-RR's of the shown RPs. 
   \textbf{J, K, L} The proposed inter spike spectra of the $\tau$-RR's shown in panels G, H, I. Spectra were obtained with a LASSO regression and a regularization threshold 
   corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The distance ratio of the peaks reflect the limit cycle dynamic.  
-  \textbf{M, N, P} Fourier power spectra of the $\tau$-RR's shown in panels G, H, I.
-\todo[inline]{MA: why you have not used STLS method here?} }
+  \textbf{M, N, P} Fourier power spectra of the $\tau$-RR's shown in panels G, H, I. }
 \label{fig_tau_rr_example_roessler}
 \end{figure}
 
@@ -353,22 +352,23 @@ hence the same Fourier powerspectrum, and the same
 amplitude distribution. We consider the number of significant peaks in the inter spike spectrum with
 respect to the control parameter in order to distinguish the corresponding dynamics (Fig.~\ref{fig_tau_rr_logistic}C).
 A correlation with the positive Lyapunov exponent (Fig.~\ref{fig_tau_rr_logistic}A) is discernible 
-($\rho_{\text{Pearson}}=0.72$). Moreover, this analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. \todo{MA: This part is not understandable}
+($\rho_{\text{Pearson}}(\text{Lyapunov})=0.72$). This analysis can tackle period-doubling, since it ``measures'' the dominant cycles via the inter spike spectrum. 
+However, whenever the periods of the ``new'' cycles coincide with integer multiples of the periods of already existing cycles, this approach can not detect 
+period-doubling. A similar case can be observed in Fig.~\ref{fig_tau_rr_example_roessler}J,K where the number of peaks does not change, but  their mutual distance does. 
 
 A less computationally intensive approach is to compute surrogates for the $\tau$-RR analytically, rather than computing a RP and its $\tau$-RR for each iAAFT surrogate of the 
 time series. This translates into a null hypothesis 
 that the $\tau$-RR and its corresponding inter spike spectrum stems from a RP of a random signal. In this case the probability of finding a black point in the RP can be obtained 
 from a binomial distribution with probability parameter $p$ set to the recurrence rate of the RP of the signal. This way $100$ surrogate $\tau$-RRs are computed in step (5). 
-The results are even slightly better compared to the ones obtained from the iAAFT surrogates (Fig.~\ref{fig_tau_rr_logistic}B, $\rho_{\text{Pearson}}=0.81$). The first period doubling at 
-$r \approx 3.458$ cannot be detected by any of the surrogates.
+The results are even slightly better compared to the ones obtained from the iAAFT surrogates (Fig.~\ref{fig_tau_rr_logistic}B, $\rho_{\text{Pearson}}(\text{Lyapunov})=0.81$). 
+The first period doubling at $r \approx 3.458$ cannot be detected by any of the surrogates.
 
 The described procedure does work well for map data, because most often the $\tau$-RR for those kind of data reveals a ``spiky enough'' nature. 
 On the contrary, highly sampled (flow-) data often yield not as 
 spiky $\tau$-RR's and, thus, the number of significant peaks in the inter spike spectrum may not be sensitive enough to detect period-doubling bifurcations. Moreover the sensitivity of the 
 inter spike spectrum to detect the regime shifts also depends on the critical regularization threshold. Nevertheless the 
 according inter spike spectra is still revealing important information (Fig.~\ref{fig_tau_rr_example_roessler}) and practitioners can design appropriate quantifying statistics based 
-on these spectra, which suit the 
-research task.
+on these spectra, which suit the research task.
 
 \begin{figure}
  \centering
@@ -391,32 +391,47 @@ To maintain the stability of a power grid, the balance between energy consumptio
 In an AC-power grid, the grid frequency is an observable variable that reflects how well this balance is satisfied. 
 In this process, the grid frequency and its deviations from the nominal frequency are continuously recorded and monitored by 
 the grid operators (in Europe and many parts of the world this is $50$ \si{Hz} or $60$ \si{Hz} in America and, for example, southern Japan).
-For example, if there is more (less) demand than supply supply, the network frequency decreases (increases) compared to the nominal frequency \cite{kundur1994power}.
+For example, if there is more (less) demand than supply, the network frequency decreases (increases) compared to the nominal frequency \cite{kundur1994power}.
 \\
 The frequency variations can include other information, such as the functionality of control systems \cite{gorjao2020data}, the effect of fluctuations in
 renewable energies (REs), demands on the grid \cite{anvari2020stochastic} and, moreover, the effect of regular dispatches due to the trading market 
-\cite{meyer2020identifying}. The latter induce periodic frequency jumps. The frequency trajectory for the Great Britain (GB) and Continental Europe (CE) 
-grid shown in Fig.~\ref{fig_power_grid_time_series} demonstrates clear jumps every hour \todo[inline]{(maybe we should add this figure and one from auto-correlation or $\tau$-RP)}. 
-Furthermore, autocorrelation/$\tau$-RP shows the regular peaks every $30$ \si{min} and one hour (see Fig.~\ref{fig_power_grid_spectra}). These peaks are caused by a mismatch of power 
-supply and demand \cite{weissbach2009high} during dispatches. In most electricity grids the
-operation of dispatchable power plants is scheduled in one hour blocks, where additional (shorter) $30$ and $15$ \si{min} intervals
-might exist. Looking at the frequency spectrum in Fig.~\ref{fig_power_grid_spectra}, however, does not display sharp peaks exactly at $30$ and $60$ \si{min}. \\
-
-\todo[inline]{Now we should start the story of Inter-spike-spectrum}.
-
+\cite{meyer2020identifying}. The latter induce periodic frequency jumps. Here we look at the frequency time series for the Great Britain (GB) and Continental Europe 
+(CE) (Appendix \ref{sec_power_grid_appendix} and Fig.~\ref{fig_power_grid_time_series}A,C). Clear jumps every 30 and 60 minutes are discernible and quantitatively reflected in the corresponding 
+autocorrelations (Fig.~\ref{fig_power_grid_time_series}B,D). Furthermore, the autocorrelation of the CE frequency time series shows regular peaks every $15$ \si{min} 
+(see Fig.~\ref{fig_power_grid_time_series}B). These peaks are caused by a mismatch of power supply and demand \cite{weissbach2009high} during dispatches. 
+In most electricity grids the operation of dispatchable power plants is scheduled in 1-hour blocks, where additional (shorter) $30$ and $15$ \si{min} intervals
+might exist.\\
 
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_power_grid_spectra}
- \caption{\textbf{A} and \textbf{B} demonstrate the power spectrum of recorded power grid frequency data from ... and ..., respectively. The data has been shown in Fig.~\ref{} in Appendix ...\textbf{C} and \textbf{D} show the corresponding inter-spike- spectrum.}
+ \caption{Averaged Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see Appendix~\ref{sec_power_grid_appendix}). 
+ The corresponding averaged inter spike spectra of the according $\tau$-RR's, Eq.~\eqref{eq_tau_rr}, are shown in \textbf{C} and \textbf{D}, respectively. Vertical red dashed lines correspond to 
+ $15$, $30$ and $60$ \si{min}. For technical details on the calculation of the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}.}  
 \label{fig_power_grid_spectra}
 \end{figure}
+
+The Fourier frequency spectra in Figure~\ref{fig_power_grid_spectra}A,B, however, do not display sharp peaks exactly at $15$, $30$ and $60$ \si{min} (for technical details on the calculation of 
+the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Especially the $30$ and $60$ \si{min} 
+peaks are split into two adjacent peaks and the local minimum in between these ``double''-peaks correspond to the exact times. 
+In contrast, the $15$ \si{min} peak is completely absent from the inter-spike spectra of the $\tau$-RRs of the frequency data (Fig.~\ref{fig_power_grid_spectra}C,D), but these show sharp peaks 
+at $30$ and $60$ \si{min}. In front of these peaks, smaller local peaks can be seen, which correspond to the local peaks of the Fourier power spectra at $28$ and $55$ \si{min}, respectively.
+Moreover, there is an additional peak at 
+$40$ \si{min} for both datasets, which is absent in the Fourier spectrum and which is not a multiple of the missing $15$ \si{min} peak. The position and magnitude of the peaks in the shown 
+inter spike spectra are robust to the chosen recurrence threshold, the regression method and its regularization as well as the sampling time of the original signal.\\ 
+
+We interpret the results presented as follows. The missing $15$ \si{min} in the inter spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
+(see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter spike spectra are not able to detect it and the 
+sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks.\todo[inline]{at Mehrnaz: please add more to the ``story''}.
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Evolutionary inter spike spectra of astronomical data}
 
-
+\todo[inline]{Add this section and keep it very very short.}
 
 
 
@@ -425,10 +440,13 @@ might exist. Looking at the frequency spectrum in Fig.~\ref{fig_power_grid_spect
 
 \begin{itemize}
 \item computationally expensive.
-\item STLS and LASSO yield different results.
-\item incorporates FFT-peaks (see Vostok data).
-\item bifurcation detection only possible when additional period(s) is not an integer multiple of the former period(s).
+\item STLS and LASSO yield different results (qualitatively similar but not quantitatively). \todo[inline]{Add figure to the appendix explaining the search for the correct regularization}
+\item incorporates FFT-peaks (see Laskar data).
+\item bifurcation detection only possible when additional period(s) is not an integer multiple of the former period(s). For this: Maybe incorporate mutual distance for a better correlation 
+to the Lyapunov exponent. 
 \end{itemize}
+
+\todo[inline]{Move stuff from Conclusion section into Discussion section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{sec_tau_rr_conclusion}
@@ -528,20 +546,33 @@ obtained from which we computed the RPs and the corresponding $\tau$-RR's. For t
  \centering
  \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_example_roessler_noise}
  \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise on each component $x$, $y$ and $z$. The appearance of the inter spike spectra 
- in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise. \todo[inline]{MA: Where do you add the additive noise? for all components, i.e. x, y and z? What is the take home message of this figure? In your abstract you mention that " The proposed measure is robust to noise and is able to detect and analyze bifurcations." but then here there is also no noise effect on FFT. So please make clear the main message of this figure.
- }}
+ in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise.}
 \label{fig_tau_rr_example_roessler_noise}
 \end{figure}
 
 \section{Power grid frequency time series}\label{sec_power_grid_appendix}
 
+The raw frequency time series have length $\tilde{N}_{\text{CE}}=58,752,000$ and $\tilde{N}_{\text{GB}}=31,622,400$ with sampling times $\Delta t_{\text{CE}}=0.2$\si{s} and 
+$\Delta t_{\text{GB}}=1$\si{s}, respectively. \todo[inline]{to Mehrnaz: Please add the information which time these time series covered and maybe the source for the data} 
+We downsample these time series to a sampling time of $\Delta t_{\text{CE}}= \Delta t_{\text{GB}}=20$\si{s}, which lead to total time series lengths of 
+$N_{\text{CE}}=587,520$ and $N_{\text{GB}}=1,581,120$ which we use for the further analysis.
+
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_power_grid_time_series}
- \caption{CAPTION WILL BE ADDED}
+ \caption{Subset of the frequency time series of \textbf{A} Central Europe (CE) and \textbf{C} Great Britain (GB) along with their autocorrelation functions in \textbf{B} and 
+ \textbf{D}, respectively. The normalized autocorrelations in \textbf{B}, \textbf{D} have been computed on the entire time series, wheres as the subsets shown in \textbf{A}, \textbf{C} 
+ contain only $1,441$ samples.}
 \label{fig_power_grid_time_series}
 \end{figure}
 
+In this analysis we divide the time series into 
+non-overlapping blocks of length $N_{\text{block}}=4,320$, covering a time span of $24$ hours. For each time series block we compute Fourier spectra and recurrence plots (RPs), 
+Eq.~\eqref{eq_rp_definition}, along with their $\tau$-RR's, Eq.~\ref{eq_tau_rr}. The RPs are obtained from a uniform 5-dimensional time-delay embedding of each time series with 
+the delay set to the first minimum of the mutual information \cite{fraser1986,hegger1999} and a fixed recurrence threshold corresponding to 8\% recurrence rate is used in order 
+to ensure comparability \cite{kraemer2018}. The first $600$ data points of the $\tau$-RR's are used for finally obtaining inter spike spectra with a LASSO regression and a 
+regularization threshold corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The spectra shown in all panels of Figure~\ref{fig_power_grid_spectra} 
+are averages over all blocks, following \citet{meyer2020identifying}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

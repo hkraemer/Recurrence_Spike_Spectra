@@ -1,4 +1,4 @@
-% We plot the downsampled time series 
+% We plot the downsampled time series and its autocorrelation 
 % (computed in `compute_fft_spectrogram_downsampled`), the FFT-spectrograms 
 % (computed in `compute_fft_spectrogram_downsampled`) and the according ISS 
 % (computed in `compute_iss_spectrogram_downsampled.jl`).
@@ -46,7 +46,6 @@ fs_gb= Fs_gb*(0:(L_block_gb/2))/L_block_gb;
 font = 22; % fontsize
 lw1 = 2.5;
 lw2 = 2;
-
 
 figure('Units','normalized','Position',[.001 .001 .999 .999])
 subplot(221)
@@ -99,7 +98,7 @@ ylim([0 0.01])
 set(gca, 'LineWidth', lw2, 'FontSize', font)
 grid on
 
-%% Plot time series
+%% Plot time series and autocorrelation
 
 font = 24; % fontsize
 lw1 = 3;
@@ -109,20 +108,45 @@ init = 4459;
 factor = 3; % corresponds to 24/factor hours
 t_len = L_block_ce/factor + 1; 
 
+% compute autocorrelation
+t_len2 = 300;
+ac_ce = acorr(f_ce, t_len2, 0);
+ac_gb = acorr(f_gb, t_len2, 0);
+
+%%
+
 figure('Units','normalized','Position',[.001 .001 .999 .999])
 subplot(211)
 plot(t_ce(1:t_len), f_ce(init: init+L_block_ce/factor), '.-', 'LineWidth', lw1)
 title('F_{CE}')
+ylabel('frequency (Hz)')
+xlabel('time (min)')
+xlim([0 24/factor*60])
+set(gca, 'LineWidth', lw2, 'FontSize', font)
+grid on
+
+subplot(212)
+plot(t_ce(1:t_len2+1), ac_ce(1:end,2), '.-', 'LineWidth', lw1)
+ylabel('normal. acorr')
+xlabel('time lag \tau (min)')
+xlim([1 100])
+set(gca, 'LineWidth', lw2, 'FontSize', font)
+grid on
+
+figure('Units','normalized','Position',[.001 .001 .999 .999])
+subplot(211)
+plot(t_gb(1:t_len), f_gb(init: init+L_block_gb/factor),  '.-', 'LineWidth', lw1)
+title('F_{GB}')
+xlabel('time (min)')
 ylabel('frequency (Hz)')
 xlim([0 24/factor*60])
 set(gca, 'LineWidth', lw2, 'FontSize', font)
 grid on
 
 subplot(212)
-plot(t_gb(1:t_len), f_gb(init: init+L_block_gb/factor),  '.-', 'LineWidth', lw1)
-title('F_{GB}')
-xlabel('time (min)')
-ylabel('frequency (Hz)')
-xlim([0 24/factor*60])
+plot(t_ce(1:t_len2+1), ac_gb(1:end,2), '.-', 'LineWidth', lw1)
+ylabel('normal. acorr')
+xlabel('time lag \tau (min)')
+xlim([1 100])
 set(gca, 'LineWidth', lw2, 'FontSize', font)
 grid on
