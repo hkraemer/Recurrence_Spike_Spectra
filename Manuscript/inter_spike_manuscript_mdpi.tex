@@ -405,7 +405,7 @@ might exist.\\
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_power_grid_spectra}
- \caption{Averaged Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see Appendix~\ref{sec_power_grid_appendix}). 
+ \caption{\todo[inline]{could you please become sure that A and B are not the same plots. They are super similar}.Averaged Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see Appendix~\ref{sec_power_grid_appendix}). 
  The corresponding averaged inter spike spectra of the according $\tau$-RR's, Eq.~\eqref{eq_tau_rr}, are shown in \textbf{C} and \textbf{D}, respectively. Vertical red dashed lines correspond to 
  $15$, $30$ and $60$ \si{min}. For technical details on the calculation of the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}.}  
 \label{fig_power_grid_spectra}
@@ -422,7 +422,7 @@ inter spike spectra are robust to the chosen recurrence threshold, the regressio
 
 We interpret the results presented as follows. The missing $15$ \si{min} in the inter spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter spike spectra are not able to detect it and the 
-sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks.\todo[inline]{at Mehrnaz: please add more to the ``story''}.
+sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly at $30$ and $60$ \si{min}, i.e. during dispatches. Eventually, here we have found a clear sharp peak at $40$ \si{min} which can occur because of any regular controls in a power grid, and can be a hint to develop the existing stochastic processes to model precisely the power grid frequency \cite{gorjao2020data}. 
 
 
 
