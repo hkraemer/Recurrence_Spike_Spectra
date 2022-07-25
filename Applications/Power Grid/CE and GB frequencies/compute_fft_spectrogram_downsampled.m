@@ -64,7 +64,7 @@ spec_gb = mean(spectrum_gb,2);
 % save("./data/frequencies_gb_downsampled_20s.csv", "f_gb_ds", "-ascii")
 
 save("./data/fft_spec_ce.csv","spec_ce","-ascii")
-save("./data/fft_spec_gb.csv","spec_ce","-ascii")
+save("./data/fft_spec_gb.csv","spec_gb","-ascii")
 
 
 %%
