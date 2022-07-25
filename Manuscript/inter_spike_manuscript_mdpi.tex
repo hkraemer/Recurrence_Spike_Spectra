@@ -553,14 +553,15 @@ obtained from which we computed the RPs and the corresponding $\tau$-RR's. For t
 \section{Power grid frequency time series}\label{sec_power_grid_appendix}
 
 The raw frequency time series have length $\tilde{N}_{\text{CE}}=58,752,000$ and $\tilde{N}_{\text{GB}}=31,622,400$ with sampling times $\Delta t_{\text{CE}}=0.2$\si{s} and 
-$\Delta t_{\text{GB}}=1$\si{s}, respectively. \todo[inline]{to Mehrnaz: Please add the information which time these time series covered and maybe the source for the data} 
+$\Delta t_{\text{GB}}=1$\si{s}, respectively. GB frequency data was measured during 2016, and has been gotten from \cite{GB}. CE frequency data belongs to 2017 and has been gotten from \cite{haehne2018footprint}.
+  
 We downsample these time series to a sampling time of $\Delta t_{\text{CE}}= \Delta t_{\text{GB}}=20$\si{s}, which lead to total time series lengths of 
 $N_{\text{CE}}=587,520$ and $N_{\text{GB}}=1,581,120$ which we use for the further analysis.
 
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_power_grid_time_series}
- \caption{Subset of the frequency time series of \textbf{A} Central Europe (CE) and \textbf{C} Great Britain (GB) along with their autocorrelation functions in \textbf{B} and 
+ \caption{Subset of the frequency time series of \textbf{A} Central Europe (CE) \cite{haehne2018footprint} and \textbf{C} Great Britain (GB) \cite{GB} along with their autocorrelation functions in \textbf{B} and 
  \textbf{D}, respectively. The normalized autocorrelations in \textbf{B}, \textbf{D} have been computed on the entire time series, wheres as the subsets shown in \textbf{A}, \textbf{C} 
  contain only $1,441$ samples.}
 \label{fig_power_grid_time_series}
