@@ -179,8 +179,8 @@ $\vec{x}_i = \vec{x}(\Delta t \cdot i),\, i=1,\ldots,N$.
 \overline{D}(\tau) = \frac{1}{N-\tau}\sum_{i=1}^{N-\tau} D_{i, i+\tau}
 \end{equation}
 can be directly read from the distance matrix $\mathbf{D}$ and is also preserved in its thresholded version $\tau$-RR. There are clear advantages for a recurrence-derived 
-powerspectrum, i.e., Fourier transforming (FT) $\tau$-RR (Fig.~\ref{fig_tau_rr_spectrum_example}D), instead 
-of $C(\tau)$ (Fig.~\ref{fig_tau_rr_spectrum_example}C): There are no assumptions for stationarity or sampling, when constructing a RP.
+powerspectrum, i.e., Fourier transforming (FT) $\tau$-RR (Fig.~\ref{fig_tau_rr_spectrum_example}D,E), instead 
+of $C(\tau)$: There are no assumptions for stationarity or sampling, when constructing a RP.
 Furthermore, the correlation structures of higher dimensional spaces can be resolved in the recurrence-derived Fourier-spectrum.\\
 
 \begin{figure}
@@ -191,13 +191,13 @@ Furthermore, the correlation structures of higher dimensional spaces can be reso
  \textbf{C} Reconstructed state space portrait from the time series shown in \textbf{A} using PECUZAL time-delay embedding \cite{Kraemer2021}. 
  \textbf{D} Subset of the recurrence plot and the corresponding $\tau$-recurrence rate obtained from the state space trajectory in \textbf{C}. 
  \textbf{E} Fourier Power spectrum obtained from the $\tau$-recurrence rate (subset shown in panel \textbf{D}) \cite{Zbilut2008}. \textbf{D} and \textbf{E} show the results of a part of the time series, 
- which is highlighted in pink in \textbf{A}.\todo[inline]{MA: I think Fig.~\ref{fig_tau_rr_spectrum_example} should be restructured. We could talk about it.\\ HK: I will do that.}
+ which is highlighted in pink in \textbf{A}.
  }\label{fig_tau_rr_spectrum_example}
 \end{figure}
 
 However, there is a drawback to this approach. Whenever $\tau$-RR is a spike-train-like signal, which it is in most cases (see Fig.~\ref{fig_tau_rr_spectrum_example}) especially for 
 map-data (low-resolution data), a FT of such a signal leads to a spike-train-like image in the frequency domain (e.g. \cite{Schild1982,Cordoba1989}, see 
-Fig.~\ref{fig_tau_rr_spectrum_example}D). Thus, it is not intuitive how to extract meaningful information about dominant frequencies of the systems' state space trajectory. 
+Fig.~\ref{fig_tau_rr_spectrum_example}E). Thus, it is not intuitive how to extract meaningful information about dominant frequencies of the systems' state space trajectory. 
 
 For clarification, consider the signal we would like to analyze 
 (e.g. the $\tau$-RR of a system) to be a Dirac comb (DC) with inter-spike period $T_\text{is}$: 
@@ -405,7 +405,7 @@ might exist.\\
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_power_grid_spectra}
- \caption{\todo[inline]{could you please become sure that A and B are not the same plots. They are super similar}.Averaged Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see Appendix~\ref{sec_power_grid_appendix}). 
+ \caption{Averaged Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see Appendix~\ref{sec_power_grid_appendix}). 
  The corresponding averaged inter spike spectra of the according $\tau$-RR's, Eq.~\eqref{eq_tau_rr}, are shown in \textbf{C} and \textbf{D}, respectively. Vertical red dashed lines correspond to 
  $15$, $30$ and $60$ \si{min}. For technical details on the calculation of the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}.}  
 \label{fig_power_grid_spectra}
