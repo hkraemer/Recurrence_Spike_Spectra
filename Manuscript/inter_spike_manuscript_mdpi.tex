@@ -296,7 +296,7 @@ given (Pearson) correlation coefficient $\rho$ between the original signal $\bf{
 We exemplify the use of the inter spike spectrum in combination with the $\tau$-RR as outlined in 
 Section \ref{sec_tau_rr_intro} on several interesting research questions. The procedure is the following:
 \begin{itemize}[noitemsep]
-\item[(1)] Compute a RP of the trajectory of the system, Eq.~\eqref{eq_rp_definition}. 
+\item[(1)] Compute a RP of the trajectory of the system, Eq.~\eqref{eq_rp_definition}. If only univariate data is available, perform a state space reconstruction for obtaining the trajectory first.
 \item[(2)] Compute the $\tau$-RR of that RP, Eq.~\eqref{eq_tau_rr}.
 \item[(3)] Transform the $\tau$-RR into the proposed inter spike spectrum, see Section \ref{sec_tau_rr_method}.
 \end{itemize}
@@ -411,9 +411,11 @@ might exist.\\
 \label{fig_power_grid_spectra}
 \end{figure}
 
-The Fourier frequency spectra in Figure~\ref{fig_power_grid_spectra}A,B, however, do not display sharp peaks exactly at $15$, $30$ and $60$ \si{min} (for technical details on the calculation of 
+The Fourier frequency spectra for the Central Europe data in Figure~\ref{fig_power_grid_spectra}A, however, does not display sharp peaks exactly at $15$, $30$ and $60$ \si{min} 
+(for technical details on the calculation of 
 the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Especially the $30$ and $60$ \si{min} 
-peaks are split into two adjacent peaks and the local minimum in between these ``double''-peaks correspond to the exact times. 
+peaks are split into two adjacent peaks and the local minimum in between these ``double''-peaks correspond to the exact times. The Great Britain counterpart in Fig.~\ref{fig_power_grid_spectra}B 
+has sharp peaks at $15$ and $30$ \si{min} and also ``local predecessor peaks'' for $30$ and $60$ \si{min} at the same positions as in panel A. 
 In contrast, the $15$ \si{min} peak is completely absent from the inter-spike spectra of the $\tau$-RRs of the frequency data (Fig.~\ref{fig_power_grid_spectra}C,D), but these show sharp peaks 
 at $30$ and $60$ \si{min}. In front of these peaks, smaller local peaks can be seen, which correspond to the local peaks of the Fourier power spectra at $28$ and $55$ \si{min}, respectively.
 Moreover, there is an additional peak at 
@@ -422,17 +424,51 @@ inter spike spectra are robust to the chosen recurrence threshold, the regressio
 
 We interpret the results presented as follows. The missing $15$ \si{min} in the inter spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter spike spectra are not able to detect it and the 
-sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly at $30$ and $60$ \si{min}, i.e. during dispatches. Eventually, here we have found a clear sharp peak at $40$ \si{min} which can occur because of any regular controls in a power grid, and can be a hint to develop the existing stochastic processes to model precisely the power grid frequency \cite{gorjao2020data}. 
-
-
+sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly 
+at $30$ and $60$ \si{min}, i.e. during dispatches (not valid in case of the GB dataset). Eventually, here we have found a clear sharp peak at $40$ \si{min} which can occur 
+because of any regular controls in a power grid, and can be a hint to develop the existing stochastic processes to model precisely the power grid frequency \cite{gorjao2020data}. 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Evolutionary inter spike spectra of astronomical data}
+\subsection{Evolutionary inter spike spectra of Earth's orbit data}
 
-\todo[inline]{Add this section and keep it very very short.}
+When applying the proposed inter spike spectrum to the $\tau$-RR of a time series we expect additional frequency/period information, due to the fact that the recurrence plot (RP), 
+Eq.~\eqref{eq_rp_definition}, and its corresponding $\tau$-RR, Eq.~\eqref{eq_tau_rr}, visualize the trajectory of the embedded time series in an embedding space of higher dimension. 
+However, given a sufficient embedding of the time series, we would also expect that major frequencies/periods of the non-embedded time series are incorporated in the RP, its $\tau$-RR, 
+and eventually in the inter spike spectrum of the $\tau$-RR. In order to demonstrate this we apply the inter spike spectrum to the freely available eccentricity time series of \citet{Laskar2011}. 
+This astronomical computation of the orbital motion of the Earth (here we focus on the eccentricity only) has a clear expectation value of the incorporated frequencies/periods. The three leading 
+eccentricity cycles of 405 kyr period, 95 kyr period and 124 kyr period are well known in paleoclimate studies \cite{Laskar2004}. Our aim in this section is to show that the inter spike spectrum 
+of the $\tau$-RR of the embedded eccentricity time series will reflect these cycles in a similar fashion as the Fourier powerspectrum of the non-embedded eccentricity time series. We will further 
+show that Fourier-transforming the $\tau$-RR instead of applying the proposed inter spike spectrum will lead to non satisfying results, since the spiky $\tau$-RR excites a variety of harmonics in 
+the corresponding Fourier spectrum (cf. Section \ref{sec_tau_rr_intro}). We use a time series which covers the past \mytilde $67$ Mio. years, which a total length of $N=13,421$ samples and a 
+sampling period of $\Delta t= 5,000$.\\
+First we compute an evolutionary short time Fourier transform (FT) using a windowsize of $ws=1,000$ samplepoints ($\equiv 5 Mys$) shifted by unity and a 
+Hamming window. The spectrogram is shown in Figure \ref{fig_laskar_spectra}A, where the expected periods mentioned and highlighted are clearly visible. 
+The spectrogram is shown in Figure A, where the expected periods mentioned and highlighted are clearly visible.  
 
+\begin{figure}
+ \centering
+ \includegraphics[width=\textwidth]{./figures/fig_laskar_spectra}
+ \caption{\textbf{A} Evolutionary Fourier power spectra of eccentricity time series. \textbf{B} Inter spike spectrogram of the $\tau$-recurrence rate of the eccentricity time 
+ series and \textit{C} its Fourier spectrogram. Horizontal black dashed lines highlight the analytically expected orbital periods of $405$, $124$ and $95$ kyrs. 
+ For comparability, in all cases the spectra aligned in the columns of the shown plots are normalized to probabilities (sum of unity for 
+ each power spectrum). For further computational details, please refer to the main text.}  
+\label{fig_laskar_spectra}
+\end{figure}
+
+\noindent Then we construct the inter spike spectrogram of the $\tau$-RR by first determining an appropriate embedding. By using a recent Tree-Embedding-Ansatz \cite{Kraemer2022} we minimize the 
+\textit{false nearest neighbor} statistic \cite{hegger1999} and use the continuity statistic \cite{pecora2007} for potential delays. Eventually we obtain an $8$-dimensional embedding 
+with delays $\tau s=[0, 18, 36, 48, 62, 101, 114]$ (in sampling units) for the entire time series. Similar to the preceding approach we embed the time series with these embedding parameters 
+on windows of size $ws=1,200$ and a unity shift. \footnote{We use a slightly larger window here than in the short FT, because the embedding causes a ``loss'' of data points and we want to 
+cover similar time spans.} The RPs are computed on these embedded trajectories with a fixed recurrence threshold corresponding to $10\%$ global recurrence rate \cite{kraemer2018} 
+and the inter spike spectra of the corresponding $\tau$-RR's is obtained by using STLS regression (see Section \ref{sec_tau_rr_method}) and a regularization threshold corresponding to 
+$\rho=0.9$ accordance of $\tau$-RR's and re-composed signals. We only use the first $200$ data points of the $\tau$-RR (covering a time span of $1$ Myrs). 
+The spectrogram shown in Figure \ref{fig_laskar_spectra}B also highlights the $95$, $124$ and $405$ kyrs periods as expected. 
+Additional power is distributed in its harmonics at $190$ and $248$ kyrs periods. Finally, the standard FT with a Hamming window of the same $\tau$-RR's used to obtain the inter spike 
+spectrogram in panel B, yields a smeared spectrogram which does not reflect the expected periods, but rather suffers from the spike train behavior, i.e. many excited harmonics, of the 
+FT described in Section \ref{sec_tau_rr_intro} and Fig.~\ref{fig_tau_rr_dirac_comb}. The shown results are robust to a change of embedding parameters and windowsizes. However, a too low 
+regularization threshold smears the clear spectrogram in panel B.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
