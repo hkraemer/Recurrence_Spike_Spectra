@@ -253,6 +253,7 @@ basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\b
 \label{eq_basis_matrix} \bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
 \label{eq_T_is} T_\text{is}(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \end{align}
+\todo[inline]{Make Eq.\eqref{eq_T_is} nicer}
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
 Furthermore, there will be identical basis functions and also basis functions, which do not allow for an unambiguous inter spike period, 
 if we would include all $N$ possible inter spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A). 
@@ -384,7 +385,7 @@ on these spectra, which suit the research task.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Inter spike spectra of power grid frequency data}
+\subsection{Inter spike spectra of power grid frequency data}\label{sec_power_grid}
 
 Power grids are large, synchronized, complex networks whose stable functioning is indispensable for modern societies.
 To maintain the stability of a power grid, the balance between energy consumption and energy generation must be ensured. 
@@ -474,15 +475,31 @@ regularization threshold smears the clear spectrogram in panel B.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}\label{sec_tau_rr_discussion}
 
-\begin{itemize}
-\item computationally expensive.
-\item STLS and LASSO yield different results (qualitatively similar but not quantitatively). \todo[inline]{Add figure to the appendix explaining the search for the correct regularization}
-\item incorporates FFT-peaks (see Laskar data).
-\item bifurcation detection only possible when additional period(s) is not an integer multiple of the former period(s). For this: Maybe incorporate mutual distance for a better correlation 
-to the Lyapunov exponent. 
-\end{itemize}
+We have successfully used the idea of transforming the $\tau$-RR for the detection of bifurcations in the Logistic map. By constructing appropriate surrogates of the inter spike spectra, 
+and thus a null model, the number of significant peaks in the inter spike spectrum correlated well with the positive Lyapunov exponent. This measure was also able to resolve 
+period-doubling bifurcations. However, we have to admit this way the detection of a bifurcation is only possible when the additional period(s) is not an integer multiple of the former period(s). 
+This behavior is described in the application to the R\"ossler system, where we explicitly showed the different inter spike power spectra for period-2, period-3 and chaotic dynamics.
+Further development might potentially incorporate the mutual distance of peaks in the spectrum for a better correlation to the Lyapunov exponent. The inter spike spectra of power grid 
+frequency data illustrate that our proposed method may serve as a valuable source of information in addition to a standard Fourier analysis. And last but not least, we showed that our approach 
+really incorporates frequencies, which are apparent in the Fourier spectrum of the signal, by applying it to analytically derived eccentricity data, where the dominant frequencies are well 
+known.
 
-\todo[inline]{Move stuff from Conclusion section into Discussion section}
+We discuss some more technical details in the following, which will also affect any application of the proposed method. 
+First of all, the number of required basis functions 
+$M = \sum_{i=1}^{\ceil*{N/2}+1}i$ for an input signal of length $N$ is the crucial bottleneck of this approach, which is why it does not show good scaling behavior. The subsequent sparse 
+regression, therefore, gets computationally intensive for $N>1,000$. Depending on the memory of the computer used, input signals $N>2,000$ usually do not work anymore. This means that signals 
+often need to get downsampled as a preprocessing step (e.g., see Appendix \ref{sec_power_grid_appendix}). Second, the regularization parameter $\alpha$ for the regression is a crucial free parameter. 
+As described in Section \ref{sec_tau_rr_method} our idea in this paper is to select the $\alpha$ such that the re-composed signal $\tilde{\bf{s}}=\bf{X}^T\hat{\boldsymbol\beta}$ matches a 
+given (Pearson) correlation coefficient $\rho_{\bf{s},\tilde{\bf{s}}}$ between the original signal $\bf{s}$ and itself. This ensures that $\alpha$ adjusts itself to the data as well as to the 
+used regression method. We found that this increases the comparability of different spectra, especially when performing a running window approach in order to obtain an evolutionary spectrogram 
+(Fig.~\ref{fig_laskar_spectra}). 
+However, the two different sparse regression algorithms we encountered in this article (LASSO and STLS) yield different results for the same desired $\rho_{\bf{s},\tilde{\bf{s}}}$. 
+Even if the spectra obtained in this way look qualitatively similar, they are not always quantitatively similar. The reason for this 
+is that $\rho_{\bf{s},\tilde{\bf{s}}}$ is not a smooth function of $\alpha$ in case of STLS, due to the hard-thresholding involved \cite{Brunton2016}, which is shown in Figure~\ref{fig_regularization}.
+Third, when adopting our idea of applying the inter spike spectrum to the $\tau$-recurrence rate of the signals state space trajectory, the embedding process induces additional free parameters. 
+This is not a drawback of the proposed method, but rather a drawback of the particular application method that we have heavily used in this article and which was the main motivation for developing 
+the proposed method. As a very last remark, we draw attention to the fact that sparse regression can be transformed into sparse logistic regression when the signal we would like to transform is binary.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{sec_tau_rr_conclusion}
@@ -491,8 +508,10 @@ A novel type of powerspectrum, the \textit{inter spike spectrum}, has been propo
 combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution (we chose LASSO or a sequentially 
 thresholded least squares regression STLS). Since there are 
 $M = \sum_{i=1}^{\ceil*{N/2}+1}i$ basis functions for a signal of length $N$ the regression can get computationally intensive for $N>1,000$. When plotting the computed loadings as a function 
-of the period (or frequency) the inter spike spectrum is obtained. This novel powerspectrum is superior to an ordinary FFT-based powerspectrum, when the signal has a spike-train-like 
-appearance. Due to the sparse regression underlying the method, there is no unique inverse of the transformation and the regularization parameter plays a crucial role and determines the 
+of the period (or frequency) the inter spike spectrum is obtained. 
+Although this novel power spectrum is superior to an ordinary FFT-based power spectrum when the signal has a spike-train-like appearance, the authors suggest that this method be considered 
+as an additional source of information and not as a substitute for ordinary Fourier analysis. 
+Due to the sparse regression underlying the method, there is no unique inverse of the transformation and the regularization parameter plays a crucial role and determines the 
 appearance of the obtained inter spike spectrum. Moreover, similar to the Nyquist frequency barrier in the Fourier Transform which sets a lower bound for the corresponding wave period, here 
 the maximum considered inter spike period is bounded by $T_{\text{is}}^{\text{max}} = \ceil*{N/2}+1$.
 
@@ -500,10 +519,7 @@ The invention of the proposed method has been motivated by the idea of transform
 This general idea \cite{Zbilut2008} allows for a frequency analysis of high dimensional systems, because the RP is a representation of the system's state space trajectory.   
 The $\tau$-RR of a recurrence plot (RP) usually has a spiky shape, especially for map-like data, and the inter spike spectrum can reliably reveal the system's dominant frequencies, 
 which is not possible when Fourier transforming the $\tau$-RR or the underlying signal itself. Since the position of the peaks 
-in the $\tau$-RR are not sensitive to noise, the corresponding inter spike spectrum also yields robust results in the presence of noise. We have successfully used the idea 
-of transforming the $\tau$-RR for the detection of bifurcations in the Logistic map. By constructing appropriate surrogates of the inter spike spectra, and thus a null model, 
-the number of significant peaks in the inter spike spectrum correlated well with the positive Lyapunov exponent. This measure was also able to resolve period-doubling bifurcations. 
-\todo[inline]{Here a quick summary of the other applications.}
+in the $\tau$-RR are not sensitive to noise, the corresponding inter spike spectrum also yields robust results in the presence of noise. 
 
 We could think of a broad range of applications of the proposed idea. The inter spike spectrum itself can serve as a valuable tool for the analysis of any sort of 
 spike-train-like data. On the other hand, the inter spike spectrum of the $\tau$-RR of a signal can serve as a generalized, nonlinear frequency analysis tool for complex systems. 
@@ -535,7 +551,7 @@ and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} an
 
 \conflictsofinterest{The authors declare that they have no conflict of interest.} 
 
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Optional
 \appendixtitles{yes} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
@@ -576,16 +592,6 @@ For producing Figs.~\ref{fig_tau_rr_example_roessler_noise} and ~\ref{fig_tau_rr
 of $dt=0.05$ and in case of panel \textbf{C}, $u_0=[-0.1242, -2.5415, 0.2772]$ with a sampling time of $dt=0.1$. The first $5,000$ samples were discarded as transients and trajectories of length $N=5,000$ were 
 obtained from which we computed the RPs and the corresponding $\tau$-RR's. For the inter spike spectra only the first $1,000$ values of the $\tau$-RR's were considered.
 
-\section{Inter spike spectra for noisy R\"ossler system}
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_example_roessler_noise}
- \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise on each component $x$, $y$ and $z$. The appearance of the inter spike spectra 
- in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise.}
-\label{fig_tau_rr_example_roessler_noise}
-\end{figure}
-
 \section{Power grid frequency time series}\label{sec_power_grid_appendix}
 
 The raw frequency time series have length $\tilde{N}_{\text{CE}}=58,752,000$ and $\tilde{N}_{\text{GB}}=31,622,400$ with sampling times $\Delta t_{\text{CE}}=0.2$\si{s} and 
@@ -611,10 +617,35 @@ to ensure comparability \cite{kraemer2018}. The first $600$ data points of the $
 regularization threshold corresponding to $\rho=0.95$ accordance of $\tau$-RR's and re-composed signals. The spectra shown in all panels of Figure~\ref{fig_power_grid_spectra} 
 are averages over all blocks, following \citet{meyer2020identifying}.
 
+\clearpage
+
+\section{Inter spike spectra for noisy R\"ossler system}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\textwidth]{./figures/fig_tau_rr_example_roessler_noise}
+ \caption{Same as in Fig.~\ref{fig_tau_rr_example_roessler}, but here with 5\% additive Gaussian white noise on each component $x$, $y$ and $z$. The appearance of the inter spike spectra 
+ in \textbf{J, K, L}, and the Fourier spectra in \textbf{M, N, P} are unaffected by the additive noise.}
+\label{fig_tau_rr_example_roessler_noise}
+\end{figure}
+
+\clearpage 
+
+\section{Regularizationparameters for different sparse regression techniques}\label{sec_regularization_appendix}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=\textwidth]{./figures/fig_regularization}
+ \caption{Pearson correlation coefficient $\rho_{\bf{s},\tilde{\bf{s}}}$ between the input signal signal $\bf{s}$ and the re-composed signal $\tilde{\bf{s}}=\bf{X}^T\hat{\boldsymbol\beta}$ as a 
+ function of the regularization parameter $\alpha$ for \textbf{A} LASSO and \textbf{B} sequentially thresholded least squares (STLS) regression (see also Section \ref{sec_tau_rr_method}). 
+ The input time series is of length $N=200$ and stems from the $\tau$-RR of R\"ossler system in regular dynamics.}
+\label{fig_regularization}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
 %\printendnotes[custom] % Un-comment to print a list of endnotes
+
 
 \reftitle{References}
 
