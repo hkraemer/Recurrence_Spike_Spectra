@@ -251,9 +251,10 @@ basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\b
 (Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure)
 \begin{align}
 \label{eq_basis_matrix} \bfX_{i,j} &= \sum_{k=0}^{N}\delta\left(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \right), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
-\label{eq_T_is} T_\text{is}(i)&= n \quad, \forall n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
+\label{eq_T_is} T_\text{is}(i)&= n \quad,~s.t.~~ n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \end{align}
-\todo[inline]{Make Eq.\eqref{eq_T_is} nicer}
+\todo[inline]{HK: Eq.\eqref{eq_basis_matrix} is somehow ugly. Maybe someone can get rid of that sum and make it nicer? I tried with 
+modulo, but just could not figure it out exactly. There must be an easy way I do not see.}
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
 Furthermore, there will be identical basis functions and also basis functions, which do not allow for an unambiguous inter spike period, 
 if we would include all $N$ possible inter spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A). 
