@@ -125,7 +125,7 @@ $^{3}$ \quad Institute of Geosciences, University of Potsdam, 14476 Potsdam, Ger
 $^{4}$ \quad Institute of Physics, Humboldt Universit\"at zu Berlin, 12489 Berlin, Germany}
 
 % Contact information of the corresponding author
-\corres{Correspondence: hkraemer@pik-potsdam.de; marwan@pik-potsdam.de}
+\corres{Correspondence: hauke\_kraemer@hotmail.com; marwan@pik-potsdam.de}
 
 % Current address and/or shared authorship
 %\firstnote{Current address: Affiliation 3.} 
@@ -255,8 +255,7 @@ basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\b
 \bfX_{i,j} &= \sum_{k=0}^{N}\delta\bigl(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \bigr), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
 \label{eq_T_is} T_\text{is}(i)&= n, \quad s.t.~~ n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \end{align}
-\todo[inline]{HK: Eq.\eqref{eq_basis_matrix} is somehow ugly. Maybe someone can get rid of that sum and make it nicer? I tried with 
-modulo, but just could not figure it out exactly. There must be an easy way I do not see.}
+
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
 Furthermore, there will be identical basis functions and also basis functions, which do not allow for an unambiguous inter-spike period, 
 if we would include all $N$ possible inter-spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A). 
@@ -442,7 +441,7 @@ Eq.~\eqref{eq_rp_definition}, and its corresponding $\tau$-RR, Eq.~\eqref{eq_tau
 However, given a sufficient embedding of the time series, we would also expect that major frequencies/periods of the non-embedded time series are incorporated in the RP, its $\tau$-RR, 
 and eventually in the inter-spike spectrum of the $\tau$-RR. In order to demonstrate this we apply the inter-spike spectrum to the freely available eccentricity time series of \citet{Laskar2011}. 
 This astronomical computation of the orbital motion of the Earth (here we focus on the eccentricity only) has a clear expectation value of the incorporated frequencies/periods. The three leading 
-eccentricity cycles of 405 kyr period, 95 kyr period and 124 kyr period are well known in palaeoclimate studies \cite{Laskar2004}\todo{das ist aber keine palaeoclimate study sondern die numerische loesung der milankovich cycles. vielleicht besser ein palaeo-paper zitieren? z. b. westerhold?}. Our aim in this section is to show that the inter-spike spectrum 
+eccentricity cycles of 405 kyr period, 95 kyr period and 124 kyr period are well known in palaeoclimate studies \cite{Laskar2004,Westerhold2020}. Our aim in this section is to show that the inter-spike spectrum 
 of the $\tau$-RR of the embedded eccentricity time series will reflect these cycles in a similar fashion as the Fourier powerspectrum of the non-embedded eccentricity time series. We will further 
 show that Fourier-transforming the $\tau$-RR instead of applying the proposed inter-spike spectrum will lead to non-satisfying results, since the spiky $\tau$-RR excites a variety of harmonics in 
 the corresponding Fourier spectrum (cf. Section \ref{sec_tau_rr_intro}). We use a time series which covers the past \mytilde $67$ Mio.~years (Myr), with a total length of $N=13,421$ samples and a 
