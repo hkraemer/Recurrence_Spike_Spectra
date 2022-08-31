@@ -160,11 +160,12 @@ R_{i,j}(\varepsilon) = \Theta\left(\varepsilon - D_{i,j}\right)
 \end{equation}
 The crucial free parameter $\varepsilon$ (recurrence threshold) determines the visible structures in the RP. It can be chosen such that the recurrence rate 
 $RR(\varepsilon)=N^{-2}\sum_{i,j}^N R_{i,j}(\varepsilon)$ exhibits a certain value \cite{kraemer2018}.
-The simple idea to track recurring states of the $d$-dimensional trajectory $\vec{x}_i$ of the system under study not only allows for a beneficial visualization of the dynamics, but also for its 
+The simple idea to track recurring states of the $d$-dimensional trajectory $\vec{x}_i$ of the system under study not only allows for a beneficial visualization of the dynamics, 
+but also for its 
 quantification, using certain structures in the RP, such as diagonal or vertical lines \cite{marwan2007}. 
 
 Some of these recurrence quantification measures, the entropy of diagonal lines and the entropy of 
-recurrence times, can be related to the Kolmogorov-Sinai entropy \cite{march2005,baptista2010}. However, these quantifiers have a free parameter, the minimal considered line length, and 
+recurrence times, can be related to basic characteristics of complex systems, such as the Kolmogorov-Sinai entropy \cite{march2005,baptista2010}. However, these quantifiers have a free parameter, the minimal considered line length, and 
 are usually biased, due to the finite size of the RP and thickened diagonal lines, which needs to be corrected \cite{Kraemer2019}. Moreover, the mentioned statistics cannot account for 
 changing regular (non-chaotic) dynamics, such as period-doubling bifurcations.
 A rather simple idea is to look at the $\tau$-recurrence rate of the RP ($\tau$-RR, Eq.~\ref{eq_tau_rr}) \cite{marwan2002pla,Zbilut2008}.
@@ -506,12 +507,13 @@ the proposed method. As a very last remark, we draw attention to the fact that s
 \section{Conclusion}\label{sec_tau_rr_conclusion}
 
 A novel type of powerspectrum, the \textit{inter-spike spectrum}, has been proposed. The method decomposes any arbitrary signal into basis functions which consist of (lagged) Dirac 
-combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution (we chose LASSO or a sequentially 
-thresholded least squares regression STLS). Since there are 
+combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution. Wee chose LASSO or a sequentially 
+thresholded least squares regression STLS in this letter. Since there are 
 $M = \sum_{i=1}^{\ceil*{N/2}+1}i$ basis functions for a signal of length $N$ the regression can get computationally intensive for $N>1,000$. When plotting the computed loadings as a function 
 of the period (or frequency) the inter-spike spectrum is obtained. 
-Although this novel power spectrum is superior to an ordinary FFT-based power spectrum when the signal has a spike-train-like appearance, the authors suggest that this method be considered 
-as an additional source of information and not as a substitute for ordinary Fourier analysis. 
+Although this novel power spectrum is superior to an ordinary FFT-based power spectrum when the signal has a spike-train-like appearance, the authors suggest that this method should 
+be considered 
+as an additional source of information but not as a substitute for ordinary Fourier analysis. 
 Due to the sparse regression underlying the method, there is no unique inverse of the transformation and the regularization parameter plays a crucial role and determines the 
 appearance of the obtained inter-spike spectrum. Moreover, similar to the Nyquist frequency barrier in the Fourier Transform which sets a lower bound for the corresponding wave period, here 
 the maximum considered inter-spike period is bounded by $T_{\text{is}}^{\text{max}} = \ceil*{N/2}+1$.
