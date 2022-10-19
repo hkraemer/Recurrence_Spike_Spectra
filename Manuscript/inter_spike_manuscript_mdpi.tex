@@ -5,37 +5,6 @@
 \documentclass[entropy,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
 % For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
 
-%--------------------
-% Class Options:
-%--------------------
-%----------
-% journal
-%----------
-% Choose between the following MDPI journals:
-% acoustics, actuators, addictions, admsci, adolescents, aerospace, agriculture, agriengineering, agronomy, ai, algorithms, allergies, alloys, analytica, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biotech, birds, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinpract, clockssleep, cmd, coasts, coatings, colloids, colorants, commodities, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryptography, crystals, csmf, ctn, curroncol, currophthalmol, cyber, dairy, data, dentistry, dermato, dermatopathology, designs, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecologies, econometrics, economies, education, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, environsciproc, epidemiologia, epigenomes, est, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, foundations, fractalfract, fuels, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gels, genealogy, genes, geographies, geohazards, geomatics, geosciences, geotechnics, geriatrics, hazardousmatters, healthcare, hearts, hemato, heritage, highthroughput, histories, horticulturae, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, ijerph, ijfs, ijgi, ijms, ijns, ijtm, ijtpp, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmmp, jmp, jmse, jne, jnt, jof, joitmc, jor, journalmedia, jox, jpm, jrfm, jsan, jtaer, jzbg, kidney, kidneydial, knowledge, land, languages, laws, life, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrology, micro, microarrays, microbiolres, micromachines, microorganisms, microplastics, minerals, mining, modelling, molbank, molecules, mps, msf, mti, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nri, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, pollutants, polymers, polysaccharides, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, publications, quantumrep, quaternary, qubs, radiation, reactions, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, ruminants, safety, sci, scipharm, seeds, sensors, separations, sexes, signals, sinusitis, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, sports, standards, stats, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, taxonomy, technologies, telecom, test, textiles, thalassrep, thermo, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, viruses, vision, waste, water, wem, wevj, wind, women, world, youth, zoonoticdis 
-
-%---------
-% article
-%---------
-% The default type of manuscript is "article", but can be replaced by: 
-% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
-% supfile = supplementary materials
-
-%----------
-% submit
-%----------
-% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
-
-%------------------
-% moreauthors
-%------------------
-% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
-
-%---------
-% pdftex
-%---------
-% The option pdftex is for use with pdfLaTeX. If eps figures are used, remove the option pdftex and use LaTeX and dvi2pdf.
-
 %=================================================================
 % MDPI internal commands
 \firstpage{1} 
@@ -153,12 +122,25 @@ spectrum of a potentially high dimensional system which constitutes the RP. The 
 
 \section{Introduction}\label{sec_tau_rr_intro}
 
-Recurrence Plots (RPs) provide a vivid representation of complex dynamics stemming from potentially high dimensional systems \cite{marwan2007}
+The dynamics of complex systems as provided by measured time series usually show complicated and chaotic patterns.
+Quantifying their recurrence features is a powerful way to describe them and to infer information about 
+the type of dynamics, stability, regime changes, or couplings and synchronisation \cite{marwan2007,marwan2008epjst,webber2015}.
+Even more challenging are signals which do have a heavy tailed-distribution or appear as a spike-train,
+e.g., neuron firings \cite{Dummer2014,Orcioni2020}, heart beat variability \cite{marwan2002herz}, 
+or extreme flood events \cite{banerjee2021}.
+Deriving useful information from spike-train signals or inter-spike time series is an important
+topic in data analysis in many scientific fields \cite{Kajikawa2005,Dummer2014,Orcioni2020,Canale2021}.
+
+Recurrence plots (RPs) provide a vivid representation of complex dynamics $\vec{x}_i$ stemming from potentially high dimensional systems \cite{marwan2007}
 \begin{equation}\label{eq_rp_definition}
 R_{i,j}(\varepsilon) = \Theta\left(\varepsilon - D_{i,j}\right) 
-= \Theta\left(\varepsilon - \| \vec{x}_i - \vec{x}_j\|\right), \qquad \vec{x} \in \mathbb{R}^d, \quad i,j \in [1,\ldots, N].
+= \Theta\left(\varepsilon - \| \vec{x}_i - \vec{x}_j\|\right), \qquad \vec{x} \in \mathbb{R}^d, \quad i,j \in [1,\ldots, N],
 \end{equation}
-The crucial free parameter $\varepsilon$ (recurrence threshold) determines the visible structures in the RP. It can be chosen such that the recurrence rate 
+with $\mathbf{R}$ the recurrence matrix, $\vec{x}_i$ the state vector at time 
+$t = \Delta t \cdot i$ ($\Delta t$ the sampling time), $N$ the number of
+sampling points (or length of data series), and $d$ the dimension of the system.
+The crucial free parameter $\varepsilon$ is the recurrence threshold, determining what is a recurrences
+and, thus, the visible structures in the RP. It can be chosen such that the recurrence rate 
 $RR(\varepsilon)=N^{-2}\sum_{i,j}^N R_{i,j}(\varepsilon)$ exhibits a certain value \cite{kraemer2018}.
 The simple idea to track recurring states of the $d$-dimensional trajectory $\vec{x}_i$ of the system under study not only allows for a beneficial visualization of the dynamics, 
 but also for its 
@@ -168,6 +150,7 @@ Some of these recurrence quantification measures, the entropy of diagonal lines 
 recurrence times, can be related to basic characteristics of complex systems, such as the Kolmogorov-Sinai entropy \cite{march2005,baptista2010}. However, these quantifiers have a free parameter, the minimal considered line length, and 
 are usually biased, due to the finite size of the RP and thickened diagonal lines, which needs to be corrected \cite{Kraemer2019}. Moreover, the mentioned statistics cannot account for 
 changing regular (non-chaotic) dynamics, such as period-doubling bifurcations.
+
 A rather simple idea is to look at the $\tau$-recurrence rate of the RP ($\tau$-RR, Eq.~\ref{eq_tau_rr}) \cite{marwan2002pla,Zbilut2008}.
 This is the density of recurrence points along the diagonals of the recurrence matrix, as a function of the distance $\tau$ (sampling units) to the main diagonal:
 \begin{equation}\label{eq_tau_rr}
@@ -175,13 +158,15 @@ This is the density of recurrence points along the diagonals of the recurrence m
 \end{equation}
 $\tau$-RR serves as an estimator for the probability that the system recurs after time $\tau \Delta t$, with $\Delta t$ being the sampling time of the trajectory 
 $\vec{x}_i = \vec{x}(\Delta t \cdot i),\, i=1,\ldots,N$. 
-\citet{Zbilut2008} pointed out that $\tau$-RR could be used as a plugin value for the auto-correlation function $C(\tau)$ and, hence, via the Wiener-Khinchim theorem a 
-``generalized'' powerspectrum can be obtained. This is reasonable, since the average distances for a given lag $\tau$ 
+It represents the period length of cycles in the data (Fig.~\ref{fig_tau_rr_spectrum_example}D).
+
+\citet{Zbilut2008} pointed out that $\tau$-RR could be used as a plugin value for the auto-correlation function $C(\tau)$ and, hence, via the Wiener-Khinchin theorem a 
+``generalized'' power spectral density can be obtained. This is reasonable, since the average distances for a given lag $\tau$ 
 \begin{equation}
 \overline{D}(\tau) = \frac{1}{N-\tau}\sum_{i=1}^{N-\tau} D_{i, i+\tau}
 \end{equation}
 can be directly read from the distance matrix $\mathbf{D}$ and is also preserved in its thresholded version $\tau$-RR. There are clear advantages for a recurrence-derived 
-powerspectrum, i.e., Fourier transforming (FT) $\tau$-RR (Fig.~\ref{fig_tau_rr_spectrum_example}D,E), instead 
+power spectral density, i.e., Fourier transforming (FT) $\tau$-RR (Fig.~\ref{fig_tau_rr_spectrum_example}D,E), instead 
 of $C(\tau)$: There are no assumptions for stationarity or sampling, when constructing a RP.
 Furthermore, the correlation structures of higher dimensional spaces can be resolved in the recurrence-derived Fourier-spectrum.\\
 
@@ -218,10 +203,10 @@ for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coi
  \caption{The transformation of a Dirac comb (series of Dirac delta functions) with a single inter-spike period $T_{\text{is}}=100$ ($\widehat{=}f=0.01$) 
  into the frequency domain. 
  \textbf{A} Dirac Comb (DC) with equal amplitudes and
- \textbf{B} its FFT-based powerspectrum.
+ \textbf{B} its FFT-based power spectral density.
  \textbf{C} Proposed inter-spike spectrum of the signal in \textbf{A} showing a single frequency, which corresponds to the inter-spike period $T_{\text{is}}$ ($f=0.01$).
  \textbf{D} DC with randomly chosen amplitudes and same $T_{\text{is}}$ as in \textbf{A}, and
- \textbf{E} its FFT-based powerspectrum. 
+ \textbf{E} its FFT-based power spectral density. 
  \textbf{F} Proposed inter-spike spectrum of the signal in \textbf{D} showing a single frequency, which corresponds to the expected inter-spike period $T_{\text{is}}$ ($f=0.01$). 
  Inter-spike spectra were obtained with a LASSO regression and a regularization threshold corresponding to $\rho=0.9$ accordance of the signals in (\textbf{A},\textbf{D}) and 
  its re-composed signals (c.f. Section~\ref{sec_tau_rr_method}). 
@@ -229,7 +214,9 @@ for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coi
 \label{fig_tau_rr_dirac_comb}
 \end{figure}
 
-In this article we propose a new way of transforming a spike-train-like signal into its frequency domain. This novel \textit{inter-spike spectrum} does not show resonance 
+In this article we propose a new way of transforming a spike-train-like signal into its frequency domain as 
+an alternative to the RP-based method suggested in \cite{Zbilut2008} or Fourier-based spike-train power 
+spectra \cite{Dummer2014}. This novel \textit{inter-spike spectrum} does not show resonance 
 behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Section \ref{sec_tau_rr_method} explains the idea, which can be used to decompose 
 any arbitrary signal and is not restricted to the $\tau$-RR, which we exemplify here. However, the more spiky the signal is, the more outstanding our new approach is compared to a 
 FT. In Section \ref{sec_tau_rr_application} we exemplify the usage of inter-spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter-spike spectrum 
@@ -254,7 +241,7 @@ basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\b
 \begin{align}
 \label{eq_basis_matrix} 
 \bfX_{i,j} &= \sum_{k=0}^{N}\delta\bigl(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \bigr), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
-\label{eq_T_is} T_\text{is}(i)&= n, \quad s.t.~~ n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
+\label{eq_T_is} T_\text{is}(i)&= n, \quad \text{such that}\quad n:~ \frac{n(n-1)}{2} + 1 \leq i <  \frac{n(n+1)}{2} + 1,\quad n \in \mathbb{N}_+.
 \end{align}
 
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
@@ -352,7 +339,7 @@ each setting of $r$
 this percentile are counted. 
 \end{itemize}
 In this example, the according null hypothesis for constructing the surrogate data is that the data stems from a process which yields the same auto-correlation, 
-hence the same Fourier powerspectrum, and the same 
+hence, the same Fourier power spectral density, and the same 
 amplitude distribution. We consider the number of significant peaks in the inter-spike spectrum with
 respect to the control parameter in order to distinguish the corresponding dynamics (Fig.~\ref{fig_tau_rr_logistic}C).
 A correlation with the positive Lyapunov exponent (Fig.~\ref{fig_tau_rr_logistic}A) is discernible 
@@ -443,7 +430,7 @@ However, given a sufficient embedding of the time series, we would also expect t
 and eventually in the inter-spike spectrum of the $\tau$-RR. In order to demonstrate this we apply the inter-spike spectrum to the freely available eccentricity time series of \citet{Laskar2011}. 
 This astronomical computation of the orbital motion of the Earth (here we focus on the eccentricity only) has a clear expectation value of the incorporated frequencies/periods. The three leading 
 eccentricity cycles of 405 kyr period, 95 kyr period and 124 kyr period are well known in palaeoclimate studies \cite{Laskar2004,Westerhold2020}. Our aim in this section is to show that the inter-spike spectrum 
-of the $\tau$-RR of the embedded eccentricity time series will reflect these cycles in a similar fashion as the Fourier powerspectrum of the non-embedded eccentricity time series. We will further 
+of the $\tau$-RR of the embedded eccentricity time series will reflect these cycles in a similar fashion as the Fourier power spectral density of the non-embedded eccentricity time series. We will further 
 show that Fourier-transforming the $\tau$-RR instead of applying the proposed inter-spike spectrum will lead to non-satisfying results, since the spiky $\tau$-RR excites a variety of harmonics in 
 the corresponding Fourier spectrum (cf. Section \ref{sec_tau_rr_intro}). We use a time series which covers the past \mytilde $67$ Mio.~years (Myr), with a total length of $N=13,421$ samples and a 
 sampling period of $\Delta t= 5,000$.\\
@@ -506,8 +493,8 @@ the proposed method. As a very last remark, we draw attention to the fact that s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{sec_tau_rr_conclusion}
 
-A novel type of powerspectrum, the \textit{inter-spike spectrum}, has been proposed. The method decomposes any arbitrary signal into basis functions which consist of (lagged) Dirac 
-combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution. Wee chose LASSO or a sequentially 
+A novel type of power spectral density, the \textit{inter-spike spectrum}, has been proposed. The method decomposes any arbitrary signal into basis functions which consist of (lagged) Dirac 
+combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution. We chose LASSO or a sequentially 
 thresholded least squares regression STLS in this letter. Since there are 
 $M = \sum_{i=1}^{\ceil*{N/2}+1}i$ basis functions for a signal of length $N$ the regression can get computationally intensive for $N>1,000$. When plotting the computed loadings as a function 
 of the period (or frequency) the inter-spike spectrum is obtained. 
