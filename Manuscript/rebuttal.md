@@ -81,11 +81,13 @@ Reviewer 2
 
 _Starting a detailed assessment from the beginning, it is necessary to emphasize the comprehensive and impeccable introduction to the issue of the construction of a novel kind of power spectrum, which is the inter-spike spectrum._
 
-TBD
+We have extended the introduction and hope it is now more clear.
 
 _Moreover, the Authors explained the algorithm in great detail (in numerous pictures). By the way, also with outer -spike. Literature examples below review._
 
 (I don't understand this comment)
+
+We have added some further references on spike-train analysis and, in particular, on spike-train power spectra. Thanks for the literature suggestions, which were really helpful!
 
 _The illustrations of tau-recurrence rate based spectrum (Fig. 1) and the transformation diagrams of the series of Dirac delta function (Fig. 2), including the two proposed inter-spikes spectrum, deserve emphasis._
 
