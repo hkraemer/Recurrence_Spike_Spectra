@@ -1,0 +1,41 @@
+In their work entitled "Spike spectra for recurrences", the authors propose a new tool to analyze the frequency-domain properties of time series. The method, which is built on the concept of recurrence plots, provides a so-called "inter-spike spectrum". Rather than using trigonometric functions as in the standard Fourier series analysis, the methods uses Dirac combs with different inter-spike periods as basis functions. The method is applied to several examples on both synthetic and experimental time series. The authors claim that their new analytical tool can be efficiently used, for example, to detect bifurcations.
+
+The topic discussed in the manuscript is potentially interesting. However, in its present form, the manuscript is inappropriate for publication in Entropy.
+The main reason is the very poor quality of the presentation. As a matter of fact, there is no introduction, possibly because the reader is supposed to be an expert in the field of recurrence plots.
+More importantly, the mathematical formulation of the method is very confuse. The discussion of the results does not clarify in which cases the method is superior---in quantitative rather than qualitative terms---with respect to conventional methods.
+
+Hereafter I report a few examples of arguable points. Please note that the following list is not exhaustive.
+
+Introduction: a clear formulation of the mathematical problem, the state-of-the-art in terms of the existing literature, a summary of the solution proposed and of its pros and cons are totally lacking.
+
+- Equation (1) is poorly introduced. Although the authors cite a reference ([1]), the x_i, x_j vectors, as well as the parameters d and N, are not explained. The "trajectory x_i", for example, is introduced only at the end of page 1. Moreover, R_{i,j}(\epsilon) is not explicitly stated and explained.
+
+- (lines 20-21) "Furthermore, the correlation structures of higher dimensional spaces can be resolved in the recurrence-derived Fourier-spectrum." What do the authors mean with "correlation structures of higher dimensional spaces"? And what do they mean with the term "resolve"?
+
+- Figs. 2C, 2F: the "Inter Spike Spectrum of perfect DC" is equal to the "Inter Spike Spectrum of randomized DC", although the time domain signals (Figs. 2A, 2D, respectively) are not. This might prove that the new tool introduced in the manuscript is not invertible: Definitely a major issue.
+
+- (beginning of Sec. 2) "Let s(t_i) be the normalized signal we want to transform...". It is unclear how s(t_i) is obtained (i.e. "normalized") from x(t).
+
+- The way in which basis functions are defined is confusing.
+
+- The authors state that they "either use" the LASSO or the STLS methods to obtain β. It is not clear when the authors prefer one method over the other one, and why. Moreover, although a direct comparison between the methods, namely the different behavior of the regularization parameter, is shown in Fig. A3, a thorough comparison between the two methods is lacking: Figs. 2, 4 and 5 appear to be obtained by using only the LASSO method. One of the few mentions of the STLS method is in the Discussion section, where it is stated that (lines 236-237) "[...] the two different sparse regression algorithms [...] yield different results for the same desired ρ". How do the authors support this statement? There is no clear way for a reader to either compare the two methods, or to understand why the authors did not consider a single method from the very beginning.
+
+- At line 51 the authors introduce the term "loading": The authors should explain the meaning of this term.
+
+- With regard to the analysis of power grid frequency time series (Sec. 3.3, Fig. 6) The criterion followed by the authors to evaluate the importance of the spectral peaks is unclear.
+
+- Overall, the details of the power spectrum estimation procedure are not fully described: in particular, no information on windowing is provided. It is thus hard to evaluate the significance of the "peak splitting" discussed by the authors in Sec. 3.3 and concerning Fig. 6(A): could this splitting be due to spurious effects such as spectral leakage? It is worth noting that the information on windowing is instead provided in the case of the "evolutionary" spectra of Earth's orbit data.
+
+- The claimed robustness to noise is evaluated by showing the results of the method applied to the Roessler system with 5% additive Gaussian white noise (Fig. A2). While the results indeed appear to be unchanged with respect to the noiseless case (Fig. 4), a single example is hardly sufficient to claim that the method is "robust to noise". At which signal-to-noise ratio does the method fail to provide reliable results?
+
+- The authors unduly use the term "powerspectrum". However, this word does not exist in English. They might consider, for example, power spectral density.
+
+- The abbreviation "DC" for "Dirac comb" is introduced four times (lines 27, caption of Fig. 2, beginning of Sec. 2, line 248).
+
+- The abbreviation "s.t." in Eq.(6) is unclear. Does it stand for "such that"? Why not using "where"?
+
+- (lines 241-244) "This is not a drawback of the proposed method, but rather a drawback of the particular application method that we have heavily used in this article and which was the main motivation for developing the proposed method." This sentence is unclear: which "application method" are the authors referring to?
+
+ - Some typos:
+ in page 2, Wiener-Khinchim ---> Wiener-Khinchin;
+ in the Conclusion, "Wee chose LASSO..." (unless Wee is a surname).

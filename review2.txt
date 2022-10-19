@@ -1,0 +1,23 @@
+Dear Authors,
+
+Congratulations to the Authors on such a very interesting and at the same time very difficult manuscript. Written at a very high level for very advanced readers, at least in the field of neuronal spike train, stochastics, statistics and chaos. Starting a detailed assessment from the beginning, it is necessary to emphasize the comprehensive and impeccable introduction to the issue of the construction of a novel kind of power spectrum, which is the inter-spike spectrum. Moreover, the Authors explained the algorithm in great detail (in numerous pictures). By the way, also with outer -spike. Literature examples below review. The illustrations of tau-recurrence rate based spectrum (Fig. 1) and the transformation diagrams of the series of Dirac delta function (Fig. 2), including the two proposed inter-spikes spectrum, deserve emphasis. A small remark - regarding verse 35: what will be with stochastic resonance, because we are dealing with impulse disturbances.? Chapter 2 presents the signal decomposition into set of appropriate basis functions using Dirac comb. Here, too, we can distinguish a graphic representation of the decomposition procedure (Fig. 3). Nevertheless, the Authors could cite a position in the literature that discusses other methods of decomposition. In Chapter 3, the Authors presented three serious examples of the use of inter-spike spectrum in combination with the tau-RR with detailed procedures. usage. The theoretical basics are presented in Appendix A to Appendix D. A small note on Appendix C: It would be interesting to present an inter-spike spectra also for one of the nonlinear systems from Duffing, Mackey-Glass or Chen systems. Summary: The manuscript is so interesting and correctly written that some of the comments could be considered optional.
+
+Yours sincerely, Reviewer
+
+1)      Dengxuan Bai, Wenpo Yao, Zhiwei Lv, Wei Yan, Jun Wang: Multiscale multidimensional recurrence quantitative analysis for analysing MEG signals in patients with schizophrenia. Biomedical Signal Processing and Control 68 (2021) 102586
+2)      Antonio Canale, Antonio Lijoi, Carlo Alberto, Igor Prunster: Inner spike and slab Bayesian nonparametric models. Econometrics and Statistics 7 December 2021
+3)      Benjamin Dummer, Stefan Wieland and Benjamin Lindner: Self-consistent determination of the spike-train power spectrum in a neural network with sparse connectivity. Front. Comput. Neurosci., 18 September 2014. https://doi.org/10.3389/fncom.2014.00104
+
+4)      R Benzi, Sutera and Vulpiani: The mechanism of stochastic resonance. Journal of Physics A: Mathematical and General, Volume 14, Number 11
+
+5)      G D Lange, P H Hartline: Fourier analysis of spike train data. Biological Cybernetics volume 34, pages31–34 (1979)
+
+6)      JUNJIE WEI and DEJUN FAN. HOPF BIFURCATION ANALYSIS IN A MACKEY–GLASS SYSTEM. International Journal of Bifurcation and Chaos. Vol. 17, No. 06, pp. 2149-2157 (2007)
+
+7)      Lecture 7 Basic functions & decomposition https://www.google.com/search?q=decomposition+of+signal+into+a+set+of+appropriate+basis+functions&oq=decomposition+of+signal+into+a+set+of+appropriate+basis+functions&aqs=chrome..69i57.69118j0j7&sourceid=chrome&ie=UTF-8
+
+8)      M. E. Spira, Y. Yarom and I. Parnas: Modulation of spike frequency by regions of special axonal geometry and by synaptic inputs. Journal of Neurophysiology 1 JUL 1976 https://doi.org/10.1152/jn.1976.39.4.882
+
+9)      Yoshinao Kajikawa, Troy A. Hackett: Entropy analysis of neuronal spike train synchrony. J Neurosci Methods. 2005 Nov 30;149(1):90-3. doi: 10.1016/j.jneumeth.2005.05.011.
+
+10)    Simone Orcioni, Alessandra Paffi, Francesca Apollonio and Micaela Liberti: Revealing Spectrum Features of Stochastic Neuron Spike Trains. Mathematics 2022, 10(20), 3826; https://doi.org/10.3390/math10203826 (registering DOI) - 16 Oct 2022  IMPORTANT
