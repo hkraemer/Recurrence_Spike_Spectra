@@ -105,14 +105,14 @@ $^{4}$ \quad Institute of Physics, Humboldt Universit\"at zu Berlin, 12489 Berli
 
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{In reccurance analysis, the $\tau$-recurrence rate encodes crucial information on the cycles of the underlying high-dimensional timeseries. It plays a similar role to the autocorrelation for scalar time-series in encoding temporal correlations, however, it is not amenable to analysis by Fourier decomposition. Thus there is no natural analogue to the power spectrum in recurrence analysis. In this paper we introduce a novel way to decompose the $\tau$-recurrence rate using an overcomplete basis of Dirac combs together with a sparsity regularization. We show that this decomposition, the \textit{inter-spike spectrum}, naturally provides an analogue to the power spectrum for recurrence analysis. We show that the inter-spike spectrum correctly identifies patterns and transitions in the underlying timeseries in a wide variety of examples and is robust to measurement noise.
-
-A novel kind of power spectrum is constructed, the \textit{inter-spike spectrum}, which transforms any signal into its spike-frequency domain. This method 
-clearly shows the apparent cycles in the data and overcomes the problems for spike-train-like signals when using the obvious idea of Fourier-transforming it. 
-We invent this instructive approach with the 
-idea of transforming the $\tau$-recurrence rate of a recurrence plot (RP), which often has a spiky appearance. The $\tau$-recurrence rate is the density of recurrence points 
-along diagonals of the RP, which are parallel to the main diagonal with a distance of $\tau$. In this context the inter-spike spectrum can be interpreted as a nonlinear power 
-spectrum of a potentially high dimensional system which constitutes the RP. The proposed measure is robust to noise and is able to detect and analyze bifurcations.}
+\abstract{In reccurance analysis, the $\tau$-recurrence rate encodes crucial information on the cycles of the underlying high-dimensional timeseries. It plays a similar role to the autocorrelation for scalar time-series in encoding temporal correlations, however, it is not amenable to analysis by Fourier decomposition. Thus there is no natural analogue to the power spectrum in recurrence analysis. In this paper we introduce a novel way to decompose the $\tau$-recurrence rate using an overcomplete basis of Dirac combs together with a sparsity regularization. We show that this decomposition, the \textit{inter-spike spectrum}, naturally provides an analogue to the power spectrum for recurrence analysis. We show that the inter-spike spectrum correctly identifies patterns and transitions in the underlying timeseries in a wide variety of examples and is robust to measurement noise.}
+%
+%A novel kind of power spectrum is constructed, the \textit{inter-spike spectrum}, which transforms any signal into its spike-frequency domain. This method 
+%clearly shows the apparent cycles in the data and overcomes the problems for spike-train-like signals when using the obvious idea of Fourier-transforming it. 
+%We invent this instructive approach with the 
+%idea of transforming the $\tau$-recurrence rate of a recurrence plot (RP), which often has a spiky appearance. The $\tau$-recurrence rate is the density of recurrence points 
+%along diagonals of the RP, which are parallel to the main diagonal with a distance of $\tau$. In this context the inter-spike spectrum can be interpreted as a nonlinear power 
+%spectrum of a potentially high dimensional system which constitutes the RP. The proposed measure is robust to noise and is able to detect and analyze bifurcations.}
 
 % Keywords
 \keyword{Decomposition; Frequency Analysis; Recurrence Analysis; Bifurcations}
@@ -162,8 +162,8 @@ $\tau$-RR serves as an estimator for the probability that the system recurs afte
 $\vec{x}_i = \vec{x}(\Delta t \cdot i),\, i=1,\ldots,N$. 
 It represents the period length of cycles in the data (Fig.~\ref{fig_tau_rr_spectrum_example}D).
 
-\citet{Zbilut2008} pointed out that $\tau$-RR could be used as a plugin value for the auto-correlation function $C(\tau)$ and, hence, via the Wiener-Khinchin theorem a 
-``generalized'' power spectral density can be obtained. This is reasonable, since the average distances for a given lag $\tau$ 
+\citet{Zbilut2008} pointed out that $\tau$-RR could be interpreted as analogous to the auto-correlation function $C(\tau)$ and, hence, via the Wiener-Khinchin theorem, provide an analogue,
+``generalized'', power spectral density. This is reasonable, since the average distances for a given lag $\tau$ 
 \begin{equation}
 \overline{D}(\tau) = \frac{1}{N-\tau}\sum_{i=1}^{N-\tau} D_{i, i+\tau}
 \end{equation}
@@ -184,19 +184,19 @@ Furthermore, the correlation structures of higher dimensional spaces can be reso
  }\label{fig_tau_rr_spectrum_example}
 \end{figure}
 
-However, there is a drawback to this approach. Whenever $\tau$-RR is a spike-train-like signal, which it is in most cases (see Fig.~\ref{fig_tau_rr_spectrum_example}) especially for 
+However, the interpretation of this generalized power spectral density is unclear, and it is typically hard to interpret. $\tau$-RR directly encodes the periodicity of the underlying signal, in contrast it is unclear what, if any, interpretation the "power" contained in a particular frequency mode of the $\tau$-RR should have. Whenever $\tau$-RR is a spike-train-like signal, which it is in most cases (see Fig.~\ref{fig_tau_rr_spectrum_example}) especially for 
 map-data (low-resolution data), a FT of such a signal leads to a spike-train-like image in the frequency domain (e.g., \cite{Schild1982,Cordoba1989}, see 
-Fig.~\ref{fig_tau_rr_spectrum_example}E). Thus, it is not intuitive how to extract meaningful information about dominant frequencies of the systems' state space trajectory. 
+Fig.~\ref{fig_tau_rr_spectrum_example}E). Thus, it is not intuitive how to extract meaningful information about the systems' state space trajectory. 
 
-For clarification, consider the signal we would like to analyze 
+For example, consider the signal we would like to analyze 
 (e.g., the $\tau$-RR of a system) to be a Dirac comb (DC) with inter-spike period $T_\text{is}$: 
 \begin{equation}
 \text{DC}_{\text{is}}(t) = \sum_{k=-\infty}^{\infty} \delta(t-kT_\text{is}),
 \label{eq_dirac_comb}
 \end{equation}
 i.e., a series of Dirac delta functions for a period $T_\text{is}$. There is only one single period, $T_\text{is}$, in this signal (Fig.~\ref{fig_tau_rr_dirac_comb}A, D), so 
-in principle we would strive for a single peak in the frequency domain of this signal at a frequency $f=1/T_\text{is}$. Surprisingly the Fourier spectrum does not meet this expectation 
-and instead of a single frequency, there are exceptionally many frequencies excited (Fig.~\ref{fig_tau_rr_dirac_comb}B, E). This is because the Fourier components add constructively 
+in principle we would strive for a single peak in the frequency domain of this signal at a frequency $f=1/T_\text{is}$. The Fourier spectrum does not meet this expectation 
+and instead of a single frequency, there are many frequencies excited (Fig.~\ref{fig_tau_rr_dirac_comb}B, E). This is because the Fourier components add constructively 
 for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coincides with its own Fourier transform up to a factor $1/T_\text{is}$.
 
 \begin{figure}[h]
@@ -216,12 +216,11 @@ for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coi
 \label{fig_tau_rr_dirac_comb}
 \end{figure}
 
-In this article we propose a new way of transforming a spike-train-like signal into its frequency domain as 
+In this article we propose a new way of decomposing a spike-train-like signal into periodic components as 
 an alternative to the RP-based method suggested in \cite{Zbilut2008} or Fourier-based spike-train power 
 spectra \cite{Dummer2014}. This novel \textit{inter-spike spectrum} does not show resonance 
-behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Section \ref{sec_tau_rr_method} explains the idea, which can be used to decompose 
-any arbitrary signal and is not restricted to the $\tau$-RR, which we exemplify here. However, the more spiky the signal is, the more outstanding our new approach is compared to a 
-FT. In Section \ref{sec_tau_rr_application} we exemplify the usage of inter-spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter-spike spectrum 
+behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Section \ref{sec_tau_rr_method} explains the idea. Note that this approach can be used to decompose arbitrary signals, and is not specifc to $\tau$-RR. However, the more spiky the signal is, the more useful our new approach is compared to a 
+FT. In Section \ref{sec_tau_rr_application} we demonstrate the usage of inter-spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter-spike spectrum 
 can unravel characteristic time scales of high dimensional systems, which is not possible when using a FT. Finally, in Section \ref{sec_tau_rr_conclusion} our results are summarized.
 
 
@@ -248,7 +247,7 @@ basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\b
 
 Note that due to the shifting of each of the basis functions of inter-spike period $T_\text{is}$, $\bfX$ is not linear independent anymore. 
 Furthermore, there will be identical basis functions and also basis functions, which do not allow for an unambiguous inter-spike period, 
-if we would include all $N$ possible inter-spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A). 
+if we would include all $N$ possible inter-spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A).
 The reason is that in contrast to a trigonometric decomposition, where the Nyquist frequency marks a lower bound for the corresponding wave period, here 
 the maximum considered inter-spike period is bounded by $T_{\text{is}}^{\text{max}} = \ceil*{N/2}+1$ (schematically illustrated in 
 Fig.~\ref{fig_tau_rr_basis_functions}B).\\ 
@@ -275,18 +274,21 @@ than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in 
 (blue sheared). $T_{\text{is}}$ for each row can be obtained by Eq.~\eqref{eq_T_is}. \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
 \end{figure}
 
-In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the solving algorithm must also deal with the free choice of the regression regularization parameter $\alpha$, 
-which determines the sparsity of the regression coefficient vector $\hat{\boldsymbol\beta}$. Obviously, there will be numerous peaks in the inter-spike spectrum of a given signal, when $\alpha$ is small, 
-since $\alpha=0$ corresponds to the least squares solution and the corresponding $\hat{\boldsymbol\beta}$ is an exact solution of Eq.~(\ref{eq_linear_system}) and not sparse. On the other hand, 
-only a sparse number of non-zero loadings in $\hat{\boldsymbol\beta}$, i.e., peaks in the inter-spike spectrum, are obtained when $\alpha$ is sufficiently large. 
-The actual implementation of the regularization depends on the regression method chosen (in our case, LASSO or STLS), and consequently a given value of $\alpha$ will generally result in 
-different sparse loading vectors $\hat{\boldsymbol\beta}$. Therefore, in this paper we select $\alpha$ such that the re-composed signal $\tilde{\vec{s}}=\bfX^T\hat{\boldsymbol\beta}$ matches a 
-given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and itself.
+When introducing a sparsity regularization we give up the ability to fully reconstruct the signal from the decomposition in favor of identifying the most important periodicities more clearly. This choice is mediated by a regression regularization parameter $\alpha$. Only for $\alpha = 0$ do we obtain a solution to Eq.~(\ref{eq_linear_system}) and thus a full reconstruction of the signal. Our general approach to fixing $\alpha$ is to require that we preserve most of the original siginal in the sense of matching a given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and the reconstruction.
+
+%
+%In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the solving algorithm must also deal with the free choice of the regression regularization parameter $\alpha$, 
+%which determines the sparsity of the regression coefficient vector $\hat{\boldsymbol\beta}$. Obviously, there will be numerous peaks in the inter-spike spectrum of a given signal, when $\alpha$ is small, 
+%since $\alpha=0$ corresponds to the least squares solution and the corresponding $\hat{\boldsymbol\beta}$ is an exact solution of Eq.~(\ref{eq_linear_system}) and not sparse. On the other hand, 
+%only a sparse number of non-zero loadings in $\hat{\boldsymbol\beta}$, i.e., peaks in the inter-spike spectrum, are obtained when $\alpha$ is sufficiently large. 
+%The actual implementation of the regularization depends on the regression method chosen (in our case, LASSO or STLS), and consequently a given value of $\alpha$ will generally result in 
+%different sparse loading vectors $\hat{\boldsymbol\beta}$. Therefore, in this paper we select $\alpha$ such that the re-composed signal $\tilde{\vec{s}}=\bfX^T\hat{\boldsymbol\beta}$ matches a 
+%given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and itself.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{sec_tau_rr_application}
 
-We exemplify the use of the inter-spike spectrum in combination with the $\tau$-RR as outlined in 
+We demonstrate the use of the inter-spike spectrum in combination with the $\tau$-RR as outlined in 
 Section \ref{sec_tau_rr_intro} on several interesting research questions. The procedure is the following:
 \begin{itemize}[noitemsep]
 \item[(1)] Compute a RP of the trajectory of the system, Eq.~\eqref{eq_rp_definition}. If only univariate data is available, perform a state space reconstruction for obtaining the trajectory first.
