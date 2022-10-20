@@ -5,65 +5,6 @@ testing_recurrence_ISS.jl
 
 test_series.csv
 
-*.mat
-
-Applications/Kuramoto model/system with switch/results/emd1.csv
-
-Applications/Kuramoto model/system with switch/results/emd2.csv
-
-Applications/Kuramoto model/system with switch/results/emd3.csv
-
-Applications/Kuramoto model/system with switch/results/emd4.csv
-
-Applications/Kuramoto model/CE and GB frequencies/data/Frequency_OLD_2016_2017.txt
-
-Applications/Kuramoto model/CE and GB frequencies/data/Frequency_UK_2016.txt
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_fft_spectrum.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_fft_spectrum_t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos1.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos1t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos2.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos2t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos3.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos3t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos4.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_rhos4t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_8.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_85.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_85_t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_8_t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_9.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_95.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_95_t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switch_spectrum_0_9_t.csv
-
-Applications/Kuramoto model/system with switch/results/results_kuramoto_switchfft_spectrum.csv
-
-Applications/Kuramoto model/system with switch/results/emd1t.csv
-
-*.csv
-
-Applications/Power Grid/CE and GB frequencies/data/Frequency_OLD_2016_2017.txt
-
-Applications/Power Grid/CE and GB frequencies/data/Frequency_UK_2016.txt
 
 # remove compilation output(s)
 Manuscript/*.aux
@@ -75,3 +16,10 @@ Manuscript/*.out
 Manuscript/*.pdf
 Manuscript/*.soc
 Manuscript/*.synctex.gz
+Applications/.DS_Store
+
+Applications/Kuramoto model/.DS_Store
+
+Applications/Roessler Transition/.DS_Store
+
+.DS_Store
