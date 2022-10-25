@@ -64,10 +64,10 @@ writedlm("./Applications/Roessler Example/computed data/perio_2_power.csv", peri
 writedlm("./Applications/Roessler Example/computed data/perio_3_power.csv", perio_3_power)
 
 
-for (i, ρ) in enumerate(thresholds)
+for (i, rho) in enumerate(thresholds)
     for k = 1:N
-        writedlm("./Applications/Roessler Example/computed data/tauRR_spectrum1_roessler_($ρ)_$k.csv", spectrum1[i, k, :])
-        writedlm("./Applications/Roessler Example/computed data/tauRR_spectrum2_roessler_($ρ)_$k.csv", spectrum2[i, k, :])
-        writedlm("./Applications/Roessler Example/computed data/tauRR_spectrum3_roessler_($ρ)_$k.csv", spectrum3[i, k, :])
+        writedlm("./Applications/Roessler Example/computed data/tauRR_spectrum1_roessler_$(rho)_$k.csv", spectrum1[i, k, :])
+        writedlm("./Applications/Roessler Example/computed data/tauRR_spectrum2_roessler_$(rho)_$k.csv", spectrum2[i, k, :])
+        writedlm("./Applications/Roessler Example/computed data/tauRR_spectrum3_roessler_$(rho)_$k.csv", spectrum3[i, k, :])
     end
 end
