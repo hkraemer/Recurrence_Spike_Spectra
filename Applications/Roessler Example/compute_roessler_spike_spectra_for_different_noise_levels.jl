@@ -49,9 +49,9 @@ for (i, ρ) in enumerate(thresholds)
     println("This is for ρ: $ρ")
     for k = 1:N  
         println(k)
-        spectrum1[i, k, :], _ = inter_spike_spectrum(vec(τ_rrs_1[i,:]); ρ_thres = ρ)
-        spectrum2[i, k, :], _ = inter_spike_spectrum(vec(τ_rrs_2[i,:]); ρ_thres = ρ)
-        spectrum3[i, k, :], _ = inter_spike_spectrum(vec(τ_rrs_3[i,:]); ρ_thres = ρ)
+        spectrum1[i, k, :], _ = inter_spike_spectrum(vec(τ_rrs_1[k,:]); ρ_thres=ρ, method=lasso(), regression_type=normal())
+        spectrum2[i, k, :], _ = inter_spike_spectrum(vec(τ_rrs_2[k,:]); ρ_thres=ρ, method=lasso(), regression_type=normal())
+        spectrum3[i, k, :], _ = inter_spike_spectrum(vec(τ_rrs_3[k,:]); ρ_thres=ρ, method=lasso(), regression_type=normal())
     end
 end
 
