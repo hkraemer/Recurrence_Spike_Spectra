@@ -19,20 +19,20 @@ clear, clc
 num_levels = 50; % number of noise levels (excluding 0)
 sigmas = linspace(0.01,0.5,num_levels).*100; % noise levels
 
-fs = 25; % fontsize for plotting
+fs = 20; % fontsize for plotting
 lw = 2.5; % linewidth for plotting
 sz = 40; % scatter size
 % the different considered systems
 systems = ["Rössler system (a = 0.36)", "Rössler system (a = 0.41)", "Rössler system (a = 0.428)"];
 
 %% Cosine distance
-
+figure('Units', 'normalized', 'Position', [.001 .2 .999 .6])
 for i = 1:3
     dist1 = load(strcat("./computed data/dist_cosine_rho_0.9_system_", num2str(i), ".csv"));
     dist2 = load(strcat("./computed data/dist_cosine_rho_0.95_system_", num2str(i), ".csv"));
     dist3 = load(strcat("./computed data/dist_cosine_rho_0.99_system_", num2str(i), ".csv"));
     
-    figure('Units', 'normalized', 'Position', [.2 .2 .6 .6])
+    subplot(1,3,i)
     p1 = plot(sigmas, dist1, 'LineWidth', lw, 'LineStyle', '-'); hold on
     scatter(sigmas, dist1, sz, p1.Color, 'filled'), hold on
     p2 = plot(sigmas, dist2, 'LineWidth', lw, 'LineStyle', '-'); hold on
@@ -46,17 +46,19 @@ for i = 1:3
     legend('Location','northwest')
     grid on
     set(gca, 'LineWidth', 2, 'FontSize', fs)
-    ylim([0 0.6])
+    ylim([0 0.8])
+    xlim([0 50])
 end
 
 %% KL Divergence
 
+figure('Units', 'normalized', 'Position', [.001 .2 .999 .6])
 for i = 1:3
     dist1 = load(strcat("./computed data/dist_kl_div_rho_0.9_system_", num2str(i), ".csv"));
     dist2 = load(strcat("./computed data/dist_kl_div_rho_0.95_system_", num2str(i), ".csv"));
     dist3 = load(strcat("./computed data/dist_kl_div_rho_0.99_system_", num2str(i), ".csv"));
     
-    figure('Units', 'normalized', 'Position', [.2 .2 .6 .6])
+    subplot(1,3,i)
     p1 = plot(sigmas, dist1, 'LineWidth', lw, 'LineStyle', '-'); hold on
     scatter(sigmas, dist1, sz, p1.Color, 'filled'), hold on
     p2 = plot(sigmas, dist2, 'LineWidth', lw, 'LineStyle', '-'); hold on
@@ -70,17 +72,18 @@ for i = 1:3
     legend('Location','northwest')
     grid on
     set(gca, 'LineWidth', 2, 'FontSize', fs)
-    ylim([0 0.6])
+    ylim([0 1.2])
+    xlim([0 50])
 end
 
 %% Hellinger distance
-
+figure('Units', 'normalized', 'Position', [.001 .2 .999 .6])
 for i = 1:3
     dist1 = load(strcat("./computed data/dist_hellinger_rho_0.9_system_", num2str(i), ".csv"));
     dist2 = load(strcat("./computed data/dist_hellinger_rho_0.95_system_", num2str(i), ".csv"));
     dist3 = load(strcat("./computed data/dist_hellinger_rho_0.99_system_", num2str(i), ".csv"));
     
-    figure('Units', 'normalized', 'Position', [.2 .2 .6 .6])
+    subplot(1,3,i)
     p1 = plot(sigmas, dist1, 'LineWidth', lw, 'LineStyle', '-'); hold on
     scatter(sigmas, dist1, sz, p1.Color, 'filled'), hold on
     p2 = plot(sigmas, dist2, 'LineWidth', lw, 'LineStyle', '-'); hold on
@@ -94,17 +97,19 @@ for i = 1:3
     legend('Location','northwest')
     grid on
     set(gca, 'LineWidth', 2, 'FontSize', fs)
-    ylim([0 0.6])
+    ylim([0 0.8])
+    xlim([0 50])
 end
 
 %% Wasserstein
 
+figure('Units', 'normalized', 'Position', [.001 .2 .999 .6])
 for i = 1:3
     dist1 = load(strcat("./computed data/dist_wasserstein_rho_0.9_system_", num2str(i), ".csv"));
     dist2 = load(strcat("./computed data/dist_wasserstein_rho_0.95_system_", num2str(i), ".csv"));
     dist3 = load(strcat("./computed data/dist_wasserstein_rho_0.99_system_", num2str(i), ".csv"));
     
-    figure('Units', 'normalized', 'Position', [.2 .2 .6 .6])
+    subplot(1,3,i)
     p1 = plot(sigmas, dist1, 'LineWidth', lw, 'LineStyle', '-'); hold on
     scatter(sigmas, dist1, sz, p1.Color, 'filled'), hold on
     p2 = plot(sigmas, dist2, 'LineWidth', lw, 'LineStyle', '-'); hold on
@@ -118,5 +123,6 @@ for i = 1:3
     legend('Location','northwest')
     grid on
     set(gca, 'LineWidth', 2, 'FontSize', fs)
-
+    ylim([0 14])
+    xlim([0 50])
 end
