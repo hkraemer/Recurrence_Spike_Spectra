@@ -12,7 +12,7 @@ We thank for this comment, but do not agree completely with this criticism. In o
 
 _Equation (1) is poorly introduced. Although the authors cite a reference ([1]), the x_i, x_j vectors, as well as the parameters d and N, are not explained. The "trajectory x_i", for example, is introduced only at the end of page 1. Moreover, R_{i,j}(\epsilon) is not explicitly stated and explained._
 
-In deed, out intention was to have a short but clear introduction into the recurrence plot method, which reviewer 2 obviously liked very much. Nevertheless, we have now added an explanation on the recurrence plot definition. An unfamiliar reader should now better understand the method.
+Indeed, out intention was to have a short but clear introduction into the recurrence plot method, which reviewer 2 obviously liked very much. Nevertheless, we have now added an explanation on the recurrence plot definition. An unfamiliar reader should now better understand the method.
 
 _(lines 20-21) "Furthermore, the correlation structures of higher dimensional spaces can be resolved in the recurrence-derived Fourier-spectrum." What do the authors mean with "correlation structures of higher dimensional spaces"? And what do they mean with the term "resolve"?_
 
@@ -85,15 +85,9 @@ We have extended the introduction and hope it is now more clear.
 
 _Moreover, the Authors explained the algorithm in great detail (in numerous pictures). By the way, also with outer -spike. Literature examples below review._
 
-(I don't understand this comment)
-
 We have added some further references on spike-train analysis and, in particular, on spike-train power spectra. Thanks for the literature suggestions, which were really helpful!
 
-_The illustrations of tau-recurrence rate based spectrum (Fig. 1) and the transformation diagrams of the series of Dirac delta function (Fig. 2), including the two proposed inter-spikes spectrum, deserve emphasis._
-
-TBD
-
-_A small remark - regarding verse 35: what will be with stochastic resonance, because we are dealing with impulse disturbances.?_
+_The illustrations of tau-recurrence rate based spectrum (Fig. 1) and the transformation diagrams of the series of Dirac delta function (Fig. 2), including the two proposed inter-spikes spectrum, deserve emphasis. A small remark - regarding verse 35: what will be with stochastic resonance, because we are dealing with impulse disturbances.?_
 
 TBD
 

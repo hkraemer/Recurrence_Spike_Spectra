@@ -105,7 +105,7 @@ $^{4}$ \quad Institute of Physics, Humboldt Universit\"at zu Berlin, 12489 Berli
 
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{In reccurance analysis, the $\tau$-recurrence rate encodes the periods of the cycles of the underlying high-dimensional timeseries. It thus plays a similar role to the autocorrelation for scalar time-series in encoding temporal correlations. However, its Fourier decomposition does not have a clean interpretation. Thus there is no satisfactory analogue to the power spectrum in recurrence analysis. In this paper we introduce a novel way to decompose the $\tau$-recurrence rate using an overcomplete basis of Dirac combs together with a sparsity regularization. We show that this decomposition, the \textit{inter-spike spectrum}, naturally provides an analogue to the power spectrum for recurrence analysis in the sense that it reveals the dominant periodicities of the underlying time series. We show that the inter-spike spectrum correctly identifies patterns and transitions in the underlying system in a wide variety of examples and is robust to measurement noise.}
+\abstract{In recurrence analysis, the $\tau$-recurrence rate encodes the periods of the cycles of the underlying high-dimensional time series. It thus plays a similar role to the autocorrelation for scalar time-series in encoding temporal correlations. However, its Fourier decomposition does not have a clean interpretation. Thus there is no satisfactory analogue to the power spectrum in recurrence analysis. In this paper we introduce a novel way to decompose the $\tau$-recurrence rate using an over-complete basis of Dirac combs together with a sparsity regularization. We show that this decomposition, the \textit{inter-spike spectrum}, naturally provides an analogue to the power spectrum for recurrence analysis in the sense that it reveals the dominant periodicities of the underlying time series. We show that the inter-spike spectrum correctly identifies patterns and transitions in the underlying system in a wide variety of examples and is robust to measurement noise.}
 %
 %A novel kind of power spectrum is constructed, the \textit{inter-spike spectrum}, which transforms any signal into its spike-frequency domain. This method 
 %clearly shows the apparent cycles in the data and overcomes the problems for spike-train-like signals when using the obvious idea of Fourier-transforming it. 
@@ -197,7 +197,8 @@ For example, consider the signal we would like to analyze
 i.e., a series of Dirac delta functions for a period $T_\text{is}$. There is only one single period, $T_\text{is}$, in this signal (Fig.~\ref{fig_tau_rr_dirac_comb}A, D), so 
 in principle we would strive for a single peak in the frequency domain of this signal at a frequency $f=1/T_\text{is}$. The Fourier spectrum does not meet this expectation 
 and instead of a single frequency, there are many frequencies excited (Fig.~\ref{fig_tau_rr_dirac_comb}B, E). This is because the Fourier components add constructively 
-for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coincides with its own Fourier transform up to a factor $1/T_\text{is}$.
+for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coincides with its own Fourier transform up to a factor $1/T_\text{is}$.\footnote{This can also 
+be observed for neuron spike trains, e.g. \cite{Orcioni2020,Biagetti2017}.}
 
 \begin{figure}[h]
  \centering
