@@ -197,7 +197,7 @@ For example, consider the signal we would like to analyze
 i.e., a series of Dirac delta functions for a period $T_\text{is}$. There is only one single period, $T_\text{is}$, in this signal (Fig.~\ref{fig_tau_rr_dirac_comb}A, D), so 
 in principle we would strive for a single peak in the frequency domain of this signal at a frequency $f=1/T_\text{is}$. The Fourier spectrum does not meet this expectation 
 and instead of a single frequency, there are many frequencies excited (Fig.~\ref{fig_tau_rr_dirac_comb}B, E). This is because the Fourier components add constructively 
-for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coincides with its own Fourier transform up to a factor $1/T_\text{is}$.\footnote{This can also 
+for every frequency $1/T_\text{is}$ and therefore $\text{DC}_{\text{is}}(t)$ coincides with its own Fourier transform up to a factor $1/T_\text{is}$ \cite{Norden1998}.\footnote{This can also 
 be observed for neuron spike trains, e.g. \cite{Orcioni2020,Biagetti2017}.}
 
 \begin{figure}[h]
@@ -220,7 +220,7 @@ be observed for neuron spike trains, e.g. \cite{Orcioni2020,Biagetti2017}.}
 In this article we propose a new way of decomposing a spike-train-like signal into periodic components as 
 an alternative to the RP-based method suggested in \cite{Zbilut2008} or Fourier-based spike-train power 
 spectra \cite{Dummer2014}. This novel \textit{inter-spike spectrum} does not show resonance 
-behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Section \ref{sec_tau_rr_method} explains the idea. Note that this approach can be used to decompose arbitrary signals, and is not specifc to $\tau$-RR. However, the more spiky the signal is, the more useful our new approach is compared to a 
+behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Section \ref{sec_tau_rr_method} explains the idea. Note that this approach can be used to decompose arbitrary signals, and is not specific to $\tau$-RR. However, the more spiky the signal is, the more useful our new approach is compared to a 
 FT. In Section \ref{sec_tau_rr_application} we demonstrate the usage of inter-spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter-spike spectrum 
 can unravel characteristic time scales of high dimensional systems, which is not possible when using a FT. Finally, in Section \ref{sec_tau_rr_conclusion} our results are summarized.
 
@@ -228,9 +228,15 @@ can unravel characteristic time scales of high dimensional systems, which is not
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method}\label{sec_tau_rr_method}
     
-The signal, which we would like to transform is decomposed into a set of appropriate basis functions.\footnote{We focus on $\tau$-RR in this article, Eq.~\eqref{eq_tau_rr}, since 
-such time series are often spiky, which favors the proposed decomposition technique. But the proposed method can be applied to any sort of signal.} Instead of using trigonometric 
-functions, as it is the idea in the Fourier decomposition, we use Dirac combs (DC) with 
+The signal, which we would like to transform\footnote{We focus on $\tau$-RR in this article, Eq.~\eqref{eq_tau_rr}, since 
+such time series are often spiky, which favors the proposed decomposition technique. But the proposed method can be applied to any sort of signal.} is decomposed into a set of appropriate basis functions. 
+The general idea is that the sum of these weighted functions can approximate a finite signal to a sufficient degree. 
+A number of decomposition techniques are out there based on different sets of basis functions, e.g., 
+trigonometric functions (Fourier- and wavelet analysis \cite{Bracewell1986}), 
+eigenvectors of the corresponding covariance matrix (Principal Component Analysis \cite{Hotelling1933} and related techniques) 
+or Intrinsic Mode Functions (Empirical Mode Decomposition and Hilbert spectrum \cite{Norden1998}). 
+
+Here we propose to use Dirac combs (DC) with 
 different inter-spike periods as basis functions, Eq.~\eqref{eq_dirac_comb}. Let $s(t_i)$ be the normalized signal we want to transform of length $N$ and 
 $t_i=i\cdot \Delta t,~i=1,\ldots,N$, where $\Delta t$ denotes the sampling time and $s(t_i) \in [0,\ 1]\ \forall\ i$. In the following we label this time series as a $(1\times N)$-dimensional 
 vector $\vec{s}$. 

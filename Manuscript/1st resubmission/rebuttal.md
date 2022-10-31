@@ -93,7 +93,7 @@ TBD
 
 _Chapter 2 presents the signal decomposition into set of appropriate basis functions using Dirac comb. Here, too, we can distinguish a graphic representation of the decomposition procedure (Fig. 3). Nevertheless, the Authors could cite a position in the literature that discusses other methods of decomposition._
 
-TBD
+We took the reviewer's advice and think this is a good point. Hence, we extended the Methods-section and added the corresponding references.
 
 _A small note on Appendix C: It would be interesting to present an inter-spike spectra also for one of the nonlinear systems from Duffing, Mackey-Glass or Chen systems._
 
