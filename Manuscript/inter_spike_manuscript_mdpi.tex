@@ -333,9 +333,20 @@ period-3 limit cycle dynamics ($a=0.41$ in Fig.~\ref{fig_tau_rr_example_roessler
 
 The inter-spike spectra unravel the specific dynamics, which are also apparent in the state space portraits (Fig.~\ref{fig_tau_rr_example_roessler}A, B, C) and in the 
 $\tau$-RRs (Fig.~\ref{fig_tau_rr_example_roessler}G, H, I). The proposed idea is also 
-robust to noise (see Fig.~\ref{fig_tau_rr_example_roessler_noise} in the Appendix). This is because the peaks of the $\tau$-RR are insensitive to noise. While the peak shape does 
-change in the presence of noise, its position does not, and this is what the inter-spike spectrum encrypts after all.
+robust to noise (see Fig.~\ref{fig_tau_rr_example_roessler_noise} in the Appendix). This is because the peaks of the $\tau$-RR are insensitive to noise. 
+Figure \ref{fig_roessler_peaks} illustrates that 
+while the peak shape does change in the presence of noise, its position does not, and this is what the inter-spike spectrum encrypts after all 
+(see Fig.~\ref{fig_roessler_spectra_distances} in the Appendix for further analysis).
 
+\begin{figure}
+ \centering
+ \includegraphics[width=0.9\textwidth]{./figures/fig_roessler_different_noise_levels_peaks}
+ \caption{Peak positions of the obtained inter-spike spectra of the $\tau$-RRs for additive noise levels up to 50\% for the discussed R\"ossler dynamics, 
+ \textbf{A} period-2 limit-cycle, \textbf{B} period-3 limit-cycle and \textbf{C} chaos. The size of the plotted markers scale with the detected peak height. The noise-free spectra are shown in Fig.~\ref{fig_tau_rr_example_roessler}J, K, L and 
+ an example of these spectra with 5\% additive noise is shown in Fig.~\ref{fig_tau_rr_example_roessler_noise}J, K, L. Spectra were obtained with a LASSO regression and a regularization threshold 
+  corresponding to $\rho=0.95$ accordance of $\tau$-RRs and re-composed signals.}
+\label{fig_roessler_peaks}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -551,7 +562,8 @@ when accepted** and as a MATLAB\textsuperscript{\textregistered} toolbox
 
 \acknowledgments{
 All computations have been carried out in MATLAB\textsuperscript{\textregistered} and the Julia language 
-and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018} and \textit{DifferentialEquations.jl} \cite{rackauckas2017}.
+and made use of the packages \textit{DynamicalSystems.jl} \cite{datseris2018}, \textit{DifferentialEquations.jl} \cite{rackauckas2017}, \textit{Distances.jl} and 
+\textit{OptimalTransport.jl} \cite{Zhang2022}.
 }
 
 \conflictsofinterest{The authors declare that they have no conflict of interest.} 
@@ -635,6 +647,17 @@ are averages over all blocks, following \citet{meyer2020identifying}.
 \end{figure}
 
 \clearpage 
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=0.9\textwidth]{./figures/fig_roessler_spectra_distances}
+ \caption{Wasserstein distances for the obtained inter-spike spectra of the $\tau$-RRs for additive noise levels up to 50\% for the discussed R\"ossler dynamics, 
+ \textbf{A} period-2 limit-cycle, \textbf{B} period-3 limit-cycle and \textbf{C} chaos. For each noise level the obtained spectrum is compared to the noise-free spectrum (these are shown 
+ in Fig.~\ref{fig_tau_rr_example_roessler}J, K, L for a regularization threshold corresponding to $\rho=0.95$) by computing its Wasserstein distance. Inter-spike spectra were obtained with a 
+ LASSO regression and three different regularization thresholds corresponding to $\rho=0.9$ (blue), $\rho=0.95$ (orange) and $\rho=0.99$ (green) accordance of $\tau$-RRs and re-composed signals. 
+ Up to a noise level of 20\% the distances are small and rather constant. The fluctuations depend on the chosen regularization threshold as well as on the underlying dynamics.}
+\label{fig_roessler_spectra_distances}
+\end{figure}
 
 \section{Regularizationparameters for different sparse regression techniques}\label{sec_regularization_appendix}
 
