@@ -531,7 +531,7 @@ developing the proposed method. As a very last remark, we draw attention to the 
 \section{Conclusion}\label{sec_tau_rr_conclusion}
 
 A novel decomposition technique is proposed that yields the \textit{inter-spike spectrum}. The method decomposes any arbitrary signal into basis functions which consist of (lagged) Dirac 
-combs (DC) of different inter-spike period. The loading for each period is obtained by a regularized regression, which promotes sparsity in its solution. We chose LASSO or a sequentially 
+combs (DC) of different inter-spike period. The weight for each period is obtained by a regularized regression, which promotes sparsity in its solution. We chose LASSO or a sequentially 
 thresholded least squares regression STLS in this letter. Since there are 
 $M = \sum_{i=1}^{\ceil*{N/2}+1}i$ basis functions for a signal of length $N$ the regression can get computationally intensive for $N>1,000$. When plotting the computed weights as a function 
 of the period (or frequency) the inter-spike spectrum is obtained. This provides information that is complementary to the Fourier decompostion of the signal.
