@@ -231,8 +231,8 @@ can unravel characteristic time scales of high dimensional systems, which is not
     
 The signal, which we would like to transform\footnote{We focus on $\tau$-RR in this article, Eq.~\eqref{eq_tau_rr}, since 
 such time series are often spiky, which favors the proposed decomposition technique. But the proposed method can be applied to any sort of signal.} is decomposed into a set of appropriate basis functions. 
-The general idea is that the sum of these weighted functions can approximate a finite signal to a sufficient degree. 
-A number of decomposition techniques are out there based on different sets of basis functions, e.g., 
+The general idea is that the sum of these weighted functions can approximate a finite signal to a sufficient degree. The weights (also called modes) corresponding to the individual basis functions can also 
+be called \textit{loadings} and must be determined. A number of decomposition techniques are out there based on different sets of basis functions, e.g., 
 trigonometric functions (Fourier- and wavelet analysis \cite{Bracewell1986}), 
 eigenvectors of the corresponding covariance matrix (Principal Component Analysis \cite{Hotelling1933} and related techniques) 
 or Intrinsic Mode Functions (Empirical Mode Decomposition and Hilbert spectrum \cite{Norden1998}). 
@@ -511,9 +511,9 @@ used regression method. We found that this increases the comparability of differ
 However, the two different sparse regression algorithms we encountered in this article (LASSO and STLS) yield different results for the same desired $\rho_{\vec{s},\tilde{\vec{s}}}$. 
 Even if the spectra obtained in this way look qualitatively similar, they are not always quantitatively similar. The reason for this 
 is that $\rho_{\vec{s},\tilde{\vec{s}}}$ is not a smooth function of $\alpha$ in case of STLS, due to the hard-thresholding involved \cite{Brunton2016}, which is shown in Fig.~\ref{fig_regularization}.
-Third, when adopting our idea of applying the inter-spike spectrum to the $\tau$-recurrence rate of the signals state space trajectory, the embedding process induces additional free parameters. 
-This is not a drawback of the proposed method, but rather a drawback of the particular application method that we have heavily used in this article and which was the main motivation for developing 
-the proposed method. As a very last remark, we draw attention to the fact that sparse regression can be transformed into sparse logistic regression when the signal we would like to transform is binary.
+Third, when adopting our idea of applying the inter-spike spectrum to the $\tau$-recurrence rate of the signals state space trajectory, the embedding process induces additional free parameters.  
+This is not a drawback of the proposed decomposition method, but rather a drawback of applying this technique to the $\tau$-recurrence rate of the system, which was the main motivation for 
+developing the proposed method. As a very last remark, we draw attention to the fact that sparse regression can be transformed into sparse logistic regression when the signal we would like to transform is binary.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
