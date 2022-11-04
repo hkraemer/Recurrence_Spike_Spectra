@@ -23,3 +23,11 @@ Applications/Kuramoto model/.DS_Store
 Applications/Roessler Transition/.DS_Store
 
 .DS_Store
+
+Applications/Power Grid/CE and GB frequencies/data/Frequency_OLD_2016_2017.txt
+
+Applications/Power Grid/CE and GB frequencies/data/Frequency_UK_2016.txt
+
+Applications/Power Grid/CE and GB frequencies/data/frequencies_ce.mat
+
+Applications/Power Grid/CE and GB frequencies/data/frequencies_gb.mat
