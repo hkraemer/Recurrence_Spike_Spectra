@@ -248,9 +248,8 @@ First, $\tilde{N}$ different DCs of length $N$ are constructed with inter-spike 
 for possible phase shifts of 
 these basis functions occurring in $\vec{s}$, each of these $\tilde{N}$ different DCs also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of 
 $M = \sum_{i=1}^{\tilde{N}}i$ 
-\todo[inline]{let's come back to your example in Fig.~\ref{fig_tau_rr_basis_functions}, where $N=4$, regarding your explanation $M=\Sigma_i^{\tilde{N}=3} i= 1+2+3=6$. So finally matrix X should be 6x4 size. However, X does not have this size in Fig.3, which is the source of confusion.}
 basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\bfX$
-(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure) \todo[inline]{(Moreover, although you claim above that number of rows in X is M in eq. (5) you say $\tilde{N}$, and in Fig. 3 it is four. You should really make it clear and cons)}:
+(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure):
 \begin{align}
 \label{eq_basis_matrix} 
 \bfX_{i,j} &= \sum_{k=0}^{N}\delta\bigl(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \bigr), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
@@ -452,8 +451,7 @@ Moreover, there is an additional peak at
 $40$ \si{min} for both datasets, which is absent in the Fourier spectrum and which is not a multiple of the missing $15$ \si{min} peak. The position and magnitude of the peaks in the shown 
 inter-spike spectra are robust to the chosen recurrence threshold, the regression method and its regularization as well as the sampling time of the original signal.
 
-\todo[inline]{ISS appears first time here and is not explained. before it was written out.}
-We interpret the results presented as follows. It should be noted firstly that ISS is not only capable to recognize the well-known periodicity in the power grid frequency because of the dispatching time, but also the ISS demonstrate more sharp peaks at this periodicity. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
+We interpret the results presented as follows. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter-spike spectra are not able to detect it and the 
 sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter-spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly 
 at $30$ and $60$ \si{min}, i.e. during dispatches (not valid in case of the GB dataset). Eventually, here we have found a clear sharp peak at $40$ \si{min} which can occur 
