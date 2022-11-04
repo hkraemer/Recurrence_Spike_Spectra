@@ -1,0 +1,345 @@
+\begin{thebibliography}{999}
+
+\bibitem[Marwan \em{et~al.}(2007)Marwan, Romano, Thiel, and Kurths]{marwan2007}
+Marwan, N.; Romano, M.C.; Thiel, M.; Kurths, J.
+\newblock {Recurrence Plots for the Analysis of Complex Systems}.
+\newblock {\em Physics Reports} {\bf 2007}, {\em 438},~237--329.
+\newblock {\url{https://doi.org/10.1016/j.physrep.2006.11.001}}.
+
+\bibitem[Marwan(2008)]{marwan2008epjst}
+Marwan, N.
+\newblock {A Historical Review of Recurrence Plots}.
+\newblock {\em European Physical Journal -- Special Topics} {\bf 2008}, {\em
+  164},~3--12.
+\newblock {\url{https://doi.org/10.1140/epjst/e2008-00829-1}}.
+
+\bibitem[{Webber, Jr.} and Marwan(2015)]{webber2015}
+{Webber, Jr.}, C.L.; Marwan, N.
+\newblock {\em {Recurrence Quantification Analysis -- Theory and Best
+  Practices}}; Springer: Cham,  2015; p. 421.
+\newblock {\url{https://doi.org/10.1007/978-3-319-07155-8}}.
+
+\bibitem[Dummer \em{et~al.}(2014)Dummer, Wieland, and Lindner]{Dummer2014}
+Dummer, B.; Wieland, S.; Lindner, B.
+\newblock {Self-consistent determination of the spike-train power spectrum in a
+  neural network with sparse connectivity}.
+\newblock {\em Frontiers in Computational Neuroscience} {\bf 2014}, {\em
+  8},~104.
+\newblock {\url{https://doi.org/10.3389/fncom.2014.00104}}.
+
+\bibitem[Orcioni \em{et~al.}(2020)Orcioni, Paffi, Apollonio, and
+  Liberti]{Orcioni2020}
+Orcioni, S.; Paffi, A.; Apollonio, F.; Liberti, M.
+\newblock {Revealing Spectrum Features of Stochastic Neuron Spike Trains}.
+\newblock {\em Mathematics} {\bf 2020}, {\em 8},~1011.
+\newblock {\url{https://doi.org/10.3390/math8061011}}.
+
+\bibitem[Marwan \em{et~al.}(2002)Marwan, Wessel, Meyerfeldt, Schirdewan, and
+  Kurths]{marwan2002herz}
+Marwan, N.; Wessel, N.; Meyerfeldt, U.; Schirdewan, A.; Kurths, J.
+\newblock {Recurrence Plot Based Measures of Complexity and its Application to
+  Heart Rate Variability Data}.
+\newblock {\em {Physical Review E}} {\bf 2002}, {\em 66},~026702.
+\newblock {\url{https://doi.org/10.1103/PhysRevE.66.026702}}.
+
+\bibitem[Banerjee \em{et~al.}(2021)Banerjee, Goswami, Hirata, Eroglu, Merz,
+  Kurths, and Marwan]{banerjee2021}
+Banerjee, A.; Goswami, B.; Hirata, Y.; Eroglu, D.; Merz, B.; Kurths, J.;
+  Marwan, N.
+\newblock Recurrence analysis of extreme event-like data.
+\newblock {\em Nonlinear Processes in Geophysics} {\bf 2021}, {\em
+  28},~213--229.
+\newblock {\url{https://doi.org/10.5194/npg-28-213-2021}}.
+
+\bibitem[Kajikawa and Hackett(2005)]{Kajikawa2005}
+Kajikawa, Y.; Hackett, T.A.
+\newblock {Entropy analysis of neuronal spike train synchrony}.
+\newblock {\em Journal of Neuroscience Methods} {\bf 2005}, {\em 149},~90--93.
+\newblock {\url{https://doi.org/10.1016/j.jneumeth.2005.05.011}}.
+
+\bibitem[Canale \em{et~al.}(2021)Canale, Lijoi, Nipoti, and
+  Pr{\"{u}}nster]{Canale2021}
+Canale, A.; Lijoi, A.; Nipoti, B.; Pr{\"{u}}nster, I.
+\newblock {Inner spike and slab Bayesian nonparametric models}.
+\newblock {\em Econometrics and Statistics} {\bf 2021}.
+\newblock {\url{https://doi.org/10.1016/j.ecosta.2021.10.017}}.
+
+\bibitem[Kraemer \em{et~al.}(2018)Kraemer, Donner, Heitzig, and
+  Marwan]{kraemer2018}
+Kraemer, K.H.; Donner, R.V.; Heitzig, J.; Marwan, N.
+\newblock Recurrence threshold selection for obtaining robust recurrence
+  characteristics in different embedding dimensions.
+\newblock {\em Chaos: An Interdisciplinary Journal of Nonlinear Science} {\bf
+  2018}, {\em 28},~085720,
+  \href{http://xxx.lanl.gov/abs/https://doi.org/10.1063/1.5024914}{{\normalfont
+  [https://doi.org/10.1063/1.5024914]}}.
+\newblock {\url{https://doi.org/10.1063/1.5024914}}.
+
+\bibitem[March \em{et~al.}(2005)March, Chapman, and Dendy]{march2005}
+March, T.K.; Chapman, S.C.; Dendy, R.O.
+\newblock Recurrence plot statistics and the effect of embedding.
+\newblock {\em Physica D} {\bf 2005}, {\em 200},~171--184.
+\newblock {\url{https://doi.org/10.1016/j.physd.2004.11.002}}.
+
+\bibitem[Baptista \em{et~al.}(2010)Baptista, Ngamga, Pinto, Brito, and
+  Kurths]{baptista2010}
+Baptista, M.S.; Ngamga, E.J.; Pinto, P.R.F.; Brito, M.; Kurths, J.
+\newblock {Kolmogorov-Sinai entropy from recurrence times}.
+\newblock {\em Physics Letters A} {\bf 2010}, {\em 374},~1135--1140.
+\newblock {\url{https://doi.org/10.1016/j.physleta.2009.12.057}}.
+
+\bibitem[Kraemer and Marwan(2019)]{Kraemer2019}
+Kraemer, K.H.; Marwan, N.
+\newblock Border effect corrections for diagonal line based recurrence
+  quantification analysis measures.
+\newblock {\em Physics Letters A} {\bf 2019}, {\em 383},~125977.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/j.physleta.2019.125977}}.
+
+\bibitem[Marwan and Kurths(2002)]{marwan2002pla}
+Marwan, N.; Kurths, J.
+\newblock {Nonlinear analysis of bivariate data with cross recurrence plots}.
+\newblock {\em {Physics Letters A}} {\bf 2002}, {\em 302},~299--307.
+\newblock {\url{https://doi.org/10.1016/S0375-9601(02)01170-2}}.
+
+\bibitem[Zbilut and Marwan(2008)]{Zbilut2008}
+Zbilut, J.P.; Marwan, N.
+\newblock The Wiener–Khinchin theorem and recurrence quantification.
+\newblock {\em Physics Letters A} {\bf 2008}, {\em 372},~6622--6626.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/j.physleta.2008.09.027}}.
+
+\bibitem[Kraemer \em{et~al.}(2021)Kraemer, Datseris, Kurths, Kiss,
+  Ocampo-Espindola, and Marwan]{Kraemer2021}
+Kraemer, K.H.; Datseris, G.; Kurths, J.; Kiss, I.Z.; Ocampo-Espindola, J.L.;
+  Marwan, N.
+\newblock A unified and automated approach to attractor reconstruction.
+\newblock {\em New Journal of Physics} {\bf 2021}, {\em 23},~033017.
+\newblock {\url{https://doi.org/10.1088/1367-2630/abe336}}.
+
+\bibitem[Schild(1982)]{Schild1982}
+Schild, D.
+\newblock An Efficient Method for the Fourier Transform of a Neuronal Spike
+  Train.
+\newblock {\em International Journal of Neuroscience} {\bf 1982}, {\em
+  17},~179--182,
+  \href{http://xxx.lanl.gov/abs/https://doi.org/10.3109/00207458208985921}{{\normalfont
+  [https://doi.org/10.3109/00207458208985921]}}.
+\newblock {\url{https://doi.org/10.3109/00207458208985921}}.
+
+\bibitem[C{\'o}rdoba(1989)]{Cordoba1989}
+C{\'o}rdoba, A.
+\newblock Dirac combs.
+\newblock {\em Letters in Mathematical Physics} {\bf 1989}, {\em 17},~191--196.
+\newblock {\url{https://doi.org/10.1007/BF00401584}}.
+
+\bibitem[Huang \em{et~al.}(1998)Huang, Shen, Long, Wu, Shih, Zheng, Yen, Tung,
+  and Liu]{Norden1998}
+Huang, N.E.; Shen, Z.; Long, S.R.; Wu, M.C.; Shih, H.H.; Zheng, Q.; Yen, N.C.;
+  Tung, C.C.; Liu, H.H.
+\newblock The empirical mode decomposition and the Hilbert spectrum for
+  nonlinear and non-stationary time series analysis.
+\newblock {\em Proceedings of the Royal Society of London. Series A:
+  Mathematical, Physical and Engineering Sciences} {\bf 1998}, {\em
+  454},~903--995,
+  \href{http://xxx.lanl.gov/abs/https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.1998.0193}{{\normalfont
+  [https://royalsocietypublishing.org/doi/pdf/10.1098/rspa.1998.0193]}}.
+\newblock {\url{https://doi.org/10.1098/rspa.1998.0193}}.
+
+\bibitem[Biagetti \em{et~al.}(2017)Biagetti, Crippa, Orcioni, and
+  Turchetti]{Biagetti2017}
+Biagetti, G.; Crippa, P.; Orcioni, S.; Turchetti, C.
+\newblock Homomorphic Deconvolution for MUAP Estimation From Surface EMG
+  Signals.
+\newblock {\em IEEE Journal of Biomedical and Health Informatics} {\bf 2017},
+  {\em 21},~328--338.
+\newblock {\url{https://doi.org/10.1109/JBHI.2016.2530943}}.
+
+\bibitem[Bracewell and Bracewell(1986)]{Bracewell1986}
+Bracewell, R.N.; Bracewell, R.N.
+\newblock {\em The Fourier transform and its applications}; Vol. 31999,
+  McGraw-Hill New York,  1986.
+
+\bibitem[Hotelling(1933)]{Hotelling1933}
+Hotelling, H.
+\newblock Analysis of a complex of statistical variables into principal
+  components.
+\newblock {\em Journal of educational psychology} {\bf 1933}, {\em 24},~417.
+
+\bibitem[Brunton and Kutz(2019)]{Brunton2019}
+Brunton, S.L.; Kutz, J.N.
+\newblock {\em Data-Driven Science and Engineering: Machine Learning, Dynamical
+  Systems, and Control}; Cambridge University Press,  2019.
+\newblock {\url{https://doi.org/10.1017/9781108380690}}.
+
+\bibitem[Tibshirani(1996)]{Tibshirani1996}
+Tibshirani, R.
+\newblock Regression Shrinkage and Selection Via the Lasso.
+\newblock {\em Journal of the Royal Statistical Society: Series B
+  (Methodological)} {\bf 1996}, {\em 58},~267--288,
+  \href{http://xxx.lanl.gov/abs/https://rss.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2517-6161.1996.tb02080.x}{{\normalfont
+  [https://rss.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2517-6161.1996.tb02080.x]}}.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1111/j.2517-6161.1996.tb02080.x}}.
+
+\bibitem[Brunton \em{et~al.}(2016)Brunton, Proctor, and Kutz]{Brunton2016}
+Brunton, S.L.; Proctor, J.L.; Kutz, J.N.
+\newblock Discovering governing equations from data by sparse identification of
+  nonlinear dynamical systems.
+\newblock {\em Proceedings of the National Academy of Sciences} {\bf 2016},
+  {\em 113},~3932--3937,
+  \href{http://xxx.lanl.gov/abs/https://www.pnas.org/doi/pdf/10.1073/pnas.1517384113}{{\normalfont
+  [https://www.pnas.org/doi/pdf/10.1073/pnas.1517384113]}}.
+\newblock {\url{https://doi.org/10.1073/pnas.1517384113}}.
+
+\bibitem[Schreiber and Schmitz(1996)]{Schreiber1996}
+Schreiber, T.; Schmitz, A.
+\newblock Improved Surrogate Data for Nonlinearity Tests.
+\newblock {\em Phys. Rev. Lett.} {\bf 1996}, {\em 77},~635--638.
+\newblock {\url{https://doi.org/10.1103/PhysRevLett.77.635}}.
+
+\bibitem[Schreiber and Schmitz(2000)]{Schreiber2000}
+Schreiber, T.; Schmitz, A.
+\newblock Surrogate time series.
+\newblock {\em Physica D: Nonlinear Phenomena} {\bf 2000}, {\em 142},~346--382.
+\newblock
+  {\url{https://doi.org/https://doi.org/10.1016/S0167-2789(00)00043-9}}.
+
+\bibitem[Kundur \em{et~al.}(1994)Kundur, Balu, and Lauby]{kundur1994power}
+Kundur, P.; Balu, N.J.; Lauby, M.G.
+\newblock {\em Power system stability and control}; Vol.~7, McGraw-hill New
+  York,  1994.
+
+\bibitem[Gorj{\~a}o \em{et~al.}(2020)Gorj{\~a}o, Anvari, Kantz, Beck, Witthaut,
+  Timme, and Sch{\"a}fer]{gorjao2020data}
+Gorj{\~a}o, L.R.; Anvari, M.; Kantz, H.; Beck, C.; Witthaut, D.; Timme, M.;
+  Sch{\"a}fer, B.
+\newblock Data-driven model of the power-grid frequency dynamics.
+\newblock {\em IEEE access} {\bf 2020}, {\em 8},~43082--43097.
+
+\bibitem[Anvari \em{et~al.}(2020)Anvari, Gorj{\~a}o, Timme, Witthaut,
+  Sch{\"a}fer, and Kantz]{anvari2020stochastic}
+Anvari, M.; Gorj{\~a}o, L.R.; Timme, M.; Witthaut, D.; Sch{\"a}fer, B.; Kantz,
+  H.
+\newblock Stochastic properties of the frequency dynamics in real and synthetic
+  power grids.
+\newblock {\em Physical review research} {\bf 2020}, {\em 2},~013339.
+
+\bibitem[Meyer \em{et~al.}(2020)Meyer, Anvari, and Kantz]{meyer2020identifying}
+Meyer, P.G.; Anvari, M.; Kantz, H.
+\newblock Identifying characteristic time scales in power grid frequency
+  fluctuations with DFA.
+\newblock {\em Chaos: An Interdisciplinary Journal of Nonlinear Science} {\bf
+  2020}, {\em 30},~013130.
+
+\bibitem[Wei{\ss}bach and Welfonder(2009)]{weissbach2009high}
+Wei{\ss}bach, T.; Welfonder, E.
+\newblock High frequency deviations within the European power system: Origins
+  and proposals for improvement.
+\newblock In Proceedings of the 2009 IEEE/PES Power Systems Conference and
+  Exposition. IEEE,  2009, pp. 1--6.
+
+\bibitem[{Laskar, J.} \em{et~al.}(2011){Laskar, J.}, {Fienga, A.}, {Gastineau,
+  M.}, and {Manche, H.}]{Laskar2011}
+{Laskar, J.}.; {Fienga, A.}.; {Gastineau, M.}.; {Manche, H.}.
+\newblock La2010: a new orbital solution for the long-term motion of the Earth.
+\newblock {\em A\&A} {\bf 2011}, {\em 532},~A89.
+\newblock {\url{https://doi.org/10.1051/0004-6361/201116836}}.
+
+\bibitem[{Laskar, J.} \em{et~al.}(2004){Laskar, J.}, {Robutel, P.}, {Joutel,
+  F.}, {Gastineau, M.}, {Correia, A. C. M.}, and {Levrard, B.}]{Laskar2004}
+{Laskar, J.}.; {Robutel, P.}.; {Joutel, F.}.; {Gastineau, M.}.; {Correia, A. C.
+  M.}.; {Levrard, B.}.
+\newblock A long-term numerical solution for the insolation quantities
+  of~the~Earth.
+\newblock {\em A\&A} {\bf 2004}, {\em 428},~261--285.
+\newblock {\url{https://doi.org/10.1051/0004-6361:20041335}}.
+
+\bibitem[Westerhold \em{et~al.}(2020)Westerhold, Marwan, Drury, Liebrand,
+  Agnini, Anagnostou, Barnet, Bohaty, De~Vleeschouwer, Florindo, Frederichs,
+  Hodell, Holbourn, Kroon, Lauretano, Littler, Lourens, Lyle, P{\"a}like,
+  R{\"o}hl, Tian, Wilkens, Wilson, and Zachos]{Westerhold2020}
+Westerhold, T.; Marwan, N.; Drury, A.J.; Liebrand, D.; Agnini, C.; Anagnostou,
+  E.; Barnet, J.S.K.; Bohaty, S.M.; De~Vleeschouwer, D.; Florindo, F.;  et~al.
+\newblock An astronomically dated record of Earth{\textquoteright}s climate and
+  its predictability over the last 66 million years.
+\newblock {\em Science} {\bf 2020}, {\em 369},~1383--1387,
+  \href{http://xxx.lanl.gov/abs/https://science.sciencemag.org/content/369/6509/1383.full.pdf}{{\normalfont
+  [https://science.sciencemag.org/content/369/6509/1383.full.pdf]}}.
+\newblock {\url{https://doi.org/10.1126/science.aba6853}}.
+
+\bibitem[Kraemer \em{et~al.}(2022)Kraemer, Gelbrecht, Pavithran, Sujith, and
+  Marwan]{Kraemer2022}
+Kraemer, K.H.; Gelbrecht, M.; Pavithran, I.; Sujith, R.I.; Marwan, N.
+\newblock Optimal state space reconstruction via Monte Carlo decision tree
+  search.
+\newblock {\em Nonlinear Dynamics} {\bf 2022}, {\em 108},~1525--1545.
+\newblock {\url{https://doi.org/10.1007/s11071-022-07280-2}}.
+
+\bibitem[Hegger and Kantz(1999)]{hegger1999}
+Hegger, R.; Kantz, H.
+\newblock Improved false nearest neighbor method to detect determinism in time
+  series data.
+\newblock {\em Phys. Rev. E} {\bf 1999}, {\em 60},~4970--4973.
+\newblock {\url{https://doi.org/10.1103/PhysRevE.60.4970}}.
+
+\bibitem[Pecora \em{et~al.}(2007)Pecora, Moniz, Nichols, and
+  Carroll]{pecora2007}
+Pecora, L.M.; Moniz, L.; Nichols, J.; Carroll, T.L.
+\newblock A unified approach to attractor reconstruction.
+\newblock {\em Chaos: An Interdisciplinary Journal of Nonlinear Science} {\bf
+  2007}, {\em 17},~013110,
+  \href{http://xxx.lanl.gov/abs/https://doi.org/10.1063/1.2430294}{{\normalfont
+  [https://doi.org/10.1063/1.2430294]}}.
+\newblock {\url{https://doi.org/10.1063/1.2430294}}.
+
+\bibitem[Datseris(2018)]{datseris2018}
+Datseris, G.
+\newblock DynamicalSystems.jl: A Julia software library for chaos and nonlinear
+  dynamics.
+\newblock {\em Journal of Open Source Software} {\bf 2018}, {\em 3},~598.
+\newblock {\url{https://doi.org/10.21105/joss.00598}}.
+
+\bibitem[Rackauckas and Nie(2017)]{rackauckas2017}
+Rackauckas, C.; Nie, Q.
+\newblock Differentialequations.jl--a performant and feature-rich ecosystem for
+  solving differential equations in julia.
+\newblock {\em Journal of Open Research Software} {\bf 2017}, {\em 5}.
+
+\bibitem[Zhang \em{et~al.}(2022)Zhang, Widmann, and Barreira]{Zhang2022}
+Zhang, S.; Widmann, D.; Barreira, D.S.
+\newblock JuliaOptimalTransport/OptimalTransport.jl: v0.3.19 {\bf 2022}.
+\newblock {\url{https://doi.org/10.5281/zenodo.5920148}}.
+
+\bibitem[Lorenz(1963)]{lorenz1963}
+Lorenz, E.N.
+\newblock Deterministic Nonperiodic Flow.
+\newblock {\em Journal of the Atmospheric Sciences} {\bf 1963}, {\em
+  20},~130--141.
+\newblock {\url{https://doi.org/10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2}}.
+
+\bibitem[Rössler(1976)]{roessler1976}
+Rössler, O.
+\newblock An equation for continuous chaos.
+\newblock {\em Physics Letters A} {\bf 1976}, {\em 57},~397 -- 398.
+\newblock {\url{https://doi.org/https://doi.org/10.1016/0375-9601(76)90101-8}}.
+
+\bibitem[GB()]{GB}
+National Grid, Frequency data (2014–2018).
+\newblock Accessed: 2022-07-25.
+
+\bibitem[Haehne \em{et~al.}(2018)Haehne, Schottler, Waechter, Peinke, and
+  Kamps]{haehne2018footprint}
+Haehne, H.; Schottler, J.; Waechter, M.; Peinke, J.; Kamps, O.
+\newblock The footprint of atmospheric turbulence in power grid frequency
+  measurements.
+\newblock {\em EPL (Europhysics Letters)} {\bf 2018}, {\em 121},~30001.
+
+\bibitem[Fraser and Swinney(1986)]{fraser1986}
+Fraser, A.M.; Swinney, H.L.
+\newblock Independent coordinates for strange attractors from mutual
+  information.
+\newblock {\em Phys. Rev. A} {\bf 1986}, {\em 33},~1134--1140.
+\newblock {\url{https://doi.org/10.1103/PhysRevA.33.1134}}.
+
+\end{thebibliography}
