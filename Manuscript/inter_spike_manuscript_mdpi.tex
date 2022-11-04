@@ -286,15 +286,12 @@ than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in 
 (blue sheared). $T_{\text{is}}$ for each row can be obtained by Eq.~\eqref{eq_T_is}. \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
 \end{figure}
 
-<<<<<<< HEAD
 When introducing a sparsity regularization we give up the ability to fully reconstruct the signal from the decomposition in favor of identifying the most prominent spikes, and, thus, the most important periodicities more clearly. This choice is parametrized by a regression regularization parameter $\alpha$. Only for $\alpha = 0$ do we obtain a solution to Eq.~(\ref{eq_linear_system}) and, thus, a full reconstruction of the signal. Our general approach to fixing $\alpha$ is to require that we preserve most of the original signal in the sense of matching a given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and the reconstruction. The chosen regression method (in our case, LASSO or STLS) will determine how sensitive the obtained inter-spike spectrum is with respect to the regularization given by a 
-selected $\rho$ (Fig.~\ref{fig_regularization} {\color{red}(It should not be Fig. A3? or you are talking about regularization parameter $\alpha$?)}). Regarding this, in most of our applications LASSO yields more robust results, while STLS is usually faster to compute. 
+selected $\rho$ (Fig.~\ref{fig_regularization}). Regarding this, in most of our applications LASSO yields more robust results, while STLS is usually faster to compute. 
 We will discuss this in more detail Section \ref{sec_tau_rr_discussion}.
-=======
 The proposed decomposition does not show a leakage effect by construction. However, when introducing a sparsity regularization we give up the ability to fully reconstruct the signal from the decomposition in favor of identifying the most important periodicities more clearly. This choice is mediated by a regression regularization parameter $\alpha$. Only for $\alpha = 0$ do we obtain a solution to Eq.~(\ref{eq_linear_system}) and thus a full reconstruction of the signal. Our general approach to fixing $\alpha$ is to require that we preserve most of the original signal in the sense of matching a given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and the reconstruction. The chosen regression method (in our case, LASSO or STLS) will determine how sensitive the obtained inter-spike spectrum is with respect to the regularization given by a 
 selected $\rho$ (Fig.~\ref{fig_regularization}). Regarding this, in most of our applications LASSO yields more robust results, while STLS is usually faster to compute. 
-We will discuss this in more detail in Section 4. Section \ref{sec_tau_rr_discussion}.
->>>>>>> 59451b9d30f76879c5a95867398fb09d3be77193
+We will discuss this in more detail in Section \ref{sec_tau_rr_discussion}.
 
 %
 %In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the solving algorithm must also deal with the free choice of the regression regularization parameter $\alpha$, 
@@ -419,7 +416,6 @@ In this process, the grid frequency and its deviations from the nominal frequenc
 the grid operators (in Europe and many parts of the world this is $50$ \si{Hz} or $60$ \si{Hz} in America and, for example, southern Japan).
 For example, if there is more (less) demand than supply, the network frequency decreases (increases) compared to the nominal frequency \cite{kundur1994power}.
 
-
 The frequency variations can include other information, such as the functionality of control systems \cite{gorjao2020data}, the effect of fluctuations in
 renewable energies (REs), demands on the grid \cite{anvari2020stochastic} and, moreover, the effect of regular dispatches due to the trading market 
 \cite{meyer2020identifying}. The latter induce periodic frequency jumps. Here we look at the frequency time series for the Great Britain (GB) and Continental Europe 
@@ -433,17 +429,21 @@ might exist.
 \begin{figure}
  \centering
  \includegraphics[width=\textwidth]{./figures/fig_power_grid_spectra}
- \caption{Averaged Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see Appendix~\ref{sec_power_grid_appendix}). 
+ \caption{Averaged evolutionary Fourier power spectra of recorded power grid frequency time series of \textbf{A} Central Europe (CE) and \textbf{B} Great Britain (GB) (see 
+ Fig.~\ref{fig_power_grid_time_series} in Appendix~\ref{sec_power_grid_appendix}). 
  The corresponding averaged inter-spike spectra of the according $\tau$-RRs, Eq.~\eqref{eq_tau_rr}, are shown in \textbf{C} and \textbf{D}, respectively. Vertical red dashed lines correspond to 
- $15$, $30$ and $60$ \si{min}. For technical details on the calculation of the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}.}  
+ $15$, $30$ and $60$ \si{min}. For technical details on the calculation of the spectra shown, i.e preprocessing and window size being used, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}.}  
 \label{fig_power_grid_spectra}
 \end{figure}
 
-The Fourier frequency spectra for the Central Europe data in Figure~\ref{fig_power_grid_spectra}A, however, does not display sharp peaks exactly at $15$, $30$ and $60$ \si{min}, which may partly 
+The evolutionary Fourier frequency spectrum for the Central Europe data in Figure~\ref{fig_power_grid_spectra}A, however, does not display sharp peaks exactly at $15$, $30$ and $60$ \si{min}, which may partly 
 be explained by the leakage effect (for technical details on the calculation of 
 the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Especially the $30$ and $60$ \si{min} 
 peaks are split into two adjacent peaks and the local minimum in between these ``double''-peaks correspond to the exact times. The Great Britain counterpart in Fig.~\ref{fig_power_grid_spectra}B 
 has sharp peaks at $15$ and $30$ \si{min} and also ``local predecessor peaks'' for $30$ and $60$ \si{min} at the same positions as in panel A. 
+The fact that sharp peaks are seen here using the same window size and sampling frequency as in the case of the Central European data shows that the leakage effect alone is not the cause of 
+the peak splitting shown in Fig.~\ref{fig_power_grid_spectra}A.
+
 In contrast, the $15$ \si{min} peak is completely absent from the inter-spike spectra of the $\tau$-RRs of the frequency data (Fig.~\ref{fig_power_grid_spectra}C,D), but these show sharp peaks 
 at $30$ and $60$ \si{min} (there is no leakage effect due to the proposed decomposition technique). 
 In front of these peaks, smaller local peaks can be seen, which correspond to the local peaks of the Fourier power spectra at $28$ and $55$ \si{min}, respectively.

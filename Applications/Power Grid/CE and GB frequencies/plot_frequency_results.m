@@ -150,3 +150,73 @@ xlabel('time lag \tau (min)')
 xlim([1 100])
 set(gca, 'LineWidth', lw2, 'FontSize', font)
 grid on
+
+
+%% Plot FFT for entire time series
+
+x = f_ce_ds;
+x2 = f_gb_ds;
+blocksize = length(x);
+blocksize2 = length(x2);
+
+Y = fft(x);
+P2 = abs(Y/blocksize);
+P1 = P2(1:blocksize/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+Y2 = fft(x2);
+P22 = abs(Y2/blocksize2);
+P12 = P22(1:blocksize2/2+1);
+P12(2:end-1) = 2*P12(2:end-1);
+
+%%
+
+dt_s = 20; % sampling time is sec
+dt_m = 1/ (60/dt_s);
+
+
+
+% time/period/frequency vector for FFT spectrogram
+Fs_ce = 60/dt_s; % sampling frequency min^-1
+Fs_gb = 60/dt_s;
+
+L_block_ce = blocksize; % block length covering one full day (24 hours, 60/dt_s * 60 * 24))
+L_block_gb = blocksize2;
+
+t_ce = (0:L_block_ce-1)*dt_m; % time vector for block in min
+t_gb = (0:L_block_gb-1)*dt_m;
+
+fs_ce= Fs_ce*(0:(L_block_ce/2))/L_block_ce; % frequency vector in min^1
+fs_gb= Fs_gb*(0:(L_block_gb/2))/L_block_gb;
+
+%%
+
+font = 22; % fontsize
+lw1 = 2.5;
+lw2 = 2;
+
+figure('Units','normalized','Position',[.001 .001 .999 .999])
+subplot(121)
+semilogx(1./fs_ce, P1, 'LineWidth', lw1)
+title('Single-Sided Amplitude Spectrum of F_{CE}')
+xline(15,'r--','LineWidth', lw1)
+xline(30,'r--','LineWidth', lw1)
+xline(60,'r--','LineWidth', lw1)
+xlabel('period (min)')
+ylabel('|power/period|')
+xlim([1 100])
+set(gca, 'LineWidth', lw2, 'FontSize', font)
+grid on
+
+subplot(122)
+semilogx(1./fs_gb, P12, 'LineWidth', lw1)
+title('Single-Sided Amplitude Spectrum of F_{GB}')
+xline(15,'r--','LineWidth', lw1)
+xline(30,'r--','LineWidth', lw1)
+xline(60,'r--','LineWidth', lw1)
+ylabel('|power/period|')
+xlabel('period (min)')
+xlim([1 100])
+set(gca, 'LineWidth', lw2, 'FontSize', font)
+grid on
+
