@@ -146,7 +146,7 @@ Recurrence plots (RPs) provide a vivid representation of complex dynamics $\vec{
 R_{i,j}(\varepsilon) = \Theta\left(\varepsilon - D_{i,j}\right) 
 = \Theta\left(\varepsilon - \| \vec{x}_i - \vec{x}_j\|\right), \qquad \vec{x} \in \mathbb{R}^d, \quad i,j \in [1,\ldots, N],
 \end{equation}
-with $\mathbf{R}$ the recurrence matrix, satisfactory$\vec{x}_i$ the state vector at time 
+with $\mathbf{R}$ the recurrence matrix, satisfactory $\vec{x}_i$ the state vector at time 
 $t = \Delta t \cdot i$ ($\Delta t$ the sampling time), $N$ the number of
 sampling points (or length of data series), and $d$ the dimension of the system.
 The crucial free parameter $\varepsilon$ is the recurrence threshold, determining what is a recurrences
@@ -174,8 +174,9 @@ It represents the period length of cycles in the data (Fig.~\ref{fig_tau_rr_spec
 However, as there is no equivalent of the Wiener-Khinchin theorem its Fourier Transform (FT) only provides a ``generalized'' kind of power spectral density.
 There are clear advantages to such a recurrence-derived power spectral density, the (FT) $\tau$-RR (Fig.~\ref{fig_tau_rr_spectrum_example}D,E):
 There are no assumptions for stationarity or sampling, when constructing a RP, 
-and since an RP can represent high dimensional dynamics the approch directly applies to higher dimensional systems for which the auto-correlation is a matrix and no single power spectrum captures the recurrences.\\
+and since an RP can represent high dimensional dynamics the approch directly applies to higher dimensional systems for which the auto-correlation is a \todo{hm, I'm not so happy with the "matrix" here} matrix and no single power spectrum captures the recurrences.
 
+\todo[inline]{I agree that the following is not necessary and could be removed}
 \textbf{Please check the above paragraph for correctness, I did not understand the following and would drop it (or explain the point better):}
 \textit{This is reasonable, since the average distances for a given lag $\tau$ 
 \begin{equation}
@@ -196,7 +197,7 @@ can be directly read from the distance matrix $\mathbf{D}$ and is also preserved
  }\label{fig_tau_rr_spectrum_example}
 \end{figure}
 
-However, the exact meaning of this generalized power spectral density is unclear, and it is typically hard to interpret. $\tau$-RR spikes already directly encode the periodicity of the underlying signal, in contrast it is unclear what, if any, interpretation the "power" contained in a particular frequency mode of the $\tau$-RR should have. \textbf{In particular it does not imply anything about the power associated to certain frequencies in the underlying timeseries.} Whenever $\tau$-RR is a spike-train-like signal, which it is in most cases (see Fig.~\ref{fig_tau_rr_spectrum_example}) especially for 
+However, the exact meaning of this generalized power spectral density is unclear, and it is typically hard to interpret. $\tau$-RR spikes already directly encode the periodicity of the underlying signal, in contrast it is unclear what, if any, interpretation the ``power'' contained in a particular frequency mode of the $\tau$-RR should have. \textbf{In particular it does not imply anything about the power associated to certain frequencies in the underlying timeseries.} Whenever $\tau$-RR is a spike-train-like signal, which it is in most cases (see Fig.~\ref{fig_tau_rr_spectrum_example}) especially for 
 map-data (low-resolution data), a FT of such a signal leads to a spike-train-like image in the frequency domain (e.g., \cite{Schild1982,Cordoba1989}, see 
 Fig.~\ref{fig_tau_rr_spectrum_example}E). Thus, it is not intuitive how to extract meaningful information about the systems' state space trajectory. 
 
@@ -232,7 +233,7 @@ be observed for neuron spike trains, e.g. \cite{Orcioni2020,Biagetti2017}.}
 In this article we propose a new way of decomposing a spike-train-like signal into periodic components as 
 an alternative to the RP-based method suggested in \cite{Zbilut2008} or Fourier-based spike-train power 
 spectra \cite{Dummer2014}. We instead investigate decomposing the $\tau$-RR in an overcomplete basis of spike trains using a sparsity regularization. Section \ref{sec_tau_rr_method} introduces the approach in detail. Our novel \textit{inter-spike spectrum} does not show resonance 
-behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). Note that this approach can be used to decompose arbitrary signals, and is not specific to $\tau$-RR. The more spiky the signal is, the more useful our new decomposition can potentially be. In Section \ref{sec_tau_rr_application} we demonstrate the usage of inter-spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter-spike spectrum 
+behavior of the signal's inherent inter-spike frequencies (Fig.~\ref{fig_tau_rr_dirac_comb}C, F). This approach can be used to decompose arbitrary signals, and is not specific to $\tau$-RR. The more spiky the signal is, the more useful our new decomposition can potentially be. In Section \ref{sec_tau_rr_application} we demonstrate the usage of inter-spike spectrum when transforming the $\tau$-RR of a system under study. In this case, the inter-spike spectrum 
 can unravel characteristic time scales of high dimensional systems, which is not possible when using a FT. Finally, in Section \ref{sec_tau_rr_conclusion} our results are summarized.
 
 
@@ -243,8 +244,8 @@ To obtain the Inter-Spike Spectrum , the signal, which we would like to analyze,
 The general idea common to many methods is that the sum of these weighted functions can approximate a finite signal to a sufficient degree. The weights (in some contexts also called modes or loadings) corresponding to the individual basis functions must be determined.
 A number of decomposition techniques based on different sets of basis functions exist, e.g., 
 trigonometric functions (Fourier- and wavelet analysis \cite{Bracewell1986}), 
-eigenvectors of the corresponding covariance matrix (Principal Component Analysis \cite{Hotelling1933} and related techniques) 
-or Intrinsic Mode Functions (Empirical Mode Decomposition and Hilbert spectrum \cite{Norden1998}).
+eigenvectors of the corresponding covariance matrix (principal component analysis \cite{Hotelling1933} and related techniques) 
+or intrinsic mode functions (empirical mode decomposition and Hilbert spectrum \cite{Norden1998}).
 These methods typically share the property that the basis functions form a complete basis,
 the set of basis functions is linearly independent, and thus the weights are uniquely determined.
 
