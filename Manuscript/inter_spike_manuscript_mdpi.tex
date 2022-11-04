@@ -256,9 +256,9 @@ vector $\vec{s}$.
 First, $\tilde{N}$ different DCs of length $N$ are constructed with inter-spike periods $T_\text{is} \in [1,\ldots,\tilde{N}]$ and $\tilde{N}=\ceil*{N/2}+1$. Second, in order to account 
 for possible phase shifts of 
 these basis functions occurring in $\vec{s}$, each of these $\tilde{N}$ different DCs also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of 
-$M = \sum_{i=1}^{\tilde{N}}i$ 
+$M = \sum_{i=1}^{\tilde{N}}i$ {\color{red}(let's come back to your example in Fig.3, where $N=4$, regarding your explanation $M=\Sigma_i^{\tilde{N}=3} i= 1+2+3=6$. So finally matrix X should be 6x4 size. However, X does not have this size in Fig.3, which is the source of confusion.)}
 basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\bfX$
-(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure):
+(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure) {\color{red}(Moreover, although you claim above that number of rows in X is M in eq. (5) you say $\tilde{N}$, and in Fig. 3 it is four. You should really make it clear and cons)}:
 \begin{align}
 \label{eq_basis_matrix} 
 \bfX_{i,j} &= \sum_{k=0}^{N}\delta\bigl(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \bigr), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
@@ -281,7 +281,7 @@ has to be solved for $\boldsymbol\beta$, a $(M\times 1)$-sized vector carrying t
 particularly interested in those solutions, which promote sparsity in $\boldsymbol\beta$, since our goal is to decompose the signal $\vec{s}$ into a minimal number of basis 
 functions (for an excellent overview of the topic we refer to \citet{Brunton2019}). In this paper we either use the \textit{least absolute shrinkage and selection operator} 
 (LASSO) \cite{Tibshirani1996} or a \textit{sequentially thresholded least squares} (STLS) regression \cite{Brunton2016,Brunton2019} to obtain a solution $\hat{\boldsymbol\beta}$. Any other 
-sparse regression technique could be used. Finally, we group weights 
+sparse regression technique could be used {\color{red} (I think this sentence can be the source of confusion. One could get from this sentence that weight values are independent of regression technique. Is it correct?)}. Finally, we group weights 
 which correspond to basis functions having the same period 
 $T_\text{is}$ into $\hat{\boldsymbol\beta}_f$ and obtain the 
 \textit{inter-spike spectrum} by simply plotting $\hat{\boldsymbol\beta}_f$ as a function of the frequency $f=T_\text{is}^{-1}$, with $T_\text{is}=\Delta t, 2\Delta t, \dots, (\ceil*{N/2}+1) \Delta t$ 
@@ -296,8 +296,8 @@ than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in 
 \end{figure}
 
 When introducing a sparsity regularization we give up the ability to fully reconstruct the signal from the decomposition in favor of identifying the most prominent spikes, and thus the most important periodicities more clearly. This choice is parametrized by a regression regularization parameter $\alpha$. Only for $\alpha = 0$ do we obtain a solution to Eq.~(\ref{eq_linear_system}) and thus a full reconstruction of the signal. Our general approach to fixing $\alpha$ is to require that we preserve most of the original signal in the sense of matching a given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and the reconstruction. The chosen regression method (in our case, LASSO or STLS) will determine how sensitive the obtained inter-spike spectrum is with respect to the regularization given by a 
-selected $\rho$ (Fig.~\ref{fig_regularization}). Regarding this, in most of our applications LASSO yields more robust results, while STLS is usually faster to compute. 
-We will discuss this in more detail in Section 4. Section \ref{sec_tau_rr_discussion}.
+selected $\rho$ (Fig.~\ref{fig_regularization} {\color{red}(It should not be Fig. A3? or you are talking about regularization parameter $\alpha$?)}). Regarding this, in most of our applications LASSO yields more robust results, while STLS is usually faster to compute. 
+We will discuss this in more detail Section \ref{sec_tau_rr_discussion}.
 
 %
 %In addition to the computational complexity of solving Eq.~\eqref{eq_linear_system}, the solving algorithm must also deal with the free choice of the regression regularization parameter $\alpha$, 
@@ -442,16 +442,16 @@ might exist.\\
 
 The Fourier frequency spectra for the Central Europe data in Figure~\ref{fig_power_grid_spectra}A, however, does not display sharp peaks exactly at $15$, $30$ and $60$ \si{min} 
 (for technical details on the calculation of 
-the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Especially the $30$ and $60$ \si{min} 
-peaks are split into two adjacent peaks and the local minimum in between these ``double''-peaks correspond to the exact times. The Great Britain counterpart in Fig.~\ref{fig_power_grid_spectra}B 
-has sharp peaks at $15$ and $30$ \si{min} and also ``local predecessor peaks'' for $30$ and $60$ \si{min} at the same positions as in panel A. 
+the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Indeed, the $15$, $30$ and $60$ \si{min} 
+peaks are split into two adjacent peaks and, FT does not demonstrate a sharp peak exactly at $15$, $30$ and $60$ minutes. The Great Britain counterpart in Fig.~\ref{fig_power_grid_spectra}B 
+has sharp peaks at $15$ \si{min} and, moreover, FT recognizes small ``local predecessor peaks'' for $30$ and $60$ \si{min} at the same positions as in panel A. 
 In contrast, the $15$ \si{min} peak is completely absent from the inter-spike spectra of the $\tau$-RRs of the frequency data (Fig.~\ref{fig_power_grid_spectra}C,D), but these show sharp peaks 
-at $30$ and $60$ \si{min}. In front of these peaks, smaller local peaks can be seen, which correspond to the local peaks of the Fourier power spectra at $28$ and $55$ \si{min}, respectively.
+at $30$ and $60$ \si{min}.
 Moreover, there is an additional peak at 
 $40$ \si{min} for both datasets, which is absent in the Fourier spectrum and which is not a multiple of the missing $15$ \si{min} peak. The position and magnitude of the peaks in the shown 
 inter-spike spectra are robust to the chosen recurrence threshold, the regression method and its regularization as well as the sampling time of the original signal.\\ 
 
-We interpret the results presented as follows. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
+We interpret the results presented as follows. It should be noted firstly that ISS is not only capable to recognize the well-known periodicity in the power grid frequency because of the dispatching time, but also the ISS demonstrate more sharp peaks at this periodicity. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter-spike spectra are not able to detect it and the 
 sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter-spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly 
 at $30$ and $60$ \si{min}, i.e. during dispatches (not valid in case of the GB dataset). Eventually, here we have found a clear sharp peak at $40$ \si{min} which can occur 
