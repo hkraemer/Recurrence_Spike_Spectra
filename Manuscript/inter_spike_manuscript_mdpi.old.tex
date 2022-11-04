@@ -417,16 +417,16 @@ might exist.\\
 
 The Fourier frequency spectra for the Central Europe data in Figure~\ref{fig_power_grid_spectra}A, however, does not display sharp peaks exactly at $15$, $30$ and $60$ \si{min} 
 (for technical details on the calculation of 
-the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Especially the $30$ and $60$ \si{min} 
-peaks are split into two adjacent peaks and the local minimum in between these ``double''-peaks correspond to the exact times. The Great Britain counterpart in Fig.~\ref{fig_power_grid_spectra}B 
-has sharp peaks at $15$ and $30$ \si{min} and also ``local predecessor peaks'' for $30$ and $60$ \si{min} at the same positions as in panel A. 
+the spectra shown, the reader is referred to the Appendix~\ref{sec_power_grid_appendix}). Indeed, the $15$, $30$ and $60$ \si{min} 
+peaks are split into two adjacent peaks and, FT does not demonstrate a sharp peak exactly at $15$, $30$ and $60$ minutes. The Great Britain counterpart in Fig.~\ref{fig_power_grid_spectra}B 
+has sharp peaks at $15$ \si{min} and, moreover, FT recognizes small ``local predecessor peaks'' for $30$ and $60$ \si{min} at the same positions as in panel A. 
 In contrast, the $15$ \si{min} peak is completely absent from the inter-spike spectra of the $\tau$-RRs of the frequency data (Fig.~\ref{fig_power_grid_spectra}C,D), but these show sharp peaks 
-at $30$ and $60$ \si{min}. In front of these peaks, smaller local peaks can be seen, which correspond to the local peaks of the Fourier power spectra at $28$ and $55$ \si{min}, respectively.
+at $30$ and $60$ \si{min}.
 Moreover, there is an additional peak at 
 $40$ \si{min} for both datasets, which is absent in the Fourier spectrum and which is not a multiple of the missing $15$ \si{min} peak. The position and magnitude of the peaks in the shown 
 inter-spike spectra are robust to the chosen recurrence threshold, the regression method and its regularization as well as the sampling time of the original signal.\\ 
 
-We interpret the results presented as follows. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
+We interpret the results presented as follows. It should be noted firstly that ISS is not only capable to recognize the well-known periodicity in the power grid frequency because of the dispatching time, but also the ISS demonstrate more sharp peaks at this periodicity. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter-spike spectra are not able to detect it and the 
 sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter-spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly 
 at $30$ and $60$ \si{min}, i.e. during dispatches (not valid in case of the GB dataset). Eventually, here we have found a clear sharp peak at $40$ \si{min} which can occur 
