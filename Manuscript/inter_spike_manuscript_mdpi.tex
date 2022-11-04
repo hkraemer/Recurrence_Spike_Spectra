@@ -107,9 +107,9 @@ $^{4}$ \quad Institute of Physics, Humboldt Universit\"at zu Berlin, 12489 Berli
 % Abstract (Do not insert blank lines, i.e. \\) 
 
 \abstract{In recurrence analysis, the $\tau$-recurrence rate encodes the periods of the cycles of the underlying high dimensional time series.
-It thus plays a similar role to the autocorrelation for scalar time series in encoding temporal correlations.
+It, thus, plays a similar role to the autocorrelation for scalar time series in encoding temporal correlations.
 Unlike the autocorrelation however, its Fourier decomposition does not have a natural interpretation.
-Thus there is no direct analogue to the power spectrum in recurrence analysis.
+Thus, there is no direct analogue to the power spectrum in recurrence analysis.
 In this paper we introduce a novel way to decompose the $\tau$-recurrence rate using an over-complete basis of Dirac combs together with a sparsity regularization.
 We show that this decomposition, the \textit{inter-spike spectrum}, naturally provides an analogue to the power spectrum for recurrence analysis in the sense that it reveals the dominant periodicities of the underlying time series.
 We show that the inter-spike spectrum correctly identifies patterns and transitions in the underlying system in a wide variety of examples and is robust to measurement noise.}
@@ -240,14 +240,14 @@ can unravel characteristic time scales of high dimensional systems, which is not
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Method}\label{sec_tau_rr_method}
     
-To obtain the Inter-Spike Spectrum , the signal, which we would like to analyze, in our case the $\tau$-RR, is decomposed into a set of appropriate basis functions. 
+To obtain the inter-spike spectrum, the signal, which we would like to analyse, in our case the $\tau$-RR, is decomposed into a set of appropriate basis functions. 
 The general idea common to many methods is that the sum of these weighted functions can approximate a finite signal to a sufficient degree. The weights (in some contexts also called modes or loadings) corresponding to the individual basis functions must be determined.
 A number of decomposition techniques based on different sets of basis functions exist, e.g., 
 trigonometric functions (Fourier- and wavelet analysis \cite{Bracewell1986}), 
 eigenvectors of the corresponding covariance matrix (principal component analysis \cite{Hotelling1933} and related techniques) 
 or intrinsic mode functions (empirical mode decomposition and Hilbert spectrum \cite{Norden1998}).
 These methods typically share the property that the basis functions form a complete basis,
-the set of basis functions is linearly independent, and thus the weights are uniquely determined.
+the set of basis functions is linearly independent, and, thus, the weights are uniquely determined.
 
 Here we propose to use Dirac combs (DC) with 
 different inter-spike periods as basis functions, Eq.~\eqref{eq_dirac_comb}. Let $s(t_i)$ be the min-max-normalized signal we want to transform of length $N$ and 
@@ -256,9 +256,10 @@ vector $\vec{s}$.
 First, $\tilde{N}$ different DCs of length $N$ are constructed with inter-spike periods $T_\text{is} \in [1,\ldots,\tilde{N}]$ and $\tilde{N}=\ceil*{N/2}+1$. Second, in order to account 
 for possible phase shifts of 
 these basis functions occurring in $\vec{s}$, each of these $\tilde{N}$ different DCs also need to be shifted one step further $T_\text{is}-1$ times. This leaves us with a total number of 
-$M = \sum_{i=1}^{\tilde{N}}i$ {\color{red}(let's come back to your example in Fig.3, where $N=4$, regarding your explanation $M=\Sigma_i^{\tilde{N}=3} i= 1+2+3=6$. So finally matrix X should be 6x4 size. However, X does not have this size in Fig.3, which is the source of confusion.)}
+$M = \sum_{i=1}^{\tilde{N}}i$ 
+\todo[inline]{let's come back to your example in Fig.~\ref{fig_tau_rr_basis_functions}, where $N=4$, regarding your explanation $M=\Sigma_i^{\tilde{N}=3} i= 1+2+3=6$. So finally matrix X should be 6x4 size. However, X does not have this size in Fig.3, which is the source of confusion.}
 basis functions which we can arrange as rows of a $(M\times N)$-sized matrix $\bfX$
-(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure) {\color{red}(Moreover, although you claim above that number of rows in X is M in eq. (5) you say $\tilde{N}$, and in Fig. 3 it is four. You should really make it clear and cons)}:
+(Fig.~\ref{fig_tau_rr_basis_functions} illustrates the described procedure) \todo[inline]{(Moreover, although you claim above that number of rows in X is M in eq. (5) you say $\tilde{N}$, and in Fig. 3 it is four. You should really make it clear and cons)}:
 \begin{align}
 \label{eq_basis_matrix} 
 \bfX_{i,j} &= \sum_{k=0}^{N}\delta\bigl(j-1-kT_\text{is}(i)-i+T_\text{is}(i) \bigr), \quad i=1,\dots,\ceil*{N/2}+1, \quad j=1,\dots,N\\
@@ -270,9 +271,9 @@ Furthermore, there will be identical basis functions and also basis functions, w
 if we would include all $N$ possible inter-spike periods for a signal of length $N$ instead of $\ceil*{N/2}+1$ (Fig.~\ref{fig_tau_rr_basis_functions}A).
 The reason is that in contrast to a trigonometric decomposition, where the Nyquist frequency marks a lower bound for the corresponding wave period, here 
 the maximum considered inter-spike period is bounded by $T_{\text{is}}^{\text{max}} = \ceil*{N/2}+1$ (schematically illustrated in 
-Fig.~\ref{fig_tau_rr_basis_functions}B).\\ 
+Fig.~\ref{fig_tau_rr_basis_functions}B). 
 
-\noindent Eventually, an under-determined linear system
+Eventually, an under-determined linear system
 \begin{equation}
 \bfX^T \boldsymbol{\beta}=\vec{s}
 \label{eq_linear_system}
@@ -295,7 +296,7 @@ than $\ceil*{N/2}+1$ lead to redundant basis functions (i.e., repeated lines in 
 (blue sheared). $T_{\text{is}}$ for each row can be obtained by Eq.~\eqref{eq_T_is}. \textbf{B} The final set of unambiguous, but still linearly dependent, basis functions aligned in the matrix $\bfX$.} \label{fig_tau_rr_basis_functions}
 \end{figure}
 
-When introducing a sparsity regularization we give up the ability to fully reconstruct the signal from the decomposition in favor of identifying the most prominent spikes, and thus the most important periodicities more clearly. This choice is parametrized by a regression regularization parameter $\alpha$. Only for $\alpha = 0$ do we obtain a solution to Eq.~(\ref{eq_linear_system}) and thus a full reconstruction of the signal. Our general approach to fixing $\alpha$ is to require that we preserve most of the original signal in the sense of matching a given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and the reconstruction. The chosen regression method (in our case, LASSO or STLS) will determine how sensitive the obtained inter-spike spectrum is with respect to the regularization given by a 
+When introducing a sparsity regularization we give up the ability to fully reconstruct the signal from the decomposition in favor of identifying the most prominent spikes, and, thus, the most important periodicities more clearly. This choice is parametrized by a regression regularization parameter $\alpha$. Only for $\alpha = 0$ do we obtain a solution to Eq.~(\ref{eq_linear_system}) and, thus, a full reconstruction of the signal. Our general approach to fixing $\alpha$ is to require that we preserve most of the original signal in the sense of matching a given (Pearson) correlation coefficient $\rho$ between the original signal $\vec{s}$ and the reconstruction. The chosen regression method (in our case, LASSO or STLS) will determine how sensitive the obtained inter-spike spectrum is with respect to the regularization given by a 
 selected $\rho$ (Fig.~\ref{fig_regularization} {\color{red}(It should not be Fig. A3? or you are talking about regularization parameter $\alpha$?)}). Regarding this, in most of our applications LASSO yields more robust results, while STLS is usually faster to compute. 
 We will discuss this in more detail Section \ref{sec_tau_rr_discussion}.
 
@@ -421,7 +422,8 @@ In an AC-power grid, the grid frequency is an observable variable that reflects 
 In this process, the grid frequency and its deviations from the nominal frequency are continuously recorded and monitored by 
 the grid operators (in Europe and many parts of the world this is $50$ \si{Hz} or $60$ \si{Hz} in America and, for example, southern Japan).
 For example, if there is more (less) demand than supply, the network frequency decreases (increases) compared to the nominal frequency \cite{kundur1994power}.
-\\
+
+
 The frequency variations can include other information, such as the functionality of control systems \cite{gorjao2020data}, the effect of fluctuations in
 renewable energies (REs), demands on the grid \cite{anvari2020stochastic} and, moreover, the effect of regular dispatches due to the trading market 
 \cite{meyer2020identifying}. The latter induce periodic frequency jumps. Here we look at the frequency time series for the Great Britain (GB) and Continental Europe 
@@ -429,7 +431,8 @@ renewable energies (REs), demands on the grid \cite{anvari2020stochastic} and, m
 autocorrelations (Fig.~\ref{fig_power_grid_time_series}B,D). Furthermore, the autocorrelation of the CE frequency time series shows regular peaks every $15$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B). These peaks are caused by a mismatch of power supply and demand \cite{weissbach2009high} during dispatches. 
 In most electricity grids the operation of dispatchable power plants is scheduled in 1-hour blocks, where additional (shorter) $30$ and $15$ \si{min} intervals
-might exist.\\
+might exist.
+
 
 \begin{figure}
  \centering
@@ -449,8 +452,9 @@ In contrast, the $15$ \si{min} peak is completely absent from the inter-spike sp
 at $30$ and $60$ \si{min}.
 Moreover, there is an additional peak at 
 $40$ \si{min} for both datasets, which is absent in the Fourier spectrum and which is not a multiple of the missing $15$ \si{min} peak. The position and magnitude of the peaks in the shown 
-inter-spike spectra are robust to the chosen recurrence threshold, the regression method and its regularization as well as the sampling time of the original signal.\\ 
+inter-spike spectra are robust to the chosen recurrence threshold, the regression method and its regularization as well as the sampling time of the original signal.
 
+\todo[inline]{ISS appears first time here and is not explained. before it was written out.}
 We interpret the results presented as follows. It should be noted firstly that ISS is not only capable to recognize the well-known periodicity in the power grid frequency because of the dispatching time, but also the ISS demonstrate more sharp peaks at this periodicity. The missing $15$ \si{min} in the inter-spike spectra is due to the much stronger autocorrelation at $30$ and $60$ \si{min} 
 (see Fig.~\ref{fig_power_grid_time_series}B,D) and because these periods are integer multiples of $15$ \si{min} the inter-spike spectra are not able to detect it and the 
 sparse regression ``drags'' the $15$ \si{min} periods into the mentioned $30$ and $60$ \si{min} peaks. Moreover, the inter-spike spectra, unlike the Fourier spectra demonstrates sharp peaks exactly 
@@ -471,13 +475,14 @@ eccentricity cycles of 405 kyr period, 95 kyr period and 124 kyr period are well
 of the $\tau$-RR of the embedded eccentricity time series will reflect these cycles in a similar fashion as the Fourier power spectral density of the non-embedded eccentricity time series. We will further 
 show that Fourier-transforming the $\tau$-RR instead of applying the proposed inter-spike spectrum will lead to non-satisfying results, since the spiky $\tau$-RR excites a variety of harmonics in 
 the corresponding Fourier spectrum (cf. Section \ref{sec_tau_rr_intro}). We use a time series which covers the past \mytilde $67$ Mio.~years (Myr), with a total length of $N=13,421$ samples and a 
-sampling period of $\Delta t= 5,000$.\\
-First we compute an evolutionary short time Fourier transform (FT) using a windowsize of $ws=1,000$ samplepoints ($\equiv 5$ Myr) shifted by unity and a 
+sampling period of $\Delta t= 5,000$.
+
+First we compute an evolutionary short time FT using a windowsize of $ws=1,000$ samplepoints ($\equiv 5$ Myr) shifted by unity and a 
 Hamming window. The spectrogram reveals the expected periods mentioned, which are highlighted and clearly visible (Fig.~\ref{fig_laskar_spectra}A). 
 
 \begin{figure}
  \centering
- \includegraphics[width=\textwidth]{./figures/fig_laskar_spectra}
+ \includegraphics[width=\textwidth]{figures/fig_laskar_spectra}
  \caption{\textbf{A} Evolutionary Fourier power spectra of eccentricity time series. \textbf{B} Inter-spike spectrogram of the $\tau$-recurrence rate of the eccentricity time 
  series and \textbf{C} its Fourier spectrogram. Horizontal black dashed lines highlight the analytically expected orbital periods of $405$, $124$ and $95$ kyrs. 
  For comparability, in all cases the spectra aligned in the columns of the shown plots are normalized to probabilities (sum of unity for 
@@ -503,7 +508,7 @@ regularization threshold smears the clear spectrogram in panel B.
 \section{Discussion}\label{sec_tau_rr_discussion}
 
 We have successfully used the idea of transforming the $\tau$-RR for the detection of bifurcations in the Logistic map. By constructing appropriate surrogates of the inter-spike spectra, 
-and thus a null model, the number of significant peaks in the inter-spike spectrum correlated well with the positive Lyapunov exponent. This measure was also able to resolve 
+and, thus, a null model, the number of significant peaks in the inter-spike spectrum correlated well with the positive Lyapunov exponent. This measure was also able to resolve 
 period-doubling bifurcations. However, we have to admit this way the detection of a bifurcation is only possible when the additional period(s) is not an integer multiple of the former period(s). 
 This behavior is described in the application to the R\"ossler system, where we explicitly showed the different inter-spike spectra for period-2, period-3, and chaotic dynamics.
 Further development might potentially incorporate the mutual distance of peaks in the spectrum for a better correlation to the Lyapunov exponent. The inter-spike spectra of power grid 
