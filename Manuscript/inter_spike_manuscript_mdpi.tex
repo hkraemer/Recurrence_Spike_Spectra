@@ -411,7 +411,7 @@ on these spectra, which suit the research task.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{inter-spike spectra of power grid frequency data}\label{sec_power_grid}
+\subsection{Inter-spike spectra of power grid frequency data}\label{sec_power_grid}
 
 Power grids are large, synchronized, complex networks whose stable functioning is indispensable for modern societies.
 To maintain the stability of a power grid, the balance between energy consumption and energy generation must be ensured. 
@@ -488,9 +488,9 @@ Hamming window. The spectrogram reveals the expected periods mentioned, which ar
 \label{fig_laskar_spectra}
 \end{figure}
 
-\noindent Then we construct the inter-spike spectrogram of the $\tau$-RR by first determining an appropriate embedding. By using a recent Tree-Embedding-Ansatz \cite{Kraemer2022} we minimize the 
+\noindent Then we construct the inter-spike spectrogram of the $\tau$-RR by first determining an appropriate embedding. By using a recent tree-embedding ansatz \cite{Kraemer2022} we minimize the 
 \textit{false nearest neighbor} statistic \cite{hegger1999} and use the continuity statistic \cite{pecora2007} for potential delays. Eventually we obtain an $8$-dimensional embedding 
-with delays $\tau s=[0, 18, 36, 48, 62, 101, 114]$ (in sampling units) for the entire time series. Similar to the preceding approach we embed the time series with these embedding parameters 
+with embedding delays $\tau =[0, 18, 36, 48, 62, 101, 114]$ (in sampling units) for the entire time series. Similar to the preceding approach we embed the time series with these embedding parameters 
 on windows of size $ws=1,200$ and a unity shift.\footnote{We use a slightly larger window here than in the short FT, because the embedding causes a ``loss'' of data points and we want to 
 cover similar time spans.} The RPs are computed on these embedded trajectories with a fixed recurrence threshold corresponding to $10\%$ global recurrence rate \cite{kraemer2018} 
 and the inter-spike spectra of the corresponding $\tau$-RRs is obtained by using STLS regression (see Section \ref{sec_tau_rr_method}) and a regularization threshold corresponding to 
