@@ -29,3 +29,5 @@ All figures:  we confirm that we hold the copyright of all figures.
 Ref. 41: We have added the access date and the title of the repository  "Zenodo".
 
 Ref. 44: We have added the missing link.
+
+Data availability statement: We have added the missing links to the repositories.
